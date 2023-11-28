@@ -128,6 +128,7 @@ De opdracht is opgesplitst in drie delen:
 **Stap 13:** Voer de volgende commando’s na elkaar uit om ssh te installeren en vervolgens te kijken of ssh draait. Als alles goed is gegaan zien ja achter ssh (Listen) staan.
 -	sudo apt install openssh-server
 -	 sudo lsof -i
+
 **Stap 14:**  Type ‘ sudo reboot’
 
 **Stap 15:** Login in met de gegevens van de nieuwe gebruiker.

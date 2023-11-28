@@ -31,7 +31,7 @@ Voordat we aan de slag kunnen, moeten we een lab en de drie benodigde machines a
 -	Een Debian 12 serverhost
 -	Een Kali Linux host
 
-*Als je alle stappen correct hebt doorlopen, zullen de machines zichtbaar zijn zodra je "Implementaties" opent (linksboven, naast categorieën)*. 
+*Als je alle stappen correct hebt doorlopen, zullen de machines zichtbaar zijn zodra je "Implementaties" open (linksboven, naast categorieën)*. 
 
 **✔️ opdracht 1 is klaar!**
 ## Opdracht 2: Firewall Configureren

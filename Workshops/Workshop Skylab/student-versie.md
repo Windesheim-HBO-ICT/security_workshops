@@ -213,7 +213,7 @@ Als alles goed is gegaan heb je nu vanaf je eigen laptop toegang tot de Debian. 
   - Kali opgezet voor het testen van de beveiliging van de webserver.
 
 - 🚪 **Port Forwarding-regels:**
-  - Firewallregels opgesteld om alle oproepen naar het publieke IP-adres van de router via HTTP, HTTPS en SSH naar Debian te leiden.
+  - Firewallregels opgesteld om alle aanvragen naar het publieke IP-adres van de router via HTTP, HTTPS en SSH naar Debian te leiden.
 
 - 🔗 **Bevestiging via SSH:**
   - Succesvolle verbinding gemaakt met de webserver (Debian) vanaf de eigen laptop.

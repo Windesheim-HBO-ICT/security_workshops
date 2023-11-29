@@ -20,7 +20,7 @@ Na het afronden van de workshop beschik je over het volgende eindresultaat:
 ## Opdracht 1: Setup 
 Voordat we aan de slag kunnen, moeten we een lab en de drie benodigde machines aan te vragen. _Houd er rekening mee dat dit enige tijd kan vergen_, aangezien het een handmatige handeling van het Skylab-beheer betreft. Volg de onderstaande stappen: 
 
-**Stap 1:** Log in met je Windesheim-account  op [Skylab](https://skylab.windesheim.nl). Let op: laat @windesheim.nl achterwege.
+**Stap 1:** Log in met je Windesheim-account  op [Skylab](https://skylab.windesheim.nl). **Let op: laat @windesheim.nl achterwege.**
 
 **Stap 2:** Vraag een SE-lab aan.
 

@@ -94,10 +94,10 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
 
 ✅Opdracht 2 is Klaar! 
 
-# Opdracht 3 SQL server
+## Opdracht 3 SQL server
 In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak je een testdatabase aan.
 
-## Deel 1 SQL server installeren
+### Deel 1 SQL server installeren
 
 **Stap 1**: Haal het SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
@@ -113,7 +113,7 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 
 ℹ️ Handige commando's zijn onder andere het starten van een Docker-image met **sudo docker start {naam}**, het stoppen ervan met **sudo docker stop {naam}**, en het verwijderen met **sudo docker rm {naam}**.
 
-##Deel 2 SQL server Testen 
+### Deel 2 SQL server Testen 
 
 **Stap 4**: Voer de commando `sudo docker exec -it sql1 "bash"` uit.
 
@@ -131,7 +131,7 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 # Opdracht 4 Git
 Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is, heb je al een repository opgezet. Als dat niet het geval is, stel er dan een in of vraag om hulp aan een student-assistent als je er niet uitkomt.
 
-## Repository klonen
+### Repository klonen
 **Stap 1**: Open je code editor en ga naar je main branche.
 
 **Stap2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor je projecten die een database gebruiken**. Hier is een voorbeeld:.
@@ -153,7 +153,7 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 
 **Stap 7:** Als het nodig is, start je de container met het commando `docker start sql1` als deze nog niet actief is.
 
-## Migrations
+### Migrations
 ⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing zijn op het front-end project.
 
 **Stap 8:** Voer migraties uit ` dotnet ef migrations add InitialCreate`
@@ -168,5 +168,112 @@ volgende commando uit: `dotnet run --urls=http://localhost:6009`.
 ✅Opdracht 4 is Klaar! 
 
 
+## Opdracht 5 Reverse proxy
+Je gaat nu een reverse proxy opstellen met behulp van Apache (webserver). Een reverse proxy fungeert als een tussenliggende server tussen gebruikers en een webserver. Het verwerkt verzoeken van gebruikers, fungeert als een beveiliging laag en optimaliseert de prestaties. 
+
+### Deel 1: Apache installatie 
+**Stap 1**:  ⛔ Stop je applicatie door Ctrl + Z in te voeren. 
+
+**Stap 2**: Instaleer de nieuwste versie van apache  ` sudo apt install apache2`
+
+**Stap 3**: Controleer f apache actief is, port 80 moet aan het luisteren zijn.  ` ss -ant`
+
+**Stap 4**  Identificeer je privé IP adres, je hebt deze zo nodig. ` ip address`
+
+**Stap 5** Voeg je zelf toe aan de docker groep zodat je docker images kan beheren. ` sudo adduser (s-studentnummer) docker`
+
+**Stap 6** Om te verifiëren dat alles goed is gegaan, ga je nu een statische website hosten op Docker via poort 6009. `sudo docker run -p 6009:80 -d dockersamples/static-site`
+
+**Stap 7**  Stuur een verzoek naar de website om de inhoud weer te geven. De poort is ingesteld op 6009 omdat je deze hebt toegewezen bij het starten van de Docker-container. Voer het commando uit met `curl localhost:6009`.
+
+ℹ️ Om de huidige lijst met actieve containers te controleren kun je het volgende Docker-commando gebruiken `sudo docker ps -a`.  Dit commando toont een overzicht van alle containers op je systeem zowel de actieve als gestopte containers. Mocht je tegen problemen aanlopen controleer dan of je docker container actief is.
+
+### Deel 2: Reverse proxy configureren
+Je gaat nu de reverse proxy functionaliteit toevoegen. Mocht je een melding krijgen dat de module al enabled is voer dan na stap 7  de volgende commando uit: ` sudo systemctl restart apache2`
+
+**Stap 8**: Activeer de HTTP proxy module in Apache ` sudo a2enmod proxy proxy_http`
+
+ℹ️ In Linux kun je door mappen navigeren met behulp van het cd-commando gevolgd door de mapnaam om een map te betreden, of cd ../ om terug te gaan naar de vorige map. Met het commando nano kun je een tekstbestand bewerken.
+
+**Stap 9**:  Navigeer naar de 000-default.conf bestand.  `sudo nano /etc/apache2/sites-enabled/000-default.conf`
+
+**Stap 9**: Voeg de volgende keywords  aan het bestand toe: 
+
+` ProxyPass / http://localhost:6009/
+  ProxyPassReverse / http://localhost:6009/`
+
+` ProxyPass /api http://localhost:5000
+  ProxyPassReverse /api http://localhost:5000`
+
+ ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/63be4cf3-fef7-415c-979a-ceb85a8d3581)
+
+
+**Stap 10**:  Toets `Control x` en bewaar de veranderingen.
+
+**Stap 11**:  Restart apache ‘sudo systemctl restart apache2`
+
+ℹ️ Je hebt nu succesvol een reverse proxy opgezet. Verkeer naar jouw domeinnaam of website wordt doorgestuurd naar localhost:6009, terwijl verzoeken naar jouw interne API worden gerouteerd via het pad /api naar localhost:5000. Het is belangrijk ervoor te zorgen dat je in je API-controllers het /api-pad hebt toegevoegd aan de naamgeving, indien dat nog niet was gedaan. 
+
+✅Opdracht 5 is Klaar! 
+
+## Opdracht 6 TSL certificaat
+In deze opdracht ga je ervoor zorgen dat je webapplicatie beschikbaar is via HTTPS. HTTPS is een protocol dat zorgt voor versleutelde communicatie tussen de gebruiker en de webserver, wat essentieel is voor veiligheid en privacy. Om HTTPS mogelijk te maken, heb je een TLS-certificaat nodig. 
+
+### Deel 1 Snap installeren
+**Stap 1:** Voer een systeemupdate uit met het commando sudo apt update.
+
+**Stap 2**: Installeer Snapd met het commando `sudo apt install snapd`.
+
+**Stap 3**: Controleer de status van Snapd met het commando `sudo systemctl status snapd`.
+Als er iets mis is gegaan, voer dan het volgende commando uit: 
+`sudo systemctl enable --now snapd.socket.` 
+
+**Stap 4**:  Installeer de core-snaps met het commando `sudo snap install core`. Hiermee installeer je de basiscomponenten die nodig zijn voor het gebruik van Snap-pakketten. 
+
+### Deel 2 Certbot installeren 
+**Stap 5** : Verwijder verouderde Certbot-pakketten met het commando `sudo apt-get remove certbot`. Hiermee ruim je oude Certbot-installaties op.
+
+**Stap 6**: Installeer Certbot als een klassieke snap met het commando `sudo snap install --classic certbot`. Hiermee verkrijg je Certbot voor het beheren van TLS-certificaten.
+
+**Stap 7**: Zorg ervoor dat certbot gerund kan worden op je machine door de volgende uit te voeren 
+
+`sudo ln -s /snap/bin/certbot /usr/bin/certbot`
+
+**Stap 8**:  Voer het commando` sudo certbot --apache` uit. Hiermee start je Certbot met de Apache-plugin, waardoor je een SSL-certificaat kunt verkrijgen en configureren voor je webapplicatie.
+
+**Stap 9:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls` als hints) en voer vervolgens het volgende commando uit: 
+
+`dotnet run --urls=http://localhost:6009`.
+
+**Stap 10:** Ga naar je website en controleer of er een slotje staat, wat aangeeft dat HTTPS correct is geconfigureerd.
+
+## Opdracht 7: Deployen
+🚀 Je staat op het punt je projecten te deployen! Als het goed is, zijn de connection strings voor alle projecten al correct geconfigureerd, heb je alle migraties al uitgevoerd, en ben je klaar om te beginnen. 💻✨
+
+**Stap 1:** Navigeer naar de projectfolder van je front-end project. Gebruik het commando cd.
+
+**Stap 2:**  Voer het volgende commando uit om je project te publiceren:
+-	`dotnet publish -r linux-x64 --self-contained false --configuration Release`
+
+**Stap 3:**  Navigeer vanuit dezelfde folder naar bin/Release/net-8.0/linux-x64/publish.
+
+**Stap 4:** In die folder zul je  <projectnaam>.dll zien staan. Voer de volgende commando uit 
+-	`dotnet <projectnaam>.dll --urls=http://localhost:6009 `
+**Stap 5: ** ⛔ Stop je applicatie door Ctrl + Z in te voeren, zodat je deze op de achtergrond kan draaien. 
+
+**Stap 6:** Voer het commando bg uit om het op de achtergrond te laten draaien.
+
+**Stap 7:** Herhaal de bovenstaande stappen voor je API project. Het enigste verschil zit in stop vier daar run je hem niet op poort 6009, maar op 5000 dus 
+-	`dotnet  <projectnaam>..dll --urls=http://localhost:5000`
+
+Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
+
+**Herinnering:** Als je tussentijds wijzigingen aanbrengt in je applicatie, haal je deze op met git pull en voer eventuele database-migraties uit in je projectfolder. Na deze stappen moet je de applicatie opnieuw publiceren met de bovenstaande commando's om ervoor te zorgen dat deze up-to-date is. ✨🔄
+✅Opdracht TODO is Klaar! 
+
+
+
+
+ 
 
 

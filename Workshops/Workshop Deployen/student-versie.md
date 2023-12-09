@@ -128,3 +128,45 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 
 ✅Opdracht 3 is Klaar! 
 
+# Opdracht 4 Git
+Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is, heb je al een repository opgezet. Als dat niet het geval is, stel er dan een in of vraag om hulp aan een student-assistent als je er niet uitkomt.
+
+## Repository klonen
+**Stap 1**: Open je code editor en ga naar je main branche.
+
+**Stap2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor je projecten die een database gebruiken**. Hier is een voorbeeld:.
+
+`{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost,1433;Database=myDatabase;User Id=sa;Password=YourSqlServerPassword;TrustServerCertificate=true;"
+  },`
+
+**Stap 3**: Push de veranderingen
+
+**Stap 4**: Ga naar GitHub, navigeer naar je project en klik op de groene knop om de HTTPS-link te kopiëren.
+
+**Stap 5**: Open weer de terminal met ssh verbinding tot de Debian en clone je project. ‘git clone <git url>`
+
+⚠️Als het klonen niet lukt, moet je mogelijk een token genereren en dat gebruiken als je wachtwoord. Ga naar de link https://github.com/settings/tokens. Noteer de token, want na generatie is deze niet meer zichtbaar en je hebt deze later nog nodig. 
+
+**Stap 6:** Bevestig of je MS SQLserver container nog draait `docker ps -a`;
+
+**Stap 7:** Als het nodig is, start je de container met het commando `docker start sql1` als deze nog niet actief is.
+
+## Migrations
+⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing zijn op het front-end project.
+
+**Stap 8:** Voer migraties uit ` dotnet ef migrations add InitialCreate`
+
+**Stap 9:** Update je database ` dotnet-ef database update`
+
+**Stap 10:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls` als hints) en voer vervolgens het 
+volgende commando uit: `dotnet run --urls=http://localhost:6009`.
+
+**Stap 11:** Zodra het bouwen van je project is voltooid, navigeer je in je browser naar de website via je domeinnaam als je die al hebt, of via je openbare IP-adres (bijvoorbeeld 145.44.xxx.xxx). Als je webapplicatie zichtbaar is, ben je klaar.
+
+✅Opdracht 4 is Klaar! 
+
+
+
+

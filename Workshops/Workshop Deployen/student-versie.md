@@ -22,11 +22,11 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 
 **Stap 2** : Voeg de Microsoft repository to aan de APT (Advanced Package Tool) door de volgende commando’s uit: 
 
-`sudo wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
+- `sudo wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
 
-`sudo dpkg -i packages-microsoft-prod.deb`
+- `sudo dpkg -i packages-microsoft-prod.deb`
 
-`sudo rm packages-microsoft-prod.deb`
+- `sudo rm packages-microsoft-prod.deb`
 
 
 **Stap 3** : Installeer de SDK: ` sudo apt-get update && \ sudo apt-get install -y dotnet-sdk-8.0`
@@ -37,24 +37,24 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 
 **Stap 5**: Test Dotnet doormiddel van een console applicatie. Als je de volgende commando’s uit voert zul je “Hello World!” zien.
 
-`sudo dotnet new console --output myConsoleApp`
+- `sudo dotnet new console --output myConsoleApp`
 
-`sudo dotnet run --project myConsoleApp`
+- `sudo dotnet run --project myConsoleApp`
 
 
 **Stap 6**: Installeer entity framework tool door de volgende commando uit te voeren: 
 
-`sudo dotnet tool install --tool-path /usr/bin dotnet-ef`
+- `sudo dotnet tool install --tool-path /usr/bin dotnet-ef`
 
 
 **Stap 7**: Als gelukt is zul je de versie van entity framework zien als je de volgende commando uitvoert: 
 
-` $ sudo dotnet tool list  --tool-path /usr/bin`
+- ` $ sudo dotnet tool list  --tool-path /usr/bin`
 
 
 **Stap 8:** Installeer .Nettools: 
 
-`dotnet tool install -g dotnetsay`
+- `dotnet tool install -g dotnetsay`
 
 ✅Opdracht 1 is Klaar! 
 
@@ -64,27 +64,27 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
 **Stap 1**:  Open je opdrachtenprompt en login via SSH.   `ssh s-studentnummer@145.xxx.xxx`
 **Stap 2**:  Run de volgende commando’s om verouderde packages te verwijderen 
 
-` for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
+- ` for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
 
 ℹ️ Je gaat nu de Docker APT-repository instellen. Dit houdt in dat je een pakketbeheerder op je Debian-systeem configureert, waardoor het systeem Docker-softwarepakketten kan herkennen en gebruiken
 
 **Stap 3:** Voer de volgende commando’s een voor een uit : 
 
-` sudo apt-get update`
+- ` sudo apt-get update`
 
-` sudo apt-get install ca-certificates curl gnupg`
+- ` sudo apt-get install ca-certificates curl gnupg`
 
-` sudo install -m 0755 -d /etc/apt/keyrings `
+- ` sudo install -m 0755 -d /etc/apt/keyrings `
 
-`  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg `
+- `  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg `
 
-` sudo chmod a+r /etc/apt/keyrings/docker.gpg `
+- ` sudo chmod a+r /etc/apt/keyrings/docker.gpg `
 
-` echo \
+- ` echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null `
-` sudo apt-get update`
+- ` sudo apt-get update`
 
 **Stap 4**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando, ` cat /etc/apt/sources.list.d/docker.list`
 
@@ -102,14 +102,14 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 **Stap 1**: Haal het SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
 **Stap 2**: Run de container image met Docker met behulp van de volgende commando, waarbij je <YourStrong@Passw0rd> vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
-` sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
+- ` sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
    -p 1433:1433 --name sql1 --hostname sql1 \
    -d \
    mcr.microsoft.com/mssql/server:2022-latest `
 
 **Stap 3**:  Controleer of alles goed is gegaan door te kijken of de container met de naam 'sql1' actief is met het commando 
 
-`sudo docker ps -a`
+- `sudo docker ps -a`
 
 ℹ️ Handige commando's zijn onder andere het starten van een Docker-image met **sudo docker start {naam}**, het stoppen ervan met **sudo docker stop {naam}**, en het verwijderen met **sudo docker rm {naam}**.
 
@@ -119,7 +119,7 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 
 **Stap 5**: Je bent nu binnen de container en je moet lokaal verbinding maken met sqlcmd door het volledige pad 
 
-` /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"` te gebruiken, met het wachtwoord dat je zojuist hebt aangemaakt.
+- ` /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"` te gebruiken, met het wachtwoord dat je zojuist hebt aangemaakt.
 
 **Stap 6**: Creëer een testdatabase met het commando 'CREATE DATABASE TestDB;' gevolgd door 'GO'.
 
@@ -174,17 +174,23 @@ Je gaat nu een reverse proxy opstellen met behulp van Apache (webserver). Een re
 ### Deel 1: Apache installatie 
 **Stap 1**:  ⛔ Stop je applicatie door Ctrl + Z in te voeren. 
 
-**Stap 2**: Instaleer de nieuwste versie van apache  ` sudo apt install apache2`
+**Stap 2**: Installeer de nieuwste versie van apache  
+- ` sudo apt install apache2`
 
-**Stap 3**: Controleer f apache actief is, port 80 moet aan het luisteren zijn.  ` ss -ant`
+**Stap 3**: Controleer f apache actief is, port 80 moet aan het luisteren zijn. 
+- ` ss -ant`
 
-**Stap 4**  Identificeer je privé IP adres, je hebt deze zo nodig. ` ip address`
+**Stap 4**  Identificeer je privé IP adres, je hebt deze zo nodig. 
+- ` ip address`
 
-**Stap 5** Voeg je zelf toe aan de docker groep zodat je docker images kan beheren. ` sudo adduser (s-studentnummer) docker`
+**Stap 5** Voeg je zelf toe aan de docker groep zodat je docker images kan beheren. 
+- ` sudo adduser (s-studentnummer) docker`
 
-**Stap 6** Om te verifiëren dat alles goed is gegaan, ga je nu een statische website hosten op Docker via poort 6009. `sudo docker run -p 6009:80 -d dockersamples/static-site`
+**Stap 6** Om te verifiëren dat alles goed is gegaan, ga je nu een statische website hosten op Docker via poort 6009. 
+- `sudo docker run -p 6009:80 -d dockersamples/static-site`
 
-**Stap 7**  Stuur een verzoek naar de website om de inhoud weer te geven. De poort is ingesteld op 6009 omdat je deze hebt toegewezen bij het starten van de Docker-container. Voer het commando uit met `curl localhost:6009`.
+**Stap 7**  Stuur een verzoek naar de website om de inhoud weer te geven. De poort is ingesteld op 6009 omdat je deze hebt toegewezen bij het starten van de Docker-container. Voer het commando uit met 
+- `curl localhost:6009`.
 
 ℹ️ Om de huidige lijst met actieve containers te controleren kun je het volgende Docker-commando gebruiken `sudo docker ps -a`.  Dit commando toont een overzicht van alle containers op je systeem zowel de actieve als gestopte containers. Mocht je tegen problemen aanlopen controleer dan of je docker container actief is.
 
@@ -195,7 +201,8 @@ Je gaat nu de reverse proxy functionaliteit toevoegen. Mocht je een melding krij
 
 ℹ️ In Linux kun je door mappen navigeren met behulp van het cd-commando gevolgd door de mapnaam om een map te betreden, of cd ../ om terug te gaan naar de vorige map. Met het commando nano kun je een tekstbestand bewerken.
 
-**Stap 9**:  Navigeer naar de 000-default.conf bestand.  `sudo nano /etc/apache2/sites-enabled/000-default.conf`
+**Stap 9**:  Navigeer naar de 000-default.conf bestand.  
+- `sudo nano /etc/apache2/sites-enabled/000-default.conf`
 
 **Stap 9**: Voeg de volgende keywords  aan het bestand toe: 
 
@@ -237,17 +244,20 @@ Als er iets mis is gegaan, voer dan het volgende commando uit:
 
 **Stap 7**: Zorg ervoor dat certbot gerund kan worden op je machine door de volgende uit te voeren 
 
-`sudo ln -s /snap/bin/certbot /usr/bin/certbot`
+- `sudo ln -s /snap/bin/certbot /usr/bin/certbot`
 
 **Stap 8**:  Voer het commando` sudo certbot --apache` uit. Hiermee start je Certbot met de Apache-plugin, waardoor je een SSL-certificaat kunt verkrijgen en configureren voor je webapplicatie.
 
 **Stap 9:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls` als hints) en voer vervolgens het volgende commando uit: 
 
-`dotnet run --urls=http://localhost:6009`.
+- `dotnet run --urls=http://localhost:6009`.
 
 **Stap 10:** Ga naar je website en controleer of er een slotje staat, wat aangeeft dat HTTPS correct is geconfigureerd.
 
+✅Opdracht 6 is Klaar! 
+
 ## Opdracht 7: Deployen
+
 🚀 Je staat op het punt je projecten te deployen! Als het goed is, zijn de connection strings voor alle projecten al correct geconfigureerd, heb je alle migraties al uitgevoerd, en ben je klaar om te beginnen. 💻✨
 
 **Stap 1:** Navigeer naar de projectfolder van je front-end project. Gebruik het commando cd.
@@ -259,7 +269,8 @@ Als er iets mis is gegaan, voer dan het volgende commando uit:
 
 **Stap 4:** In die folder zul je  <projectnaam>.dll zien staan. Voer de volgende commando uit 
 -	`dotnet <projectnaam>.dll --urls=http://localhost:6009 `
-**Stap 5: ** ⛔ Stop je applicatie door Ctrl + Z in te voeren, zodat je deze op de achtergrond kan draaien. 
+
+**Stap 5:** ⛔ Stop je applicatie door Ctrl + Z in te voeren, zodat je deze op de achtergrond kan draaien. 
 
 **Stap 6:** Voer het commando bg uit om het op de achtergrond te laten draaien.
 
@@ -269,7 +280,7 @@ Als er iets mis is gegaan, voer dan het volgende commando uit:
 Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
 
 **Herinnering:** Als je tussentijds wijzigingen aanbrengt in je applicatie, haal je deze op met git pull en voer eventuele database-migraties uit in je projectfolder. Na deze stappen moet je de applicatie opnieuw publiceren met de bovenstaande commando's om ervoor te zorgen dat deze up-to-date is. ✨🔄
-✅Opdracht TODO is Klaar! 
+✅Opdracht 7 is Klaar! 
 
 
 

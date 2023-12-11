@@ -102,7 +102,7 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 **Stap 1**: Haal het SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. 
 - ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
-**Stap 2**: Run de container image met Docker met behulp van de volgende commando, waarbij je <YourStrong@Passw0rd> vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
+**Stap 2**: Run de container image met Docker met behulp van de volgende commando, waarbij je **YourStrong@Passw0rd** vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
 - ` sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
    -p 1433:1433 --name sql1 --hostname sql1 \
    -d \
@@ -152,7 +152,7 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 
 **Stap 5**: Open weer de terminal met ssh verbinding tot de Debian en clone je project. ‘git clone <git url>`
 
-⚠️Als het klonen niet lukt, moet je mogelijk een token genereren en dat gebruiken als je wachtwoord. Ga naar de link https://github.com/settings/tokens. Noteer de token, want na generatie is deze niet meer zichtbaar en je hebt deze later nog nodig. 
+⚠️Als het klonen niet lukt, moet je mogelijk een token genereren en dat gebruiken als je wachtwoord. Ga naar de [link](https://github.com/settings/tokens). Noteer de token, want na generatie is deze niet meer zichtbaar en je hebt deze later nog nodig. 
 
 **Stap 6:** Bevestig of je MS SQLserver container nog draait `docker ps -a`;
 

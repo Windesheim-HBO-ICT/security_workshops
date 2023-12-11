@@ -111,7 +111,7 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 7:** Log in met je gebruikersnaam 'student' en het wachtwoord 'Welkom01!'.
 
-**Stap 8:** Type ‘passwd’ en verander je wachtwoord. **(Niet vergeten!)**
+**Stap 8:** Type ‘passwd’ en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in ('Welkom01!') en daarna het nieuwe wachtwoord. **(Niet vergeten!)**
 
 **Stap 9:** Controleer of je verbinding hebt tot het internet ping google.nl (ctrl Z om te stoppen).
 
@@ -145,11 +145,11 @@ Je gaat nu de Kali configureren. In tegenstelling tot Debian heeft Kali Linux we
 **Voer dezelfde stappen uit zoals je dat bij de Debian hebt gedaan, met uitzondering van de SSH-server, deze is niet nodig. Vergeet niet om je wachtwoorden goed te bewaren. Raadpleeg de vorige opdracht voor explicietere uitleg.**
 
 ### Voorbereiden Kali
-**Stap 1:** Netwerk interface naar studentnet01 
+**Stap 1:** Netwerk interface naar studentnet0 
 
 **Stap 2:** Opnieuw opstarten van machine 
 
-**Stap 3:** Inloggen met inloggegevens student en Welkom01 
+**Stap 3:** Inloggen met inloggegevens student en Welkom01! 
 
 ### Configuratie Via Terminal
 **Stap 4:** Open de terminal

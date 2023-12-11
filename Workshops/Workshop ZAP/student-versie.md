@@ -118,9 +118,11 @@ In het venster dat nu geopend wordt, zie je welke attacks uitgevoerd worden en h
 ### Active scan met gebruikers-rechten
 We hebben nu een scan uitgevoerd vanuit het perspectief van en niet-ingelogde gebruiker. Je hebt in je eigen applicatie aan de hand van Identity (of op een andere manier) authenticatie en authorizatie geïmplementeerd. ZAP kan ook werken vanuit een ingelogde gebruiker. We gaan nu een scan uitvoeren vanuit een standaard ingelogde gebruiker.
 
-**Stap 4:** We gaan aan de default context een gebruiker toevoegen, eerst moeten we een context toevoegen. In het 🌍*Sites* tabje, klik met je rechtermuis op de 📄*https://localhost:XXXX* folder en selecteer *Include in context* --> *Default context*.
+Een context is een manier om URLs die bij elkaar horen te groeperen. Het is aanbevolen om voor elke webapplicatie die in je systeem bestaat een aparte context te geven. In het geval van je eigen applicatie is dit er maar 1, daarom gebruiken we de default context. Om aan de default context een gebruiker toe te voegen, moet eerst een context toegevoegd worden.
 
+**Stap 4:** In het 🌍*Sites* tabje, klik met je rechtermuis op de 📂*https://localhost:XXXX* folder en selecteer *Include in context* --> *Default context*.
 
+**Stap 5:** Bovenin het 🌍*Sites* tabje staat de context, dubbelklik op de default context
 
 ## Vandaag voltooide taken
 - 🗺️ Website in kaart gebracht met verschillende spiders.

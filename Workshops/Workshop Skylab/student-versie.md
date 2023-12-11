@@ -71,7 +71,9 @@ Je bent nu in de terminal van je router. De twee interfaces die we zojuist hebbe
 
 **Stap 12:** Voer '7' in, druk op Enter en voer vervolgens 'ping google.nl' in. Als de ping succesvol is, zie je dat er 3 pakketten zijn aangekomen. Als dit niet het geval is, vraag dan om hulp, omdat er mogelijk iets fout is gegaan tijdens de configuratie.
 
-**Stap 13:** Voer nu een update uit met ‘13’ en daarna een reboot met ‘5’. 
+**Stap 13:** In de pfsense terminal staat informatie over je ip-adres. In je terminal vind je de regel: *Wan -> vmx0 -> 145.xxx.xxx.xxx. Noteer of onthoud het ip-adres, deze heb je bij de volgende opdracht nodig.
+
+**Stap 14:** Voer nu een update uit met ‘13’ en daarna een reboot met ‘5’. 
 
 
 **✔️ Opdracht 2 is klaar!**
@@ -79,7 +81,7 @@ Je bent nu in de terminal van je router. De twee interfaces die we zojuist hebbe
 ## Opdracht 3 Domeinadres Opvragen 
 Apparaten binnen het interne netwerk communiceren via de router en de LAN-interface. Elk apparaat heeft een privé-IP-adres, herkenbaar aan "192.168.xxx.xxx". De router, met een publiek IP-adres (hier 145.xxx.xxx.xxx), fungeert als gateway naar het internet. Om de toegang tot de website te vereenvoudigen, moet een domeinnaam worden aangevraagd. Anderzijds is toegang tot de website later alleen mogelijk via het minder gebruiksvriendelijke publieke IP-adres (145.xxx.xxx.xxx).
 
-**Vul het formulier in via [deze link](http://hbo-ict.org/proposename)! Je moet het **publieke IP-adres** van je router invullen, dat dus **145.xxx.xxx.xxx** is, en een **domeinnaam** opgeven. Laat je creativiteit vrij, maar houd het wel netjes 😊.**
+**Vul het formulier in via [deze link](http://hbo-ict.org/proposename)! Je moet het **publieke IP-adres** van je router invullen, dat dus **145.xxx.xxx.xxx** is (genoteerd bij de vorige opdracht), en een **domeinnaam** opgeven. Laat je creativiteit vrij, maar houd het wel netjes 😊.**
 
 **✔️ Opdracht 3 is klaar!**
 

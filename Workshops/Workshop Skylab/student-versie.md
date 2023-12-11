@@ -178,7 +178,7 @@ In deze taak ga je port-forwarding regels instellen op de pfSense-firewall, zoda
 
 **Stap 3:**  Klik op 'Advanced' en accepteer de risico's.
 
-**Stap 4:** Log in met de gebruikersnaam 'admin' en het wachtwoord 'pFsense'.
+**Stap 4:** Log in met de gebruikersnaam 'admin' en het wachtwoord 'pfsense'.
 
 **Stap 5:** Nadat je bent ingelogd, zie je een rode waarschuwing om je wachtwoord te wijzigen. Klik erop, verander het wachtwoord en sla de wijzigingen op.
 

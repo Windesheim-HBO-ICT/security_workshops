@@ -6,6 +6,7 @@ TODOLIST:
 4 active scan --> Uitleggen wat een active scan is en hoe je deze kan uitvoeren.   
     --> Scan op broken acces control. Eerst ajax spider uitvoeren met admin account en dan active scan uitvoeren met not admin.  
 5 analyse found issues --> Als je met de tools issues hebt gevonden, hoe analyseer je die.  
+    5a Vastleggen nulmeting.
 6 edit request --> Een eerder gemaakt request wijzigen en kijken wat hier de resultaten van zijn.  
 7 import/export/report --> Hoe kun je de gevonden informatie exporteren en hier een rapport van genereren?   
 
@@ -115,8 +116,12 @@ Er wordt nu een scan uitgevoerd op de pagina's die gevonden zijn met de spiders.
 In het venster dat nu geopend wordt, zie je welke attacks uitgevoerd worden en hoever de attacks zijn. Hier wordt getoond hoeveel requests voor die attack zijn uitgevoerd en hoeveel van deze requests een alert opleveren.
 
 ### Active scan met gebruikers-rechten
+We hebben nu een scan uitgevoerd vanuit het perspectief van en niet-ingelogde gebruiker. Je hebt in je eigen applicatie aan de hand van Identity (of op een andere manier) authenticatie en authorizatie geïmplementeerd. ZAP kan ook werken vanuit een ingelogde gebruiker. We gaan nu een scan uitvoeren vanuit een standaard ingelogde gebruiker.
+
+**Stap 4:** We gaan aan de default context een gebruiker toevoegen, eerst moeten we een context toevoegen. In het 🌍*Sites* tabje, klik met je rechtermuis op de 📄*https://localhost:XXXX* folder en selecteer *Include in context* --> *Default context*.
+
 
 
 ## Vandaag voltooide taken
 - 🗺️ Website in kaart gebracht met verschillende spiders.
-- 
+- 🔥 Active scan uitgevoerd als niet-ingelogde gebruiker en ingelogde gebruiker.

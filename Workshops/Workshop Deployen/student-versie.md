@@ -85,7 +85,8 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null `
 - ` sudo apt-get update`
 
-**Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando, ` cat /etc/apt/sources.list.d/docker.list`
+**Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando: 
+- ` cat /etc/apt/sources.list.d/docker.list`
 
 **Stap 4**:  Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
 
@@ -134,12 +135,16 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 ### Repository klonen
 **Stap 1**: Open je code editor en ga naar je main branche.
 
-**Stap2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor al je projecten die een database gebruiken**. Hier is een voorbeeld:.
+**Stap 2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor al je projecten die een database gebruiken**. Hier is een voorbeeld:.
 
 `{
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost,1433;Database=myDatabase;User Id=sa;Password=YourSqlServerPassword;TrustServerCertificate=true;"
   },`
+
+**Tussenstap**: Beginnen de routes van jouw API met /api? Zo niet, pas dat dan nu ook even aan, aangezien je toch de code aan het wijzigen bent. Dit is belangrijk voor de reverse proxy later. Hieronder staat een voorbeeld; dat scheelt je later werk
+
+![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/c1c51720-1432-474b-bd29-0a6d624de696)
 
 **Stap 3**: Push de veranderingen
 
@@ -154,7 +159,7 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 **Stap 7:** Als het nodig is, start je de container met het commando `docker start sql1` als deze nog niet actief is.
 
 ### Migrations
-⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing op het front-end project. Als je later wijzigingen in je database wilt aanbrengen, kun je opnieuw stappen 8 en 9 uitvoeren om je migraties bij te werken.
+⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing op het front-end project. Als je later wijzigingen in je database wilt aanbrengen, kun je opnieuw stap 8 en 9 uitvoeren om je migraties bij te werken.
 
 **Stap 8:** Voer migraties uit ` dotnet ef migrations add InitialCreate`
 
@@ -217,7 +222,8 @@ Je gaat nu de reverse proxy functionaliteit toevoegen.
 **Stap 11**:  Restart apache ‘sudo systemctl restart apache2`
 
 ℹ️ Je hebt zojuist succesvol een reverse proxy geconfigureerd. Verkeer naar jouw website wordt doorgestuurd naar localhost:6009, terwijl verzoeken naar jouw interne API worden gerouteerd via het pad /api naar localhost:5000. Het is belangrijk ervoor te zorgen dat je in de naamgeving van je API-controllers het /api-pad hebt toegevoegd, indien dat nog niet is gedaan.
-![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/5e6c562e-9649-4ab0-a51d-86649cccfc4d)
+![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/4c730ac3-4060-4137-b6c3-c512196b75de)
+
 
 ✅Opdracht 5 is Klaar! 
 
@@ -274,10 +280,16 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 
 **Stap 6:** Voer het commando `bg` uit om het op de achtergrond te laten draaien.
 
-**Stap 7:** Herhaal de bovenstaande stappen voor je API project. Het enigste verschil zit in stap vier daar run je hem niet op poort 6009, maar op 5000 dus 
--	`dotnet  <projectnaam>..dll --urls=http://localhost:5000`
+**Stap 7:** Herhaal de bovenstaande stappen voor je API project. **Laat bij stap 4 voor de API --urls=http://localhost:6009 weg, zie hieronder voorbeeld!!**
+-	`dotnet  <projectnaam>..dll`
 
-**Stap 8**: Controleer of alles succesvol is verlopen door naar je website te navigeren. Als je beschikt over een eenvoudige test Get request, kun je jouw API in de terminal testen met het commando localhost:5000/api/< naam get request >.
+**Stap 8**:Controleer of alle stappen succesvol zijn verlopen door naar je website te navigeren. Als je een eenvoudige GET-request hebt, kun je jouw API in de terminal testen met de volgende commando's:
+
+Met TSL-certificaat (HTTPS):
+- curl  https://localhost/api/<naam_get_request>
+
+Geen TSL-certificaat (de redirect naar https lukt niet):
+- curl  https://localhost:5000/api/<naam_get_request>
 
 Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
 

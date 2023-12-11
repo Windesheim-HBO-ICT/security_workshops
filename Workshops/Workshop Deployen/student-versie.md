@@ -16,7 +16,7 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 
  **Stap 1**:  Open je opdrachtenprompt en login via SSH.   
  
- `ssh s-studentnummer@145.xxx.xxx`
+-  `ssh s-studentnummer@145.xxx.xxx`
 
 
 
@@ -61,14 +61,13 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 ## Opdracht 2  Docker installeren
 Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïsoleerde, draagbare containers. Het maakt het gemakkelijk om applicaties consistent en efficiënt over verschillende omgevingen te verplaatsen. In deze opdracht ga je docker installeren, in een latere opdrachten ga je nog meer hiermee doen.
 
-**Stap 1**:  Open je opdrachtenprompt en login via SSH.   `ssh s-studentnummer@145.xxx.xxx`
-**Stap 2**:  Run de volgende commando’s om verouderde packages te verwijderen 
+**Stap 1**:  Run de volgende commando’s om verouderde packages te verwijderen 
 
 - ` for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
 
 ℹ️ Je gaat nu de Docker APT-repository instellen. Dit houdt in dat je een pakketbeheerder op je Debian-systeem configureert, waardoor het systeem Docker-softwarepakketten kan herkennen en gebruiken
 
-**Stap 3:** Voer de volgende commando’s een voor een uit : 
+**Stap 2:** Voer de volgende commando’s een voor een uit : 
 
 - ` sudo apt-get update`
 
@@ -86,11 +85,11 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null `
 - ` sudo apt-get update`
 
-**Stap 4**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando, ` cat /etc/apt/sources.list.d/docker.list`
+**Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando, ` cat /etc/apt/sources.list.d/docker.list`
 
-**Stap 5**:  Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+**Stap 4**:  Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
 
-**Stap 6** : Controleer of de Docker-installatie succesvol is verlopen. Als alles correct is, zal het commando `sudo docker run hello-world` "Hello World" weergeven en het programma afsluiten.
+**Stap 5** : Controleer of de Docker-installatie succesvol is verlopen. Als alles correct is, zal het commando `sudo docker run hello-world` "Hello World" weergeven en het programma afsluiten.
 
 ✅Opdracht 2 is Klaar! 
 
@@ -99,7 +98,8 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 
 ### Deel 1 SQL server installeren
 
-**Stap 1**: Haal het SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
+**Stap 1**: Haal het SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. 
+- ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
 **Stap 2**: Run de container image met Docker met behulp van de volgende commando, waarbij je <YourStrong@Passw0rd> vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
 - ` sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
@@ -134,7 +134,7 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 ### Repository klonen
 **Stap 1**: Open je code editor en ga naar je main branche.
 
-**Stap2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor je projecten die een database gebruiken**. Hier is een voorbeeld:.
+**Stap2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor al je projecten die een database gebruiken**. Hier is een voorbeeld:.
 
 `{
   "ConnectionStrings": {
@@ -154,14 +154,14 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 **Stap 7:** Als het nodig is, start je de container met het commando `docker start sql1` als deze nog niet actief is.
 
 ### Migrations
-⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing zijn op het front-end project.
+⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing op het front-end project. Als je later wijzigingen in je database wilt aanbrengen, kun je opnieuw stappen 8 en 9 uitvoeren om je migraties bij te werken.
 
 **Stap 8:** Voer migraties uit ` dotnet ef migrations add InitialCreate`
 
 **Stap 9:** Update je database ` dotnet-ef database update`
 
-**Stap 10:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls` als hints) en voer vervolgens het 
-volgende commando uit: `dotnet run --urls=http://localhost:6009`.
+**Stap 10:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls`) en voer vervolgens het volgende commando uit: 
+- `dotnet run --urls=http://localhost:6009`.
 
 **Stap 11:** Zodra het bouwen van je project is voltooid, navigeer je in je browser naar de website via je domeinnaam als je die al hebt, of via je openbare IP-adres (bijvoorbeeld 145.44.xxx.xxx). Als je webapplicatie zichtbaar is, ben je klaar.
 
@@ -177,25 +177,22 @@ Je gaat nu een reverse proxy opstellen met behulp van Apache (webserver). Een re
 **Stap 2**: Installeer de nieuwste versie van apache  
 - ` sudo apt install apache2`
 
-**Stap 3**: Controleer f apache actief is, port 80 moet aan het luisteren zijn. 
+**Stap 3**: Controleer of apache actief is, port 80 moet aan het luisteren zijn. 
 - ` ss -ant`
 
-**Stap 4**  Identificeer je privé IP adres, je hebt deze zo nodig. 
-- ` ip address`
-
-**Stap 5** Voeg je zelf toe aan de docker groep zodat je docker images kan beheren. 
+**Stap 4** Voeg je zelf toe aan de docker groep zodat je docker images kan beheren. 
 - ` sudo adduser (s-studentnummer) docker`
 
-**Stap 6** Om te verifiëren dat alles goed is gegaan, ga je nu een statische website hosten op Docker via poort 6009. 
+**Stap 5** Om te verifiëren dat alles goed is gegaan, ga je nu een statische website hosten op Docker via poort 6009. 
 - `sudo docker run -p 6009:80 -d dockersamples/static-site`
 
-**Stap 7**  Stuur een verzoek naar de website om de inhoud weer te geven. De poort is ingesteld op 6009 omdat je deze hebt toegewezen bij het starten van de Docker-container. Voer het commando uit met 
+**Stap 6**  Stuur een verzoek naar de website om de inhoud te bekijken. De poort is ingesteld op 6009 omdat je deze hebt toegewezen bij het starten van de Docker-container. Voer de volgende commando uit: 
 - `curl localhost:6009`.
 
 ℹ️ Om de huidige lijst met actieve containers te controleren kun je het volgende Docker-commando gebruiken `sudo docker ps -a`.  Dit commando toont een overzicht van alle containers op je systeem zowel de actieve als gestopte containers. Mocht je tegen problemen aanlopen controleer dan of je docker container actief is.
 
 ### Deel 2: Reverse proxy configureren
-Je gaat nu de reverse proxy functionaliteit toevoegen. Mocht je een melding krijgen dat de module al enabled is voer dan na stap 7  de volgende commando uit: ` sudo systemctl restart apache2`
+Je gaat nu de reverse proxy functionaliteit toevoegen. 
 
 **Stap 8**: Activeer de HTTP proxy module in Apache ` sudo a2enmod proxy proxy_http`
 
@@ -215,11 +212,12 @@ Je gaat nu de reverse proxy functionaliteit toevoegen. Mocht je een melding krij
  ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/63be4cf3-fef7-415c-979a-ceb85a8d3581)
 
 
-**Stap 10**:  Toets `Control x` en bewaar de veranderingen.
+**Stap 10**:  Toets `Control + X` en bewaar de veranderingen.
 
 **Stap 11**:  Restart apache ‘sudo systemctl restart apache2`
 
-ℹ️ Je hebt nu succesvol een reverse proxy opgezet. Verkeer naar jouw domeinnaam of website wordt doorgestuurd naar localhost:6009, terwijl verzoeken naar jouw interne API worden gerouteerd via het pad /api naar localhost:5000. Het is belangrijk ervoor te zorgen dat je in je API-controllers het /api-pad hebt toegevoegd aan de naamgeving, indien dat nog niet was gedaan. 
+ℹ️ Je hebt zojuist succesvol een reverse proxy geconfigureerd. Verkeer naar jouw website wordt doorgestuurd naar localhost:6009, terwijl verzoeken naar jouw interne API worden gerouteerd via het pad /api naar localhost:5000. Het is belangrijk ervoor te zorgen dat je in de naamgeving van je API-controllers het /api-pad hebt toegevoegd, indien dat nog niet is gedaan.
+![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/5e6c562e-9649-4ab0-a51d-86649cccfc4d)
 
 ✅Opdracht 5 is Klaar! 
 
@@ -227,20 +225,22 @@ Je gaat nu de reverse proxy functionaliteit toevoegen. Mocht je een melding krij
 In deze opdracht ga je ervoor zorgen dat je webapplicatie beschikbaar is via HTTPS. HTTPS is een protocol dat zorgt voor versleutelde communicatie tussen de gebruiker en de webserver, wat essentieel is voor veiligheid en privacy. Om HTTPS mogelijk te maken, heb je een TLS-certificaat nodig. 
 
 ### Deel 1 Snap installeren
-**Stap 1:** Voer een systeemupdate uit met het commando sudo apt update.
+**Stap 1:** Voer een systeemupdate uit met het commando:
+- sudo apt update.
 
-**Stap 2**: Installeer Snapd met het commando `sudo apt install snapd`.
+**Stap 2**: Installeer Snapd met het commando:
+- `sudo apt install snapd`.
 
-**Stap 3**: Controleer de status van Snapd met het commando `sudo systemctl status snapd`.
-Als er iets mis is gegaan, voer dan het volgende commando uit: 
-`sudo systemctl enable --now snapd.socket.` 
+**Stap 3**: Controleer de status van Snapd met het commando 
+- `sudo systemctl status snapd`.
+Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl enable --now snapd.socket.` 
 
 **Stap 4**:  Installeer de core-snaps met het commando `sudo snap install core`. Hiermee installeer je de basiscomponenten die nodig zijn voor het gebruik van Snap-pakketten. 
 
 ### Deel 2 Certbot installeren 
-**Stap 5** : Verwijder verouderde Certbot-pakketten met het commando `sudo apt-get remove certbot`. Hiermee ruim je oude Certbot-installaties op.
+**Stap 5** : Verwijder verouderde Certbot-pakketten met het commando `sudo apt-get remove certbot`.
 
-**Stap 6**: Installeer Certbot als een klassieke snap met het commando `sudo snap install --classic certbot`. Hiermee verkrijg je Certbot voor het beheren van TLS-certificaten.
+**Stap 6**: Installeer Certbot via snap met het commando `sudo snap install --classic certbot`. Hiermee verkrijg je Certbot voor het beheren van TLS-certificaten.
 
 **Stap 7**: Zorg ervoor dat certbot gerund kan worden op je machine door de volgende uit te voeren 
 
@@ -248,7 +248,7 @@ Als er iets mis is gegaan, voer dan het volgende commando uit:
 
 **Stap 8**:  Voer het commando` sudo certbot --apache` uit. Hiermee start je Certbot met de Apache-plugin, waardoor je een SSL-certificaat kunt verkrijgen en configureren voor je webapplicatie.
 
-**Stap 9:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls` als hints) en voer vervolgens het volgende commando uit: 
+**Stap 9:** Ga naar de map van je project (`cd` en `ls`) en voer vervolgens het volgende commando uit: 
 
 - `dotnet run --urls=http://localhost:6009`.
 
@@ -258,9 +258,9 @@ Als er iets mis is gegaan, voer dan het volgende commando uit:
 
 ## Opdracht 7: Deployen
 
-🚀 Je staat op het punt je projecten te deployen! Als het goed is, zijn de connection strings voor alle projecten al correct geconfigureerd, heb je alle migraties al uitgevoerd, en ben je klaar om te beginnen. 💻✨
+🚀 Je staat nu op het punt je projecten te deployen! Als het goed is, zijn de connection strings voor alle projecten al correct geconfigureerd, heb je alle migraties al uitgevoerd, en ben je klaar om te beginnen. 💻✨
 
-**Stap 1:** Navigeer naar de projectfolder van je front-end project. Gebruik het commando cd.
+**Stap 1:** Navigeer naar de projectfolder van je front-end project.
 
 **Stap 2:**  Voer het volgende commando uit om je project te publiceren:
 -	`dotnet publish -r linux-x64 --self-contained false --configuration Release`
@@ -272,10 +272,12 @@ Als er iets mis is gegaan, voer dan het volgende commando uit:
 
 **Stap 5:** ⛔ Stop je applicatie door Ctrl + Z in te voeren, zodat je deze op de achtergrond kan draaien. 
 
-**Stap 6:** Voer het commando bg uit om het op de achtergrond te laten draaien.
+**Stap 6:** Voer het commando `bg` uit om het op de achtergrond te laten draaien.
 
-**Stap 7:** Herhaal de bovenstaande stappen voor je API project. Het enigste verschil zit in stop vier daar run je hem niet op poort 6009, maar op 5000 dus 
+**Stap 7:** Herhaal de bovenstaande stappen voor je API project. Het enigste verschil zit in stap vier daar run je hem niet op poort 6009, maar op 5000 dus 
 -	`dotnet  <projectnaam>..dll --urls=http://localhost:5000`
+
+**Stap 8**: Controleer of alles succesvol is verlopen door naar je website te navigeren. Als je beschikt over een eenvoudige test Get request, kun je jouw API in de terminal testen met het commando localhost:5000/api/< naam get request >.
 
 Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
 

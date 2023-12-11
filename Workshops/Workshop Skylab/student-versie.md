@@ -103,9 +103,9 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 4:** Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit".
 
-**Stap 5:** Klik weer op pLab-<jouw studentnummer> klik vervolgens op het tandwielpictogram en kies “Power cycle”.
+**Stap 5:** Klik weer op pLab-\<jouw studentnummer\> klik vervolgens op het tandwielpictogram en kies “Power cycle”.
 
-**Stap 6:**  Klik op pLab-<jouw studentnummer en klik vervolgens op het tandwielpictogram, en selecteer "connect to your remote ".
+**Stap 6:**  Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "connect to your remote ".
 
 ### Configuratie Via Terminal
 
@@ -116,9 +116,9 @@ De opdracht is opgesplitst in drie delen:
 **Stap 9:** Controleer of je verbinding hebt tot het internet 'ping google.nl' (ctrl Z om te stoppen).
 
 **Stap 10:** Type het volgende om een nieuwe gebruiker aan te maken
- sudo adduser <student number>  (vergeet je wachtwoord niet!)
+    sudo adduser \<student number\>  (vergeet je wachtwoord niet!)
  
-**Stap 11:** Type het volgende om sudo rechten te geven  sudo adduser <student number> sudo
+**Stap 11:** Type het volgende om sudo rechten te geven  sudo adduser \<student number\> sudo
 
 **Stap 12:**  Voer de volgende commando’s na elkaar uit om de machine te updaten
 -	 sudo apt update

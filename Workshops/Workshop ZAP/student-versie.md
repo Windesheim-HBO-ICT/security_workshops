@@ -122,7 +122,20 @@ Een context is een manier om URLs die bij elkaar horen te groeperen. Het is aanb
 
 **Stap 4:** In het 🌍*Sites* tabje, klik met je rechtermuis op de 📂*https://localhost:XXXX* folder en selecteer *Include in context* --> *Default context*.
 
-**Stap 5:** Bovenin het 🌍*Sites* tabje staat de context, dubbelklik op de default context
+**Stap 5:** Bovenin het 🌍*Sites* tabje staat de context, dubbelklik op de default context om de default context in de session properties te wijzigen.
+
+Onder het tabje *Context* --> *1: Default context* --> *1:Include in context* kun je zien dat de url die we in stap 4 hebben toegevoegd in de include lijst staan.
+
+Om een gebruiker toe te voegen, geven we ZAP instructies om in te loggen. We gaan aangeven waar de inlogpagina te vinden is, welke gegevens verstuurd moeten worden om in te loggen en hoe ZAP kan weten dat er ingelogd is.
+
+**Stap 6:** Ga naar *Context* --> *1: Default context* --> *1: Authentication*.
+
+**Stap 7:** Verander de authentication method naar form-based authentication.
+
+**Stap 8:** In de *Login Form Target URL*, klik op 🌍*Select*. Selecteer de loginpagina POST request. Deze staat standaard onder 📂*https://localhost:XXXX* --> 📂*Identity* --> 📂*Account* --> 📄*POST:Login()(Input.Pass...).
+
+**Stap 9:** Veel velden worden automatisch ingevuld, het is wel belangrijk om deze te controleren
+- 
 
 ## Vandaag voltooide taken
 - 🗺️ Website in kaart gebracht met verschillende spiders.

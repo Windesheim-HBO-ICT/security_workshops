@@ -12,15 +12,13 @@ Na het doorlopen van deze workshop, heb je:
 -	Jouw webapplicatie met succes gedeployed 🌐
 
 ## Opdracht 1 ASP dotnet core
-In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclusief de SDK, op de op de acceptatieomgeving.
+In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclusief de SDK, op de acceptatieomgeving.
 
  **Stap 1**:  Open je opdrachtenprompt en login via SSH.   
  
 -  `ssh s-studentnummer@145.xxx.xxx`
 
-
-
-**Stap 2** : Voeg de Microsoft repository to aan de APT (Advanced Package Tool) door de volgende commando’s uit: 
+**Stap 2**: Voeg de Microsoft repository toe aan de APT (Advanced Package Tool) door de volgende commando’s uit te voeren: 
 
 - `sudo wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
 
@@ -29,37 +27,37 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 - `sudo rm packages-microsoft-prod.deb`
 
 
-**Stap 3** : Installeer de SDK: ` sudo apt-get update && \ sudo apt-get install -y dotnet-sdk-8.0`
+**Stap 3**: Installeer de SDK: ` sudo apt-get update && \ sudo apt-get install -y dotnet-sdk-8.0`
 
 
 **Stap 4**:  Controleer de versie `dotnet –version`
 
 
-**Stap 5**: Test Dotnet doormiddel van een console applicatie. Als je de volgende commando’s uit voert zul je “Hello World!” zien.
+**Stap 5**: Test Dotnet doormiddel van een console applicatie. Als je de volgende commando’s uitvoert zul je “Hello World!” zien.
 
 - `sudo dotnet new console --output myConsoleApp`
 
 - `sudo dotnet run --project myConsoleApp`
 
 
-**Stap 6**: Installeer entity framework tool door de volgende commando uit te voeren: 
+**Stap 6**: Installeer entity framework tool door het volgende commando uit te voeren: 
 
 - `sudo dotnet tool install --tool-path /usr/bin dotnet-ef`
 
 
-**Stap 7**: Als gelukt is zul je de versie van entity framework zien als je de volgende commando uitvoert: 
+**Stap 7**: Als dit gelukt is zul je de versie van entity framework zien als je het volgende commando uitvoert: 
 
 - ` $ sudo dotnet tool list  --tool-path /usr/bin`
 
 
-**Stap 8:** Installeer .Nettools: 
+**Stap 8**: Installeer .Nettools: 
 
 - `dotnet tool install -g dotnetsay`
 
 ✅Opdracht 1 is Klaar! 
 
 ## Opdracht 2  Docker installeren
-Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïsoleerde, draagbare containers. Het maakt het gemakkelijk om applicaties consistent en efficiënt over verschillende omgevingen te verplaatsen. In deze opdracht ga je docker installeren, in een latere opdrachten ga je nog meer hiermee doen.
+Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïsoleerde, draagbare containers. Het maakt het gemakkelijk om applicaties consistent en efficiënt over verschillende omgevingen te verplaatsen. In deze opdracht ga je docker installeren, in latere opdrachten ga je hier nog meer mee doen.
 
 **Stap 1**:  Run de volgende commando’s om verouderde packages te verwijderen 
 
@@ -88,9 +86,9 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
 **Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando: 
 - ` cat /etc/apt/sources.list.d/docker.list`
 
-**Stap 4**:  Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+**Stap 4**: Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
 
-**Stap 5** : Controleer of de Docker-installatie succesvol is verlopen. Als alles correct is, zal het commando `sudo docker run hello-world` "Hello World" weergeven en het programma afsluiten.
+**Stap 5**: Controleer of de Docker-installatie succesvol is verlopen. Als alles correct is, zal het commando `sudo docker run hello-world` "Hello World" weergeven en het programma afsluiten.
 
 ✅Opdracht 2 is Klaar! 
 
@@ -99,16 +97,16 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 
 ### Deel 1 SQL server installeren
 
-**Stap 1**: Haal het SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. 
+**Stap 1**: Haal de SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. 
 - ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
-**Stap 2**: Run de container image met Docker met behulp van de volgende commando, waarbij je **YourStrong@Passw0rd** vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
+**Stap 2**: Run de container image met Docker met behulp van het volgende commando, waarbij je **YourStrong@Passw0rd** vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
 - ` sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
    -p 1433:1433 --name sql1 --hostname sql1 \
    -d \
    mcr.microsoft.com/mssql/server:2022-latest `
 
-**Stap 3**:  Controleer of alles goed is gegaan door te kijken of de container met de naam 'sql1' actief is met het commando 
+**Stap 3**: Controleer of alles goed is gegaan door te kijken of de container met de naam 'sql1' actief is met het commando 
 
 - `sudo docker ps -a`
 
@@ -116,15 +114,15 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 
 ### Deel 2 SQL server Testen 
 
-**Stap 4**: Voer de commando `sudo docker exec -it sql1 "bash"` uit.
+**Stap 4**: Voer het commando `sudo docker exec -it sql1 "bash"` uit.
 
 **Stap 5**: Je bent nu binnen de container en je moet lokaal verbinding maken met sqlcmd door het volledige pad 
 
 - ` /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"` te gebruiken, met het wachtwoord dat je zojuist hebt aangemaakt.
 
-**Stap 6**: Creëer een testdatabase met het commando 'CREATE DATABASE TestDB;' gevolgd door 'GO'.
+**Stap 6**: Creëer een testdatabase met het commando `CREATE DATABASE TestDB;` gevolgd door `GO`.
 
-**Stap 7**: Verifieer of je database is aangemaakt met het commando 'SELECT Name from sys.databases;' gevolgd door 'GO'.
+**Stap 7**: Verifieer of je database is aangemaakt met het commando `SELECT Name from sys.databases;` gevolgd door `GO`.
 
 
 ✅Opdracht 3 is Klaar! 
@@ -135,7 +133,7 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 ### Repository klonen
 **Stap 1**: Open je code editor en ga naar je main branche.
 
-**Stap 2**:  Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor al je projecten die een database gebruiken**. Hier is een voorbeeld:.
+**Stap 2**: Pas de connectiestring van de main branche aan zorg ervoor dat de gebruiker sa is en het wachtwoord overeenkomt met het wachtwoord dat je hebt ingesteld voor je SQL Server. Daarnaast moet de server worden ingesteld op localhost, de poort op 1433, en zet TrustServerCertificate op true. **Doe dit voor al je projecten die een database gebruiken**. Hier is een voorbeeld:.
 
 `{
   "ConnectionStrings": {
@@ -150,9 +148,9 @@ Je gaat nu de code van de website op de Debian-server plaatsen. Als het goed is,
 
 **Stap 4**: Ga naar GitHub, navigeer naar je project en klik op de groene knop om de HTTPS-link te kopiëren.
 
-**Stap 5**: Open weer de terminal met ssh verbinding tot de Debian en clone je project. ‘git clone <git url>`
+**Stap 5**: Open weer de terminal met ssh verbinding tot de Debian en clone je project. `git clone <git url>`
 
-⚠️Als het klonen niet lukt, moet je mogelijk een token genereren en dat gebruiken als je wachtwoord. Ga naar de [link](https://github.com/settings/tokens). Noteer de token, want na generatie is deze niet meer zichtbaar en je hebt deze later nog nodig. 
+⚠️Als het klonen niet lukt, moet je mogelijk een token genereren en dat gebruiken als je wachtwoord. Ga naar de [link](https://github.com/settings/tokens). Noteer het token, want na generatie is deze niet meer zichtbaar en je hebt deze later nog nodig. 
 
 **Stap 6:** Bevestig of je MS SQLserver container nog draait `docker ps -a`;
 
@@ -219,7 +217,7 @@ Je gaat nu de reverse proxy functionaliteit toevoegen.
 
 **Stap 10**:  Toets `Control + X` en bewaar de veranderingen.
 
-**Stap 11**:  Restart apache ‘sudo systemctl restart apache2`
+**Stap 11**:  Restart apache `sudo systemctl restart apache2`
 
 ℹ️ Je hebt zojuist succesvol een reverse proxy geconfigureerd. Verkeer naar jouw website wordt doorgestuurd naar localhost:6009, terwijl verzoeken naar jouw interne API worden gerouteerd via het pad /api naar localhost:5000. Het is belangrijk ervoor te zorgen dat je in de naamgeving van je API-controllers het /api-pad hebt toegevoegd, indien dat nog niet is gedaan.
 ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/4c730ac3-4060-4137-b6c3-c512196b75de)
@@ -232,7 +230,7 @@ In deze opdracht ga je ervoor zorgen dat je webapplicatie beschikbaar is via HTT
 
 ### Deel 1 Snap installeren
 **Stap 1:** Voer een systeemupdate uit met het commando:
-- sudo apt update.
+- `sudo apt update`.
 
 **Stap 2**: Installeer Snapd met het commando:
 - `sudo apt install snapd`.
@@ -241,10 +239,10 @@ In deze opdracht ga je ervoor zorgen dat je webapplicatie beschikbaar is via HTT
 - `sudo systemctl status snapd`.
 Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl enable --now snapd.socket.` 
 
-**Stap 4**:  Installeer de core-snaps met het commando `sudo snap install core`. Hiermee installeer je de basiscomponenten die nodig zijn voor het gebruik van Snap-pakketten. 
+**Stap 4**: Installeer de core-snaps met het commando `sudo snap install core`. Hiermee installeer je de basiscomponenten die nodig zijn voor het gebruik van Snap-pakketten. 
 
 ### Deel 2 Certbot installeren 
-**Stap 5** : Verwijder verouderde Certbot-pakketten met het commando `sudo apt-get remove certbot`.
+**Stap 5**: Verwijder verouderde Certbot-pakketten met het commando `sudo apt-get remove certbot`.
 
 **Stap 6**: Installeer Certbot via snap met het commando `sudo snap install --classic certbot`. Hiermee verkrijg je Certbot voor het beheren van TLS-certificaten.
 
@@ -254,11 +252,11 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 
 **Stap 8**:  Voer het commando` sudo certbot --apache` uit. Hiermee start je Certbot met de Apache-plugin, waardoor je een SSL-certificaat kunt verkrijgen en configureren voor je webapplicatie.
 
-**Stap 9:** Ga naar de map van je project (`cd` en `ls`) en voer vervolgens het volgende commando uit: 
+**Stap 9**: Ga naar de map van je project (`cd` en `ls`) en voer vervolgens het volgende commando uit: 
 
 - `dotnet run --urls=http://localhost:6009`.
 
-**Stap 10:** Ga naar je website en controleer of er een slotje staat, wat aangeeft dat HTTPS correct is geconfigureerd.
+**Stap 10**: Ga naar je website en controleer of er een slotje staat, wat aangeeft dat HTTPS correct is geconfigureerd.
 
 ✅Opdracht 6 is Klaar! 
 
@@ -273,7 +271,7 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 
 **Stap 3:**  Navigeer vanuit dezelfde folder naar bin/Release/net-8.0/linux-x64/publish.
 
-**Stap 4:** In die folder zul je  <projectnaam>.dll zien staan. Voer de volgende commando uit 
+**Stap 4:** In die folder zul je \<projectnaam\>.dll zien staan. Voer de volgende commando uit 
 -	`dotnet <projectnaam>.dll --urls=http://localhost:6009 `
 
 **Stap 5:** ⛔ Stop je applicatie door Ctrl + Z in te voeren, zodat je deze op de achtergrond kan draaien. 
@@ -283,17 +281,18 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 **Stap 7:** Herhaal de bovenstaande stappen voor je API project. **Laat bij stap 4 voor de API --urls=http://localhost:6009 weg, zie hieronder voorbeeld!!**
 -	`dotnet  <projectnaam>..dll`
 
-**Stap 8**:Controleer of alle stappen succesvol zijn verlopen door naar je website te navigeren. Als je een eenvoudige GET-request hebt, kun je jouw API in de terminal testen met de volgende commando's:
+**Stap 8:** Controleer of alle stappen succesvol zijn verlopen door naar je website te navigeren. Als je een eenvoudige GET-request hebt, kun je jouw API in de terminal testen met de volgende commando's:
 
 Met TSL-certificaat (HTTPS):
-- curl  https://localhost/api/<naam_get_request>
+- curl https://localhost/api/\<naam_get_request\>
 
 Geen TSL-certificaat (de redirect naar https lukt niet):
-- curl  https://localhost:5000/api/<naam_get_request>
+- curl https://localhost:5000/api/\<naam_get_request\>
 
 Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
 
-**Herinnering:** Als je tussentijds wijzigingen aanbrengt in je applicatie, haal je deze op met git pull en voer eventuele database-migraties uit in je projectfolder. Na deze stappen moet je de applicatie opnieuw publiceren met de bovenstaande commando's om ervoor te zorgen dat deze up-to-date is. ✨🔄
+**Herinnering:** Als je tussentijds wijzigingen aanbrengt in je applicatie, haal je deze op met git pull en voer eventuele database-migraties uit in je projectfolder. Na deze stappen moet je de applicatie opnieuw publiceren met de bovenstaande commando's om ervoor te zorgen dat deze up-to-date is. ✨🔄  
+
 ✅Opdracht 7 is Klaar! 
 
 

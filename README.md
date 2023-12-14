@@ -14,4 +14,4 @@ Voor sommige workshops is het vereist dat een voorgaande workshops is gevolgd. D
 |6|Risk & Mitigation II [ 5 ]|  |||🚀
 |7|Risk & Mitigation III [ 5 ]| | | | | 🚀  
 |8|Code Review [ 2, 3, 4 , 5, 6, 7]| ||||🚀| 
-|9|SonarQube|  zelfstudie
+|9|SonarQube <td colspan=5>zelfstudie

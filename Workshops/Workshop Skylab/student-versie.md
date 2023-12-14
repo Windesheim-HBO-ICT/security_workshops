@@ -184,14 +184,14 @@ In deze taak ga je port-forwarding regels instellen op de pfSense-firewall, zoda
 
 **Stap 5:** Nadat je bent ingelogd, zie je een rode waarschuwing om je wachtwoord te wijzigen. Klik erop, verander het wachtwoord en sla de wijzigingen op.
 
-**Stap 6:** Open een nieuw venster en navigeer naar Skylab, selecteer “implementaties” daar moet het Privé IP-adres van Debian zichtbaar zijn, deze heb je nodig dus hoe deze bij de hand.
+**Stap 6:** Open een nieuw venster en navigeer naar Skylab, selecteer “implementaties” daar moet het Privé IP-adres van Debian zichtbaar zijn, deze heb je nodig dus houd deze bij de hand.
 
-**Stap 7**: Open weer de venster met de Kali machine en selecteer in 'Firewall' en vervolgens 'NAT'.
+**Stap 7**: Open weer het venster met de Kali machine en selecteer in 'Firewall' en vervolgens 'NAT'.
 
-**Stap 8**: Klik op 'Add' en voeg regels toe voor de poorten TCP/80 (HTTP), TCP/443 (HTTPS) en TCP/22 (SSH) één voor één :
--	Verander Destination port range (from, to) naar HTTP
+**Stap 8**: Klik op 'Add' en voeg regels toe voor de poorten TCP/80 (HTTP), TCP/443 (HTTPS) en TCP/22 (SSH) één voor één:
+-	Verander Destination port range (from, to) naar HTTP.
 -	Verander Redirect target IP (address) naar privé-IP-adres van Debian (192.168.xxx.xxx).
--	Verander Redirect target port (port) naar HTTP 
+-	Verander Redirect target port (port) naar HTTP.
 -	Sla de veranderingen op en doe hetzelfde voor HTTPS en SSH.
 
 ### SSH 

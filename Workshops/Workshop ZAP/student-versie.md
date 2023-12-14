@@ -2,13 +2,15 @@
 TODOLIST: 
 1 ✅ zap installatie --> Installeren van ZAP plus benodigdheden  
 2 ☑️ spider --> Uitleggen wat de spider is en hoe deze gebruikt kan worden.  
-3 ✅ ajax spider --> Uitleggen wat het verschil is tussen de normale spider en de ajax spider en hoe deze gebruikt kan worden.  
-4 active scan --> Uitleggen wat een active scan is en hoe je deze kan uitvoeren.   
+3 ☑️ ajax spider --> Uitleggen wat het verschil is tussen de normale spider en de ajax spider en hoe deze gebruikt kan worden.  
+4 ☑️active scan --> Uitleggen wat een active scan is en hoe je deze kan uitvoeren.   
     --> Scan op broken acces control. Eerst ajax spider uitvoeren met admin account en dan active scan uitvoeren met not admin.  
 5 analyse found issues --> Als je met de tools issues hebt gevonden, hoe analyseer je die.  
     5a Vastleggen nulmeting.
 6 edit request --> Een eerder gemaakt request wijzigen en kijken wat hier de resultaten van zijn.  
-7 import/export/report --> Hoe kun je de gevonden informatie exporteren en hier een rapport van genereren?   
+7 import/export/report --> Hoe kun je de gevonden informatie exporteren en hier een rapport van genereren?
+
+TODO: Plaatje met overzicht van menucomponenten/gebieden.
 
 ## Voorwaarden deelname
 Geen
@@ -118,13 +120,13 @@ In het venster dat nu geopend wordt, zie je welke attacks uitgevoerd worden en h
 ### Active scan met gebruikers-rechten
 We hebben nu een scan uitgevoerd vanuit het perspectief van en niet-ingelogde gebruiker. Je hebt in je eigen applicatie aan de hand van Identity (of op een andere manier) authenticatie en authorizatie geïmplementeerd. ZAP kan ook werken vanuit een ingelogde gebruiker. We gaan nu een scan uitvoeren vanuit een standaard ingelogde gebruiker.
 
-Een context is een manier om URLs die bij elkaar horen te groeperen. Het is aanbevolen om voor elke webapplicatie die in je systeem bestaat een aparte context te geven. In het geval van je eigen applicatie is dit er maar 1, daarom gebruiken we de default context. Om aan de default context een gebruiker toe te voegen, moet eerst een context toegevoegd worden.
+Een context is een manier om URLs die bij elkaar horen te groeperen. Het is aanbevolen om voor elke webapplicatie die in je systeem bestaat een aparte context te geven. In het geval van je eigen applicatie is dit er maar 1, daarom gebruiken we de default context. Om aan de default context een gebruiker toe te voegen, moet eerst een URL aan de context toegevoegd worden.
 
 **Stap 4:** In het 🌍*Sites* tabje, klik met je rechtermuis op de 📂*https://localhost:XXXX* folder en selecteer *Include in context* --> *Default context*.
 
 **Stap 5:** Bovenin het 🌍*Sites* tabje staat de context, dubbelklik op de default context om de default context in de session properties te wijzigen.
 
-Onder het tabje *Context* --> *1: Default context* --> *1:Include in context* kun je zien dat de url die we in stap 4 hebben toegevoegd in de include lijst staan.
+Onder het tabje *Context* --> *1: Default context* --> *1:Include in context* kun je zien dat de URL die we in stap 4 hebben toegevoegd in de include lijst staat.
 
 Om een gebruiker toe te voegen, geven we ZAP instructies om in te loggen. We gaan aangeven waar de inlogpagina te vinden is, welke gegevens verstuurd moeten worden om in te loggen en hoe ZAP kan weten dat er ingelogd is.
 
@@ -132,10 +134,47 @@ Om een gebruiker toe te voegen, geven we ZAP instructies om in te loggen. We gaa
 
 **Stap 7:** Verander de authentication method naar form-based authentication.
 
-**Stap 8:** In de *Login Form Target URL*, klik op 🌍*Select*. Selecteer de loginpagina POST request. Deze staat standaard onder 📂*https://localhost:XXXX* --> 📂*Identity* --> 📂*Account* --> 📄*POST:Login()(Input.Pass...).
+**Stap 8:** In de *Login Form Target URL*, klik op 🌍*Select*. Selecteer de loginpagina POST request.   
+Deze staat standaard onder 📂*https://localhost:XXXX* --> 📂*Identity* --> 📂*Account* --> 📄*POST:Login()(Input.Pass...)*.
 
-**Stap 9:** Veel velden worden automatisch ingevuld, het is wel belangrijk om deze te controleren
-- 
+**Stap 9:** Veel velden worden automatisch ingevuld, het is wel belangrijk om deze te controleren.
+- URL to GET login page: De url die je gebruikt om bij de inlogpagina te komen. Bij Identity: *https://localhost:XXXX/Identity/Account/Login*
+- Login Request POST Data: De data die meegegeven word in de POST voor het inloggen.
+- Username parameter: Het veld waarin je de username meegeeft (Bij Identity: Input.Username).
+- Password parameter: Het veld waarin je het wachtwoord meegeeft (Bij Identity: Input.Password).
+
+Om ZAP te laten weten of de huidige pagina een ingelogde pagina is, moeten we een kenmerk van een ingelogde pagina meegeven. Dit is vaak een uitlogknop of een welkomstbericht. Voor een uitgelogde pagina is een kenmerk vaak een inlog-knop. We gaan nu handmatig in de applicatie inloggen, zodat we de inlogrequest en response in de history terug kunnen vinden.
+
+**Stap 10:** Sluit het venster met de OK knop. In het quick start venster klik je op manual explore en vul je de URL van je applicatie in. 
+Zet *Enable HUD* uit. Selecteer je browser en klik op *Launch Browser*. Log nu in met een gebruiker van je applicatie. Je kunt nu de geopende broser weer wegklikken.
+
+**Stap 11:** In het 📆*History* tabje vind je de requests die je zojuist gemaakt hebt. Meer info over de request en response, kun je in de ➡️*Request* en ⬅️*Response* tabjes vinden. Open het response tabje en klik op verschillende requests om de response te vinden die de HTML voor je ingelogde pagina toont. 
+
+**Stap 12:** In de response body, zoek naar de uitlogknop HTML tag (Bijvoorbeeld: ***\<button id="logout" type="submit"\>Logout\</button\>***) en selecteer deze. Klik dan met je rechtermuisknop en *Flas as Context* --> *Default Context: Authentication Logged-in indicator* en klik op OK.
+
+Je hebt nu aangegeven dat je op een ingelogde pagina bent, omdat er een uitlogknop op de pagina staat.
+
+**Stap 13:** Doe nu hetzelfde, maar zoek nu in de 📆*History* een response van een niet-ingelogde pagina. Selecteer hierin de inlogknop en markeer deze als *Logged-out indicator*.
+
+Je hebt nu voor ZAP aangegeven hoe je kunt inloggen, nu gaan we een gebruiker aanmaken.
+
+**Stap 14:** In de session properties (dubbelklik op de default context bovenin het 🌍*Sites* tabje), klik in het tabje *Users* op Add. Geef je gebruiker een herkenbare naam en inloggegevens. Dit kan zijn van een bestaande gebruiker, of een gebruiker die je hier speciaal voor aanmaakt. Zorg er in ieder geval voor dat de gebruiker in je applicatie bestaat. Klik op OK om te bevestigen.
+
+We hebben nu een gebruiker aangemaakt. Laten we paginas in kaart brengen die we alleen als ingelogde gebruiker kunnen bezoeken.
+
+**Stap 15:** Ga terug naar het 🕷*Spider* tabje en volg de instucties zoals die zijn gegeven bij opdracht 1. Bij de context selecteer je de default context, bij de user selecteer je de zojuist aangemaakte gebruiker. Start de scan.
+
+**Stap 16:** Doe hetzelfde voor de 🕷️*Ajax Spider*.
+
+We hebben nu de applicatie als ingelogde gebruiker in kaart gebracht, nu kunnen we een groter deel van de website aanvallen.
+
+**Stap 17:** Start een active scan en zorg ervoor dat de correcte context en user geselecteerd zijn.
+
+**✔️ opdracht 4 is klaar!**
+## Opdracht 5: 🔍Analyseren resultaten.
+
+    
+
 
 ## Vandaag voltooide taken
 - 🗺️ Website in kaart gebracht met verschillende spiders.

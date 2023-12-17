@@ -260,7 +260,7 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 
 ℹ️Je hebt net een TLS-certificaat geïmplementeerd op je webserver. TLS (Transport Layer Security) is de moderne tegenhanger van SSL (Secure Sockets Layer), beide ontworpen om gegevens te versleutelen tijdens de communicatie tussen een webserver en een gebruiker. Met dit TLS-certificaat wordt de vertrouwelijkheid en integriteit van de gegevensoverdracht verzekerd, en het is een cruciale stap om een veilige verbinding (https) op een website te realiseren.
 
-**Stap 11**: Na het installeren van je TLS-certificaat is het aan te raden een beveiligingsrapport te genereren voor je portfolio. Voer de test uit om de configuratie te analyseren, identificeer mogelijke kwetsbaarheden en voeg een screenshot van het rapport toe aan je portfolio als mogelijk bewijsmateriaal [link](https://www.ssllabs.com/ssltest/).  
+**Stap 11**: Na het installeren van je TLS-certificaat is het aan te raden een beveiligingsrapport te genereren voor je portfolio. Voer de test uit om de configuratie te analyseren, identificeer mogelijke kwetsbaarheden en voeg een screenshot van het rapport toe aan je portfolio als mogelijk bewijsmateriaal [link] `https://www.ssllabs.com/ssltest/`.  
 
 ✅Opdracht 6 is Klaar! 
 

@@ -83,7 +83,7 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null `
 - ` sudo apt-get update`
 
-**Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de uitvoer niet leeg zijn. Gebruik hiervoor het commando: 
+**Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de output niet leeg zijn. Gebruik hiervoor het commando: 
 - ` cat /etc/apt/sources.list.d/docker.list`
 
 **Stap 4**: Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
@@ -256,7 +256,11 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 
 - `dotnet run --urls=http://localhost:6009`.
 
-**Stap 10**: Ga naar je website en controleer of er een slotje staat, wat aangeeft dat HTTPS correct is geconfigureerd.
+**Stap 10**: Ga naar je website en controleer of er een slotje staat.
+
+ℹ️Je hebt net een TLS-certificaat geïmplementeerd op je webserver. TLS (Transport Layer Security) is de moderne tegenhanger van SSL (Secure Sockets Layer), beide ontworpen om gegevens te versleutelen tijdens de communicatie tussen een webserver en een gebruiker. Met dit TLS-certificaat wordt de vertrouwelijkheid en integriteit van de gegevensoverdracht verzekerd, en het is een cruciale stap om een veilige verbinding (https) op een website te realiseren.
+
+**Stap 11**: Na het installeren van je TLS-certificaat is het aan te raden een beveiligingsrapport te genereren voor je portfolio. Voer de test uit om de configuratie te analyseren, identificeer mogelijke kwetsbaarheden en voeg een screenshot van het rapport toe aan je portfolio als mogelijk bewijsmateriaal [link](www.ssllabs.com/ssltest/).  
 
 ✅Opdracht 6 is Klaar! 
 
@@ -284,14 +288,14 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 **Stap 8:** Controleer of alle stappen succesvol zijn verlopen door naar je website te navigeren. Als je een eenvoudige GET-request hebt, kun je jouw API in de terminal testen met de volgende commando's:
 
 Met TSL-certificaat (HTTPS):
-- curl https://localhost/api/\<naam_get_request\>
+- `curl https://localhost/api/ <naam_get_request\>`
 
 Geen TSL-certificaat (de redirect naar https lukt niet):
-- curl https://localhost:5000/api/\<naam_get_request\>
+- `curl https://localhost:5000/api/ <naam_get_request\>`
 
 Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
 
-**Herinnering:** Als je tussentijds wijzigingen aanbrengt in je applicatie, haal je deze op met git pull en voer eventuele database-migraties uit in je projectfolder. Na deze stappen moet je de applicatie opnieuw publiceren met de bovenstaande commando's om ervoor te zorgen dat deze up-to-date is. ✨🔄  
+**Belangrijk:** Wanneer je tussentijdse wijzigingen aanbrengt in je applicatie, haal deze dan op met 'git pull' en voer eventuele database-migraties uit in je projectfolder. Na deze stappen dien je de applicatie opnieuw te publiceren met de bovenstaande commando's om ervoor te zorgen dat deze up-to-date is. Het is mogelijk dat je een melding krijgt dat de poorten in gebruik zijn. Als dat het geval is, zoek dan de commando's op om ze te sluiten. ✨🔄  
 
 ✅Opdracht 7 is Klaar! 
 

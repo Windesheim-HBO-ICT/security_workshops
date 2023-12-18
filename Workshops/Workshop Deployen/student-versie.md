@@ -27,7 +27,11 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 - `sudo rm packages-microsoft-prod.deb`
 
 
-**Stap 3**: Installeer de SDK: `sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0`
+**Stap 3**: Installeer de SDK: 
+```
+sudo apt-get update && \
+sudo apt-get install -y dotnet-sdk-8.0
+```
 
 
 **Stap 4**:  Controleer de versie `dotnet –version`
@@ -47,7 +51,7 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 
 **Stap 7**: Als dit gelukt is zul je de versie van entity framework zien als je het volgende commando uitvoert: 
 
-- ` $ sudo dotnet tool list  --tool-path /usr/bin`
+- `sudo dotnet tool list  --tool-path /usr/bin`
 
 
 **Stap 8**: Installeer .Nettools: 
@@ -61,30 +65,32 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
 
 **Stap 1**:  Run de volgende commando’s om verouderde packages te verwijderen 
 
-- ` for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
+- `for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done`
 
 ℹ️ Je gaat nu de Docker APT-repository instellen. Dit houdt in dat je een pakketbeheerder op je Debian-systeem configureert, waardoor het systeem Docker-softwarepakketten kan herkennen en gebruiken
 
 **Stap 2:** Voer de volgende commando’s een voor een uit : 
 
-- ` sudo apt-get update`
+- `sudo apt-get update`
 
-- ` sudo apt-get install ca-certificates curl gnupg`
+- `sudo apt-get install ca-certificates curl gnupg`
 
-- ` sudo install -m 0755 -d /etc/apt/keyrings `
+- `sudo install -m 0755 -d /etc/apt/keyrings `
 
-- `  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg `
+- `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg `
 
-- ` sudo chmod a+r /etc/apt/keyrings/docker.gpg `
+- `sudo chmod a+r /etc/apt/keyrings/docker.gpg `
 
-- ` echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+```
+  echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null `
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ```
 - ` sudo apt-get update`
 
 **Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de output niet leeg zijn. Gebruik hiervoor het commando: 
-- ` cat /etc/apt/sources.list.d/docker.list`
+- `cat /etc/apt/sources.list.d/docker.list`
 
 **Stap 4**: Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
 
@@ -98,13 +104,15 @@ In deze opdracht ga je een SQL Server instellen op een Docker-image. Daarna maak
 ### Deel 1 SQL server installeren
 
 **Stap 1**: Haal de SQL Server 2022 (15.x) Linux-containerimage op vanuit de Microsoft Container Register. 
-- ` sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
+- `sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
 **Stap 2**: Run de container image met Docker met behulp van het volgende commando, waarbij je **YourStrong@Passw0rd** vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat.  Dit is het wachtwoord voor de systeembeheerder in SQL server.
-- ` sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
+```
+sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
    -p 1433:1433 --name sql1 --hostname sql1 \
    -d \
-   mcr.microsoft.com/mssql/server:2022-latest `
+   mcr.microsoft.com/mssql/server:2022-latest 
+```
 
 **Stap 3**: Controleer of alles goed is gegaan door te kijken of de container met de naam 'sql1' actief is met het commando 
 
@@ -288,10 +296,10 @@ Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl e
 **Stap 8:** Controleer of alle stappen succesvol zijn verlopen door naar je website te navigeren. Als je een eenvoudige GET-request hebt, kun je jouw API in de terminal testen met de volgende commando's:
 
 Met TSL-certificaat (HTTPS):
-- `curl https://localhost/api/ <naam_get_request\>`
+- `curl https://localhost/api/ <naam_get_request>`
 
 Geen TSL-certificaat (de redirect naar https lukt niet):
-- `curl https://localhost:5000/api/ <naam_get_request\>`
+- `curl https://localhost:5000/api/ <naam_get_request>`
 
 Je hebt zojuist je webapplicatie gepubliceerd met de configuratie "Release". Hierdoor draait je applicatie nu in productiemodus, geoptimaliseerd voor efficiëntie en prestaties. 👏✨
 

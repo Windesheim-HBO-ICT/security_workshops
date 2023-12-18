@@ -16,7 +16,7 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 
  **Stap 1**:  Open je opdrachtenprompt en login via SSH.   
  
--  `ssh s-studentnummer@145.xxx.xxx`
+-  `ssh <studentnummer>@145.44.xxx.xxx`
 
 **Stap 2**: Voeg de Microsoft repository toe aan de APT (Advanced Package Tool) door de volgende commando’s uit te voeren: 
 
@@ -27,7 +27,7 @@ In deze taak installeer en configureer je de Dotnet Core applicatieserver, inclu
 - `sudo rm packages-microsoft-prod.deb`
 
 
-**Stap 3**: Installeer de SDK: ` sudo apt-get update && \ sudo apt-get install -y dotnet-sdk-8.0`
+**Stap 3**: Installeer de SDK: `sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0`
 
 
 **Stap 4**:  Controleer de versie `dotnet –version`

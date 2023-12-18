@@ -113,29 +113,28 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 8:** Type ‘passwd’ en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in ('Welkom01!') en daarna het nieuwe wachtwoord. **(Niet vergeten!)**
 
-**Stap 9:** Controleer of je verbinding hebt tot het internet 'ping google.nl' (ctrl Z om te stoppen).
+**Stap 9:** Controleer of je verbinding hebt tot het internet `ping google.nl` (ctrl Z om te stoppen).
 
-**Stap 10:** Type het volgende om een nieuwe gebruiker aan te maken
-    sudo adduser \<student number\>  (vergeet je wachtwoord niet!)
+**Stap 10:** Type het volgende om een nieuwe gebruiker aan te maken `sudo adduser <student number>`  (vergeet je wachtwoord niet!)
  
-**Stap 11:** Type het volgende om sudo rechten te geven  sudo adduser \<student number\> sudo
+**Stap 11:** Type het volgende om sudo rechten te geven `sudo adduser <student number> sudo`
 
 **Stap 12:**  Voer de volgende commando’s na elkaar uit om de machine te updaten
--	 sudo apt update
--	 sudo apt upgrade
--	 sudo apt dist-upgrade
--	 sudo apt autoremove
+-	 `sudo apt update`
+-	 `sudo apt upgrade`
+-	 `sudo apt dist-upgrade`
+-	 `sudo apt autoremove`
 
 ### SSH Installeren En Testen
 **Stap 13:** Voer de volgende commando’s na elkaar uit om ssh te installeren en vervolgens te kijken of ssh draait. Als alles goed is gegaan zien ja achter ssh (Listen) staan.
--	sudo apt install openssh-server
--	 sudo lsof -i
+-	`sudo apt install openssh-server`
+-	`sudo lsof -i`
 
-**Stap 14:**  Type ‘ sudo reboot’
+**Stap 14:**  Type `sudo reboot`
 
 **Stap 15:** Login in met de gegevens van de nieuwe gebruiker.
 
-**Stap 16:** Type ‘ip address’ om de privéadres van de Debian te zien zou moeten beginnen met 192.168.
+**Stap 16:** Type ‘ip address’ om de privéadres van de Debian te zien. Deze zou moeten beginnen met 192.168.xxx.xxx
 
 **✔️ Opdracht 4 is klaar**
 

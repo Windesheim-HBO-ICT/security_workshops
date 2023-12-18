@@ -87,7 +87,10 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   ```
+
 - ` sudo apt-get update`
+
+Krijg je een error waarbij er wordt aangegeven dat de release versie niet geaccepteerd wordt? Zorg er dan voor dat je in het bestand *apt/source.list.d/docker.list* trusted op *yes* zet.
 
 **Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de output niet leeg zijn. Gebruik hiervoor het commando: 
 - `cat /etc/apt/sources.list.d/docker.list`

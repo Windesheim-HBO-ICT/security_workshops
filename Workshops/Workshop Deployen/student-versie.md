@@ -34,7 +34,7 @@ sudo apt-get install -y dotnet-sdk-8.0
 ```
 
 
-**Stap 4**:  Controleer de versie `dotnet –version`
+**Stap 4**:  Controleer de versie `dotnet --version`
 
 
 **Stap 5**: Test Dotnet doormiddel van een console applicatie. Als je de volgende commando’s uitvoert zul je “Hello World!” zien.
@@ -83,7 +83,8 @@ Docker is een platform waarmee je applicaties kunt verpakken en draaien in geïs
 
 ```
   echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt \
+  keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   ```

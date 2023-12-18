@@ -172,8 +172,18 @@ We hebben nu de applicatie als ingelogde gebruiker in kaart gebracht, nu kunnen 
 
 **✔️ opdracht 4 is klaar!**
 ## Opdracht 5: 🔍Analyseren resultaten.
+Om in te zien of je applicatie veiliger is geworden, gaan we nu een rapport genereren en later in het project nog een scan uitvoeren en daar ook een rapport van genereren. In je portfolio kun je deze resultaten vergelijken en aantonen welke verbeteringen je hebt uitgevoerd.
 
-    
+We gaan eerst een nulmeting vastleggen.
+
+**Stap 1:** Klik in de menubar op *Report* --> *Generate report*
+
+**Stap 2:** In de context, selecteer alleen je eigen applicatie (http://localhost:XXXX).
+
+**Stap 3:** In het *Template* tabje, selecteer een template. Je kunt er hier zelf een van kiezen. Aanraders zijn:
+- High level Report Sample. --> Handig voor makkelijk vergelijken van grafieken en een makkelijk tabelformaat om te kopieëren.
+- Modern HTML Report with themes and options. --> Veel informatie en voorbeelden.
+- 
 
 
 ## Vandaag voltooide taken

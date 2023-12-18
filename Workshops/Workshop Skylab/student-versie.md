@@ -115,7 +115,7 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 9:** Controleer of je verbinding hebt tot het internet `ping google.nl` (ctrl Z om te stoppen).
 
-**Stap 10:** Type het volgende om een nieuwe gebruiker aan te maken `sudo adduser <student number>`  (vergeet je wachtwoord niet!)
+**Stap 10:** Type het volgende om een nieuwe gebruiker aan te maken `sudo adduser <student number>` (**vergeet je wachtwoord niet!**) Als er om meer velden gevraagd wordt (Full name, work mail, etc) kun je deze gewoon leeg laten.
  
 **Stap 11:** Type het volgende om sudo rechten te geven `sudo adduser <student number> sudo`
 

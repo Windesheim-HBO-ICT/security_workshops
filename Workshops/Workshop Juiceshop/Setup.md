@@ -34,6 +34,12 @@ Deze handleiding legt uit hoe je de Juice Shop kunt installeren met behulp van D
 docker run --rm -p 3000:3000 bkimminich/juice-shop
 ```
 
+Als sommige functies van de Juice Shop niet werken, voer dan het volgende commando uit:
+
+```
+docker run --rm --env NODE_ENV=unsafe -p 3000:3000 bkimminich/juice-shop
+```
+
 3. Wacht tot de Juice Shop is gedownload en gestart.
 4. Open een webbrowser en ga naar [http://localhost:3000](http://localhost:3000) om de Juice Shop te openen.
 5. Gefeliciteerd! Je hebt de Juice Shop succesvol geïnstalleerd.

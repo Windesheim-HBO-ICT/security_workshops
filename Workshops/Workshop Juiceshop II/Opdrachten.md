@@ -38,7 +38,7 @@
 
 3. Gefeliciteerd! Je hebt nu een DOM XSS aanval uitgevoerd op de Juice Shop.
 
-## Opdracht 9: Vind een confidential document
+## Opdracht 9: Vind een confidentieel document
 
 ### ASVS:
 
@@ -74,3 +74,5 @@
 8. Verander de `bid` naar een ander getal.
 9. Herlaad de pagina.
 10. Gefeliciteerd! Je hebt nu iemand anders zijn winkelwagen bekeken.
+
+## Opdracht 11: Bekijk een

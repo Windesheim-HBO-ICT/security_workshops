@@ -1,6 +1,25 @@
 # Juice shop III opdrachten
 
-## Opdracht 13: Laat de server met NoSQL slapen door een NoSQL injection
+## Opdracht 13: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
+
+### ASVS:
+
+- V7.3.3 Verify that security logs are protected from unauthorized access and modification.
+- V7.4.1 Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.
+
+### Opdracht:
+
+Originele tekst: "Any request that cannot be properly handled by the server will eventually be passed to a global error handling component that sends an error page to the client that includes a stack trace and other sensitive information. The restful API behaves similarly, passing back a JSON error object with sensitive data, such as SQL query strings."
+
+Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog veel meer, welke allemaal een slechte afhandeling hebben.
+
+1. Ga naar de Juice Shop login pagina. (http://localhost:3000/#/login)
+2. Vul een "`'`" in bij het email adres en een willekeurig wachtwoord. Hierbij probeer je een SQL error te veroorzaken.
+3. De Juice Shop geeft nu een error terug met een SQL query.
+4. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
+5. Hierdoor kan je informatie krijgen over de database die de Juice Shop gebruikt.
+
+## Opdracht 14: Laat de server met NoSQL slapen door een NoSQL injection
 
 ### ASVS:
 
@@ -13,7 +32,7 @@
 3. Door iets in de URL te veranderen kan je ook de server laten slapen. (http://localhost:3000/rest/products/sleep(2000)/reviews)
 4. De Juice Shop is nu (tijdelijk) niet meer bereikbaar. Gefeliciteerd! Je hebt nu een NoSQL injection uitgevoerd op de Juice Shop.
 
-## Opdracht 14: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
+## Opdracht 15: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
 
 ### ASVS:
 
@@ -30,4 +49,4 @@
 7. Dit werkt echter niet, omdat de Juice Shop de URL encodeert.
 8. Door zelf de null byte te encoderen kan je het bestand toch downloaden.
 9. De URL wordt dan: `http://localhost:3000/ftp/package.json.bak%25%30%30.md`
-10. Gefeliciteerd! Je hebt nu een toegan tot een vergeten backup bestand.
+10. Gefeliciteerd! Je hebt nu een toegang tot een vergeten backup bestand.

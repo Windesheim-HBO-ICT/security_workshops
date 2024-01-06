@@ -93,9 +93,14 @@ In deze opdracht installeer je Docker; in latere stappen zullen we hier dieper o
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
+**Als alles correct is verlopen, zie je het volgende verschijnen in je configuratie:** 
+
+✔️ ``` [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian <releasename> stable ```
+
+**Voer tot slot een update uit:**:
 - ` sudo apt-get update`
 
-Krijg je een error waarbij er wordt aangegeven dat de release versie niet geaccepteerd wordt? Zorg er dan voor dat je in het bestand _apt/source.list.d/docker.list_ trusted op _yes_ zet.
+⚠️ Krijg je een error waarbij er wordt aangegeven dat de release versie niet geaccepteerd wordt? Zorg er dan voor dat je in het bestand _apt/source.list.d/docker.list_ trusted op _yes_ zet.
 
 **Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de output niet leeg zijn. Gebruik hiervoor het commando:
 

@@ -99,42 +99,44 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 2:** Selecteer pLab-jouw studentnummer, klik op het tandwielpictogram en kies "reconfigure".
 
-**Stap 3:** Klik op het tabblad "Network".
+**Stap 3:** Verhoog eerst het geheugen naar 3000 MB. 
 
-**Stap 4:** Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit".
+**Stap 4:** Klik op het tabblad "Network".
 
-**Stap 5:** Klik weer op pLab-\<jouw studentnummer\> klik vervolgens op het tandwielpictogram en kies “Power cycle”.
+**Stap 5:** Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit".
 
-**Stap 6:**  Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "connect to your remote ".
+**Stap 6:** Klik weer op pLab-\<jouw studentnummer\> klik vervolgens op het tandwielpictogram en kies “Power cycle”.
+
+**Stap 7:**  Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "connect to your remote ".
 
 ### Configuratie Via Terminal
 
-**Stap 7:** Log in met je gebruikersnaam 'student' en het wachtwoord 'Welkom01!'.
+**Stap 8:** Log in met je gebruikersnaam 'student' en het wachtwoord 'Welkom01!'.
 
-**Stap 8:** Type ‘passwd’ en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in ('Welkom01!') en daarna het nieuwe wachtwoord. **(Niet vergeten!)**
+**Stap 9:** Type ‘passwd’ en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in ('Welkom01!') en daarna het nieuwe wachtwoord. **(Niet vergeten!)**
 
-**Stap 9:** Controleer of je verbinding hebt tot het internet `ping google.nl` (ctrl Z om te stoppen).
+**Stap 10:** Controleer of je verbinding hebt tot het internet `ping google.nl` (ctrl Z om te stoppen).
 
-**Stap 10:** Type het volgende om een nieuwe gebruiker aan te maken `sudo adduser <student number>` (**vergeet je wachtwoord niet!**) Als er om meer velden gevraagd wordt (Full name, work mail, etc) kun je deze gewoon leeg laten.
+**Stap 11:** Type het volgende om een nieuwe gebruiker aan te maken `sudo adduser <student number>` (**vergeet je wachtwoord niet!**) Als er om meer velden gevraagd wordt (Full name, work mail, etc) kun je deze gewoon leeg laten.
  
-**Stap 11:** Type het volgende om sudo rechten te geven `sudo adduser <student number> sudo`
+**Stap 12:** Type het volgende om sudo rechten te geven `sudo adduser <student number> sudo`
 
-**Stap 12:**  Voer de volgende commando’s na elkaar uit om de machine te updaten
+**Stap 13:**  Voer de volgende commando’s na elkaar uit om de machine te updaten
 -	 `sudo apt update`
 -	 `sudo apt upgrade`
 -	 `sudo apt dist-upgrade`
 -	 `sudo apt autoremove`
 
 ### SSH Installeren En Testen
-**Stap 13:** Voer de volgende commando’s na elkaar uit om ssh te installeren en vervolgens te kijken of ssh draait. Als alles goed is gegaan zien ja achter ssh (Listen) staan.
+**Stap 14:** Voer de volgende commando’s na elkaar uit om ssh te installeren en vervolgens te kijken of ssh draait. Als alles goed is gegaan zien ja achter ssh (Listen) staan.
 -	`sudo apt install openssh-server`
 -	`sudo lsof -i`
 
-**Stap 14:**  Type `sudo reboot`
+**Stap 15:**  Type `sudo reboot`
 
-**Stap 15:** Login in met de gegevens van de nieuwe gebruiker.
+**Stap 16:** Login in met de gegevens van de nieuwe gebruiker.
 
-**Stap 16:** Type ‘ip address’ om de privéadres van de Debian te zien. Deze zou moeten beginnen met 192.168.xxx.xxx
+**Stap 17:** Type ‘ip address’ om de privéadres van de Debian te zien. Deze zou moeten beginnen met 192.168.xxx.xxx
 
 **✔️ Opdracht 4 is klaar**
 

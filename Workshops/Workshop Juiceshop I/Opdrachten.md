@@ -109,4 +109,4 @@ https://pwning.owasp-juice.shop/companion-guide/latest/appendix/solutions.html#_
 3. Plak je auth token in de swagger documentatie. (Klik op Authorize rechts bovenaan de pagina en plak je token in het veld)
 4. Stuur het orders POST request naar de Juice Shop API met de volgende body:
    - `{"orderLinesData": "(function dos() { while(true); })()"}`
-5. Gefeliciteerd! Je hebt nu een DoS aanval uitgevoerd op de Juice Shop.
+5. Gefeliciteerd! Je hebt nu een DoS aanval uitgevoerd op de Juice Shop. Echter, werkt deze opdracht niet, omdat de Juice Shop een ininite loop detectie heeft. Daarom krijg je een 200 OK response terug. De server is getimeout, maar de Juice Shop is nog steeds bereikbaar.

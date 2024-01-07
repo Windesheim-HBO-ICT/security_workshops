@@ -74,5 +74,34 @@
 8. Verander de `bid` naar een ander getal.
 9. Herlaad de pagina.
 10. Gefeliciteerd! Je hebt nu iemand anders zijn winkelwagen bekeken.
+## Opdracht 11: Maak een ongeldige JWT token
 
-## Opdracht 11: Bekijk een
+### ASVS:
+
+- V3.2 | Session Management: Verify that session tokens are generated using approved cryptographic algorithms.
+
+### Opdracht:
+
+1. Log in als een gebruiker
+2. Open het netwerk tab van de developer tools
+3. Kopieer de JWT uit de `Authorization` header (Alles na `Bearer`)
+4. Ga naar [https://jwt.io](https://jwt.io) en plak de JWT in het `encoded` veld
+6. Verander het e-mail van de token
+7. Verander het algoritme (`alg` in de header) van `HS256` naar `None` 
+8. Encode de `header` en `payload` naar `Base64url`
+9. Voeg de `header` en `payload` samen met een `.` ertussen
+10. Voeg een `.` toe aan het einde van de string
+11. Verander je cookie `token` naar de nieuwe JWT token
+12. Gefeliciteerd! Je hebt nu een ongeldige JWT token gemaakt
+
+
+## Opdracht 12: Laat 10 reviews achter in minder dan 10  seconden
+
+### ASVS: 
+
+- V2.2 | Authentication: Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.
+
+### Opdracht:
+
+https://github.com/bmanning1/captchaRequests/
+

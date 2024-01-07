@@ -1,6 +1,6 @@
 # Juice shop I opdrachten
 
-## Opdracht 0: Vind het scorebord
+## Opdracht 1: Vind het scorebord
 
 ### ASVS:
 
@@ -15,7 +15,7 @@
 5. Open het scorebord in een webbrowser.
 6. Gefeliciteerd! Je hebt nu het scorebord gevonden.
 
-## Opdracht 1: Inloggen als administrator door middel van SQL injection
+## Opdracht 2: Inloggen als administrator door middel van SQL injection
 
 ### ASVS:
 
@@ -30,7 +30,7 @@
 5. Klik op de knop "Login".
 6. Gefeliciteerd! Je bent nu ingelogd als administrator.
 
-## Opdracht 2: Registreer een administrator account
+## Opdracht 3: Registreer een administrator account
 
 ### ASVS:
 
@@ -43,7 +43,7 @@
 4. Voeg de volgende body toe:
    - `{"email":"admin","password":"admin","role":"admin"}`
 
-## Opdracht 3: Ga naar de admin panel
+## Opdracht 4: Ga naar de admin panel
 
 ### ASVS:
 
@@ -58,23 +58,28 @@
 5. Open de admin panel in een webbrowser. (http://localhost:3000/#/administration)
 6. Gefeliciteerd! Je bent nu in de admin panel.
 
-## Opdracht 4: Laat een review van 0 sterren achter
+## Opdracht 5: Bekijk iemand anders zijn winkelwagen
 
 ### ASVS:
 
-- **V4.1 | Access Control**: Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed.
+- V4.1 | Access Control: Verify that access controls are contextually appropriate, and that the authenticated user is authorized to access the requested functionality.
 
-### Uitleg:
+### Opdracht:
 
-1. Open de Juice Shop in een webbrowser.
-2. Ga naar de contact pagina. (http://localhost:3000/#/contact)
-3. Open de developer tools van de webbrowser.
-4. Selecteer de verstuur knop.
-5. Verwijder het `disabled` attribuut van de verstuur knop.
-6. Verstuur het formulier.
-7. Gefeliciteerd! Je hebt nu een review van 0 sterren achtergelaten. (Zie de review op about pagina (http://localhost:3000/#/about))
+> Deze opdracht is leuk om te doen in combinatie met een 2e account met items in de winkelwagen.
 
-## Opdracht 5: Zet een artikel in de winkelwagen van een andere gebruiker
+1. Log in als een gebruiker.
+2. Voeg een product toe aan je winkelwagen.
+3. Ga naar de winkelwagen pagina. (http://localhost:3000/#/basket)
+4. Open de developer tools van de webbrowser.
+5. Ga naar het application tab.
+6. Open de session storage van de Juice Shop.
+7. Hier is te zien dat de winkelwagen van de gebruiker wordt opgeslagen in de session storage, door middel van een `bid` (Basket ID).
+8. Verander de `bid` naar een ander getal.
+9. Herlaad de pagina.
+10. Gefeliciteerd! Je hebt nu iemand anders zijn winkelwagen bekeken.
+
+## Opdracht 6: Zet een artikel in de winkelwagen van een andere gebruiker
 
 ### ASVS:
 
@@ -91,22 +96,3 @@
 4. Dit zal niet werken omdat de ingelogde gebruiker niet de gebruiker met id 1 is.
 5. Voeg nu nog een keer de property BasketId toe aan de body maar nu met de waarde van het originele request:
    - `{"ProductId":1,"BasketId":1,"quantity":1,"BasketId":"INSERT_ORIGINAL_BASKET_ID_HERE"}`
-
-## Opdracht 6: DoS aanval op de Juice Shop
-
-### ASVS:
-
-- **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks.
-
-### Uitleg:
-
-https://pwning.owasp-juice.shop/companion-guide/latest/appendix/solutions.html#_perform_a_remote_code_execution_that_would_keep_a_less_hardened_application_busy_forever
-
-<!-- not yet working -->
-
-1. Open de swagger documentatie van de Juice Shop API. (http://localhost:3000/api-docs)
-2. Haal je auth token op uit de developer tools van de webbrowser.
-3. Plak je auth token in de swagger documentatie. (Klik op Authorize rechts bovenaan de pagina en plak je token in het veld)
-4. Stuur het orders POST request naar de Juice Shop API met de volgende body:
-   - `{"orderLinesData": "(function dos() { while(true); })()"}`
-5. Gefeliciteerd! Je hebt nu een DoS aanval uitgevoerd op de Juice Shop. Echter, werkt deze opdracht niet, omdat de Juice Shop een ininite loop detectie heeft. Daarom krijg je een 200 OK response terug. De server is getimeout, maar de Juice Shop is nog steeds bereikbaar.

@@ -1,6 +1,39 @@
 # Juice shop II opdrachten
 
-## Opdracht 7: XSS aanval op de Juice Shop
+## Opdracht 7: Laat een review van 0 sterren achter
+
+### ASVS:
+
+- **V4.1 | Access Control**: Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed.
+
+### Uitleg:
+
+1. Open de Juice Shop in een webbrowser.
+2. Ga naar de contact pagina. (http://localhost:3000/#/contact)
+3. Open de developer tools van de webbrowser.
+4. Selecteer de verstuur knop.
+5. Verwijder het `disabled` attribuut van de verstuur knop.
+6. Verstuur het formulier.
+7. Gefeliciteerd! Je hebt nu een review van 0 sterren achtergelaten. (Zie de review op about pagina (http://localhost:3000/#/about))
+
+## Opdracht 8: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
+
+### ASVS:
+
+- V7.3.3 Verify that security logs are protected from unauthorized access and modification.
+- V7.4.1 Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.
+
+### Opdracht:
+
+Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog veel meer, welke allemaal een slechte afhandeling hebben.
+
+1. Ga naar de Juice Shop login pagina. (http://localhost:3000/#/login)
+2. Vul een "`'`" in bij het email adres en een willekeurig wachtwoord. Hierbij probeer je een SQL error te veroorzaken.
+3. De Juice Shop geeft nu een error terug met een SQL query.
+4. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
+5. Hierdoor kan je informatie krijgen over de database die de Juice Shop gebruikt.
+
+## Opdracht 9: XSS aanval op de Juice Shop
 
 ### ASVS:
 
@@ -21,7 +54,7 @@
 
 7. Gefeliciteerd! Je hebt nu een XSS aanval uitgevoerd op de Juice Shop.
 
-## Opdracht 8: Voer een DOM XSS aanval uit op de Juice Shop
+## Opdracht 10: Voer een DOM XSS aanval uit op de Juice Shop
 
 ### ASVS:
 
@@ -38,42 +71,6 @@
 
 3. Gefeliciteerd! Je hebt nu een DOM XSS aanval uitgevoerd op de Juice Shop.
 
-## Opdracht 9: Vind een confidentieel document
-
-### ASVS:
-
-- V12.5 | Files and Resources: Verify that all files and resources are protected from unauthorized access.
-
-### Opdracht:
-
-1. Ga naar de about pagina. (http://localhost:3000/#/about)
-2. Klik op de link die verwijst naar de gebruikersvoorwaarden. (http://localhost:3000/#/ftp/legal.md)
-3. In de url van de pagina is te zien dat de gebruikersvoorwaarden worden opgehaald vanaf een FTP server.
-4. Ga naar de FTP server. (http://localhost:3000/ftp/)
-5. Nu is het mogelijk om alle bestanden op de FTP server te bekijken.
-6. Open het bestand `acquisitions.md`.
-7. Gefeliciteerd! Je hebt nu een confidential document gevonden.
-
-## Opdracht 10: Bekijk iemand anders zijn winkelwagen
-
-### ASVS:
-
-- V4.1 | Access Control: Verify that access controls are contextually appropriate, and that the authenticated user is authorized to access the requested functionality.
-
-### Opdracht:
-
-> Deze opdracht is leuk om te doen in combinatie met een 2e account met items in de winkelwagen.
-
-1. Log in als een gebruiker.
-2. Voeg een product toe aan je winkelwagen.
-3. Ga naar de winkelwagen pagina. (http://localhost:3000/#/basket)
-4. Open de developer tools van de webbrowser.
-5. Ga naar het application tab.
-6. Open de session storage van de Juice Shop.
-7. Hier is te zien dat de winkelwagen van de gebruiker wordt opgeslagen in de session storage, door middel van een `bid` (Basket ID).
-8. Verander de `bid` naar een ander getal.
-9. Herlaad de pagina.
-10. Gefeliciteerd! Je hebt nu iemand anders zijn winkelwagen bekeken.
 ## Opdracht 11: Maak een ongeldige JWT token
 
 ### ASVS:
@@ -86,22 +83,20 @@
 2. Open het netwerk tab van de developer tools
 3. Kopieer de JWT uit de `Authorization` header (Alles na `Bearer`)
 4. Ga naar [https://jwt.io](https://jwt.io) en plak de JWT in het `encoded` veld
-6. Verander het e-mail van de token
-7. Verander het algoritme (`alg` in de header) van `HS256` naar `None` 
-8. Encode de `header` en `payload` naar `Base64url`
-9. Voeg de `header` en `payload` samen met een `.` ertussen
-10. Voeg een `.` toe aan het einde van de string
-11. Verander je cookie `token` naar de nieuwe JWT token
-12. Gefeliciteerd! Je hebt nu een ongeldige JWT token gemaakt
+5. Verander het e-mail van de token
+6. Verander het algoritme (`alg` in de header) van `HS256` naar `None`
+7. Encode de `header` en `payload` naar `Base64url`
+8. Voeg de `header` en `payload` samen met een `.` ertussen
+9. Voeg een `.` toe aan het einde van de string
+10. Verander je cookie `token` naar de nieuwe JWT token
+11. Gefeliciteerd! Je hebt nu een ongeldige JWT token gemaakt
 
+## Opdracht 12: Laat 10 reviews achter in minder dan 10 seconden
 
-## Opdracht 12: Laat 10 reviews achter in minder dan 10  seconden
-
-### ASVS: 
+### ASVS:
 
 - V2.2 | Authentication: Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.
 
 ### Opdracht:
 
 https://github.com/bmanning1/captchaRequests/
-

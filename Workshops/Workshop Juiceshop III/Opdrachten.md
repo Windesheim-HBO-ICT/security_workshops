@@ -1,25 +1,40 @@
 # Juice shop III opdrachten
 
-## Opdracht 13: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
+## Opdracht 13: DoS aanval op de Juice Shop
 
 ### ASVS:
 
-- V7.3.3 Verify that security logs are protected from unauthorized access and modification.
-- V7.4.1 Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.
+- **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks.
 
-### Opdracht:
+### Uitleg:
 
-Originele tekst: "Any request that cannot be properly handled by the server will eventually be passed to a global error handling component that sends an error page to the client that includes a stack trace and other sensitive information. The restful API behaves similarly, passing back a JSON error object with sensitive data, such as SQL query strings."
+https://pwning.owasp-juice.shop/companion-guide/latest/appendix/solutions.html#_perform_a_remote_code_execution_that_would_keep_a_less_hardened_application_busy_forever
 
-Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog veel meer, welke allemaal een slechte afhandeling hebben.
+<!-- not yet working -->
 
-1. Ga naar de Juice Shop login pagina. (http://localhost:3000/#/login)
-2. Vul een "`'`" in bij het email adres en een willekeurig wachtwoord. Hierbij probeer je een SQL error te veroorzaken.
-3. De Juice Shop geeft nu een error terug met een SQL query.
-4. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
-5. Hierdoor kan je informatie krijgen over de database die de Juice Shop gebruikt.
+1. Open de swagger documentatie van de Juice Shop API. (http://localhost:3000/api-docs)
+2. Haal je auth token op uit de developer tools van de webbrowser.
+3. Plak je auth token in de swagger documentatie. (Klik op Authorize rechts bovenaan de pagina en plak je token in het veld)
+4. Stuur het orders POST request naar de Juice Shop API met de volgende body:
+   - `{"orderLinesData": "(function dos() { while(true); })()"}`
+5. Gefeliciteerd! Je hebt nu een DoS aanval uitgevoerd op de Juice Shop. Echter, werkt deze opdracht niet, omdat de Juice Shop een ininite loop detectie heeft. Daarom krijg je een 200 OK response terug. De server is getimeout, maar de Juice Shop is nog steeds bereikbaar.
 
-## Opdracht 14: Laat de server met NoSQL slapen door een NoSQL injection
+## Opdracht 14: Successvolle DDOS aanval op de Juice Shop
+
+### ASVS:
+
+- **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks.
+- **V12.5.2**: Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.
+
+### Uitleg:
+
+1. De vorige opdracht werkte niet, omdat de Juice Shop een ininite loop detectie heeft. Daarom gaan we nu de server bezig houden zonder een infinite loop.
+2. In de request body vullen we nu in:
+   - `{"orderLinesData": "/((a+)+)b/.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')"}`
+3. Hierdoor wordt er een erg intensieve regex uitgevoerd op de server. Als het goed is krijg je nu een 503 error terug.
+4. Gefeliciteerd! Je hebt nu een succesvolle DDOS aanval uitgevoerd op de Juice Shop.
+
+## Opdracht 15: Laat de server met NoSQL slapen door een NoSQL injection
 
 ### ASVS:
 
@@ -32,7 +47,23 @@ Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog
 3. Door iets in de URL te veranderen kan je ook de server laten slapen. (http://localhost:3000/rest/products/sleep(2000)/reviews)
 4. De Juice Shop is nu (tijdelijk) niet meer bereikbaar. Gefeliciteerd! Je hebt nu een NoSQL injection uitgevoerd op de Juice Shop.
 
-## Opdracht 15: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
+## Opdracht 16: Vind een confidentieel document
+
+### ASVS:
+
+- V12.5 | Files and Resources: Verify that all files and resources are protected from unauthorized access.
+
+### Opdracht:
+
+1. Ga naar de about pagina. (http://localhost:3000/#/about)
+2. Klik op de link die verwijst naar de gebruikersvoorwaarden. (http://localhost:3000/#/ftp/legal.md)
+3. In de url van de pagina is te zien dat de gebruikersvoorwaarden worden opgehaald vanaf een FTP server.
+4. Ga naar de FTP server. (http://localhost:3000/ftp/)
+5. Nu is het mogelijk om alle bestanden op de FTP server te bekijken.
+6. Open het bestand `acquisitions.md`.
+7. Gefeliciteerd! Je hebt nu een confidential document gevonden.
+
+## Opdracht 17: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
 
 ### ASVS:
 

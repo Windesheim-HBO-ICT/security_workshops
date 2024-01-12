@@ -1,4 +1,4 @@
-# Juice shop II opdrachten
+# Juice Shop II opdrachten
 
 ## Opdracht 7: Laat een review van 0 sterren achter
 

@@ -1,4 +1,4 @@
-# Juice shop III opdrachten
+# Juice Shop III opdrachten
 
 ## Opdracht 13: DoS aanval op de Juice Shop
 

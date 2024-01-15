@@ -72,7 +72,7 @@
 2. Voeg een product toe aan je winkelwagen.
 3. Ga naar de winkelwagen pagina. (http://localhost:3000/#/basket)
 4. Open de developer tools van de webbrowser.
-5. Ga naar het application tab.
+5. In chrome: Ga naar het application tab. In firefox: Ga naar de storage tab.
 6. Open de session storage van de Juice Shop.
 7. Hier is te zien dat de winkelwagen van de gebruiker wordt opgeslagen in de session storage, door middel van een `bid` (Basket ID).
 8. Verander de `bid` naar een ander getal.
@@ -90,9 +90,11 @@
 > Na het eventueel bekijken van de network tab in de developer tools van de webbrowser, is het duidelijk dat de winkelwagen van een gebruiker wordt aangepast door middel van een POST request naar `http://localhost:3000/api/BasketItems`.
 
 1. Open postman.
-2. Maak een POST request naar `http://localhost:3000/api/BasketItems`.
-3. Voeg de volgende body toe:
+2. Kopieer je bearer token vanuit de Juice Shop. Deze kun je vinden in de header van het toevoegen aan de basket request. Ook is deze te vinden in je local storage.
+3. Voeg dit token toe als bearer token in het authentication tabje in postman.
+4. Maak een POST request naar `http://localhost:3000/api/BasketItems`.
+5. Voeg de volgende body toe:
    - `{"ProductId":1,"BasketId":1,"quantity":1}`
-4. Dit zal niet werken omdat de ingelogde gebruiker niet de gebruiker met id 1 is.
-5. Voeg nu nog een keer de property BasketId toe aan de body maar nu met de waarde van het originele request:
+6. Dit zal niet werken omdat de ingelogde gebruiker niet de gebruiker met id 1 is.
+7. Voeg nu nog een keer de property BasketId toe aan de body maar nu met de waarde van het originele request:
    - `{"ProductId":1,"BasketId":1,"quantity":1,"BasketId":"INSERT_ORIGINAL_BASKET_ID_HERE"}`

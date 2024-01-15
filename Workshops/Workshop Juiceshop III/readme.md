@@ -1,11 +1,19 @@
-## Opdracht 13: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
+## Opdracht 13: DoS aanval op de Juice Shop
 
-## Opdracht 14: Laat de server met NoSQL slapen door een NoSQL injection
+De auth token wordt uit de swagger API van de Juice Shop gehaald. Vervolgens wordt er een POST request gestuurd naar de API met een oneindige while loop. Nu heeft de student een DoS aanval uitgevoerd op de Juice Shop.
 
-## Opdracht 15: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
+## Opdracht 14: Successvolle DDOS aanval op de Juice Shop
 
-## Opdracht 16: Bekijk iemand anders zijn winkelwagen
+...
 
-## Opdracht 17: Bekijk iemand anders zijn bestelling
+## Opdracht 15: Laat de server met NoSQL slapen door een NoSQL injection
 
-## Opdracht 18: Bekijk iemand anders zijn profiel
+...
+
+## Opdracht 16: Vind een confidentieel document
+
+Via een openbare FTP server van de Juice Shop vindt de student confidentiële documenten.
+
+## Opdracht 17: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
+
+...

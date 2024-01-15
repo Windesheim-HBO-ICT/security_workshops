@@ -27,7 +27,7 @@ Gefeliciteerd! Je hebt Docker Desktop succesvol geïnstalleerd op zowel Windows 
 
 Deze handleiding legt uit hoe je de Juice Shop kunt installeren met behulp van Docker.
 
-1. Open een nieuw Terminal-venster.
+1.Open een nieuw Terminal-venster in de opdrachtprompt/CLI van je eigen laptop (**niet in Docker!**).
 2. Voer het volgende commando uit om de Juice Shop te downloaden en te starten:
 
 ```

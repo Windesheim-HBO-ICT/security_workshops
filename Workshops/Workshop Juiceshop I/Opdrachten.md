@@ -1,4 +1,4 @@
-# Juice shop I opdrachten
+# Juice Shop I opdrachten
 
 ## Opdracht 1: Vind het scorebord
 

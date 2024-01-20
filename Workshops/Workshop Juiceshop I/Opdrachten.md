@@ -2,11 +2,11 @@
 
 ## Opdracht 1: Vind het scorebord
 
-### ASVS:
+### ASVS
 
 ---
 
-### Opdracht:
+### Opdracht
 
 1. Open de Juice Shop in een webbrowser.
 2. Open de source code (`main.js`) van de Juice Shop.
@@ -17,11 +17,11 @@
 
 ## Opdracht 2: Inloggen als administrator door middel van SQL injection
 
-### ASVS:
+### ASVS
 
 - **V5.1 | Input Validation**: Verify that security features protecting against SQL Injection are enabled and effective.
 
-### Uitleg:
+### Uitleg
 
 1. Open de Juice Shop in een webbrowser.
 2. Klik op de knop "Login" in de rechterbovenhoek van het scherm.
@@ -32,7 +32,7 @@
 
 ## Opdracht 3: Registreer een administrator account
 
-### ASVS:
+### ASVS
 
 - **V13.2 | API and Web Service**: The request and response data structures should be designed to be as simple as possible to reduce the likelihood of input validation bypasses and output encoding mistakes.
 
@@ -45,32 +45,32 @@
 
 ## Opdracht 4: Ga naar de admin panel
 
-### ASVS:
+### ASVS
 
 - **V4.1 | Access Control**: Verify that access controls are contextually appropriate, and that the authenticated user is authorized to access the requested functionality.
 
-### Uitleg:
+### Uitleg
 
 1. Open de Juice Shop in een webbrowser.
 2. Open de source code (`main.js`) van de Juice Shop.
 3. Zoek naar het woord "path:" in de source code.
 4. Nu is het pad naar de admin panel bekend.
-5. Open de admin panel in een webbrowser. (http://localhost:3000/#/administration)
+5. Open de admin panel in een webbrowser. (<http://localhost:3000/#/administration>)
 6. Gefeliciteerd! Je bent nu in de admin panel.
 
 ## Opdracht 5: Bekijk iemand anders zijn winkelwagen
 
-### ASVS:
+### ASVS
 
 - V4.1 | Access Control: Verify that access controls are contextually appropriate, and that the authenticated user is authorized to access the requested functionality.
 
-### Opdracht:
+### Opdracht
 
 > Deze opdracht is leuk om te doen in combinatie met een 2e account met items in de winkelwagen.
 
 1. Log in als een gebruiker.
 2. Voeg een product toe aan je winkelwagen.
-3. Ga naar de winkelwagen pagina. (http://localhost:3000/#/basket)
+3. Ga naar de winkelwagen pagina. (<http://localhost:3000/#/basket>)
 4. Open de developer tools van de webbrowser.
 5. In chrome: Ga naar het application tab. In firefox: Ga naar de storage tab.
 6. Open de session storage van de Juice Shop.
@@ -81,11 +81,11 @@
 
 ## Opdracht 6: Zet een artikel in de winkelwagen van een andere gebruiker
 
-### ASVS:
+### ASVS
 
 - **V4.1 | Access control**: Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.
 
-### Uitleg:
+### Uitleg
 
 > Na het eventueel bekijken van de network tab in de developer tools van de webbrowser, is het duidelijk dat de winkelwagen van een gebruiker wordt aangepast door middel van een POST request naar `http://localhost:3000/api/BasketItems`.
 

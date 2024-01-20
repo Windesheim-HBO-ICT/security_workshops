@@ -36,7 +36,7 @@ In deze opdracht installeer en configureer je de Dotnet Core-applicatieserver me
 
 **Stap 3**: Installeer de SDK:
 
-```
+```shell
 sudo apt-get update && \
 sudo apt-get install -y dotnet-sdk-8.0
 ```
@@ -79,13 +79,13 @@ In deze opdracht installeer je Docker; in latere stappen zullen we hier dieper o
 
 - `sudo apt-get install ca-certificates curl gnupg`
 
-- `sudo install -m 0755 -d /etc/apt/keyrings `
+- `sudo install -m 0755 -d /etc/apt/keyrings`
 
-- `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg `
+- `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg`
 
-- `sudo chmod a+r /etc/apt/keyrings/docker.gpg `
+- `sudo chmod a+r /etc/apt/keyrings/docker.gpg`
 
-```
+```shell
   echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt \
   keyrings/docker.gpg] https://download.docker.com/linux/debian \
@@ -93,12 +93,13 @@ In deze opdracht installeer je Docker; in latere stappen zullen we hier dieper o
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-**Als alles correct is verlopen, zie je het volgende verschijnen in je configuratie:** 
+**Als alles correct is verlopen, zie je het volgende verschijnen in je configuratie:**
 
 ✔️ ``` [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian <releasename> stable ```
 
 **Voer tot slot een update uit:**:
-- ` sudo apt-get update`
+
+- `sudo apt-get update`
 
 ⚠️ Krijg je een error waarbij er wordt aangegeven dat de release versie niet geaccepteerd wordt? Zorg er dan voor dat je in het bestand _apt/source.list.d/docker.list_ trusted op _yes_ zet.
 
@@ -124,7 +125,7 @@ In deze opdracht stel je een SQL Server in op een Docker-image en maak je een te
 
 **Stap 2**: Run de container image met Docker met behulp van het volgende commando, waarbij je **YourStrong@Passw0rd** vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat. Dit is het wachtwoord voor de systeembeheerder in SQL server.
 
-```
+```shell
 sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
    -p 1433:1433 --name sql1 --hostname sql1 \
    -d \
@@ -143,7 +144,7 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" 
 
 **Stap 5**: Je bent nu binnen de container en je moet lokaal verbinding maken met sqlcmd door het volledige pad
 
-- ` /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"` te gebruiken, met het wachtwoord dat je zojuist hebt aangemaakt.
+- `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"` te gebruiken, met het wachtwoord dat je zojuist hebt aangemaakt.
 
 **Stap 6**: Creëer een testdatabase met het commando `CREATE DATABASE TestDB;` gevolgd door `GO`.
 
@@ -159,15 +160,15 @@ In deze opdracht installeer je apache-server, een veelgebruikte open-source webs
 
 **Stap 2**: Installeer de nieuwste versie van apache
 
-- ` sudo apt install apache2`
+- `sudo apt install apache2`
 
 **Stap 3**: Controleer of apache actief is, port 80 moet aan het luisteren zijn.
 
-- ` ss -ant`
+- `ss -ant`
 
 **Stap 4** Voeg je zelf toe aan de docker groep zodat je docker images kan beheren.
 
-- ` sudo adduser (s-studentnummer) docker`
+- `sudo adduser (s-studentnummer) docker`
 
 **Stap 5** Om te verifiëren dat alles goed is gegaan, ga je nu een statische website hosten op Docker via poort 6009.
 
@@ -216,9 +217,9 @@ Nu is het tijd om de code van de website op de Debian-server te plaatsen. Zorg e
 
 ⚠️ Stap 8 en 9 worden uitgevoerd voor alle projecten met een database, de overige stappen zijn voor nu alleen van toepassing op het front-end project. Als je later wijzigingen in je database wilt aanbrengen, kun je opnieuw stap 8 en 9 uitvoeren om je migraties bij te werken.
 
-**Stap 8:** Voer migraties uit ` dotnet ef migrations add InitialCreate`
+**Stap 8:** Voer migraties uit `dotnet ef migrations add InitialCreate`
 
-**Stap 9:** Update je database ` dotnet-ef database update`
+**Stap 9:** Update je database `dotnet-ef database update`
 
 **Stap 10:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls`) en voer vervolgens het volgende commando uit:
 
@@ -234,7 +235,7 @@ Je gaat nu een reverse proxy opzetten met behulp van Apache (webserver). Een rev
 
 **Stap 1**: ⛔ Stop de applicatie door Ctrl + Z uit te voeren.
 
-**Stap 2**: Activeer de HTTP proxy module in Apache ` sudo a2enmod proxy proxy_http`
+**Stap 2**: Activeer de HTTP proxy module in Apache `sudo a2enmod proxy proxy_http`
 
 ℹ️ In Linux kun je door mappen navigeren met behulp van het cd-commando gevolgd door de mapnaam om een map te betreden, of cd ../ om terug te gaan naar de vorige map. Met het commando nano kun je een tekstbestand bewerken.
 
@@ -244,10 +245,10 @@ Je gaat nu een reverse proxy opzetten met behulp van Apache (webserver). Een rev
 
 **Stap 4**: Voeg de volgende keywords aan het bestand toe:
 
-` ProxyPass / http://localhost:6009/
+`ProxyPass / http://localhost:6009/
   ProxyPassReverse / http://localhost:6009/`
 
-` ProxyPass /api http://localhost:5000
+`ProxyPass /api http://localhost:5000
   ProxyPassReverse /api http://localhost:5000`
 
 ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/63be4cf3-fef7-415c-979a-ceb85a8d3581)
@@ -292,7 +293,7 @@ In deze opdracht zorg je ervoor dat jouw webapplicatie beschikbaar is via HTTPS.
 
 - `sudo ln -s /snap/bin/certbot /usr/bin/certbot`
 
-**Stap 8**: Voer het commando` sudo certbot --apache` uit. Hiermee start je Certbot met de Apache-plugin, waardoor je een SSL-certificaat kunt verkrijgen en configureren voor je webapplicatie.
+**Stap 8**: Voer het commando`sudo certbot --apache` uit. Hiermee start je Certbot met de Apache-plugin, waardoor je een SSL-certificaat kunt verkrijgen en configureren voor je webapplicatie.
 
 **Stap 9**: Ga naar de map van je project (`cd` en `ls`) en voer vervolgens het volgende commando uit:
 
@@ -321,13 +322,13 @@ Nadat je het TLS-certificaat hebt geïnstalleerd, is het raadzaam een beveiligin
 
 **Stap 4:** In die folder zul je \<projectnaam\>.dll zien staan. Voer de volgende commando uit
 
-- `dotnet <projectnaam>.dll --urls=http://localhost:6009 `
+- `dotnet <projectnaam>.dll --urls=http://localhost:6009`
 
 **Stap 5:** ⛔ Stop je applicatie door Ctrl + Z in te voeren, zodat je deze op de achtergrond kan draaien.
 
 **Stap 6:** Voer het commando `bg` uit om het op de achtergrond te laten draaien.
 
-**Stap 7:** Herhaal de bovenstaande stappen voor je API project. **Laat bij stap 4 voor de API --urls=http://localhost:6009 weg, zie hieronder een voorbeeld!!**
+**Stap 7:** Herhaal de bovenstaande stappen voor je API project. **Laat bij stap 4 voor de API --urls=<http://localhost:6009> weg, zie hieronder een voorbeeld!!**
 
 - `dotnet  <projectnaam>..dll`
 

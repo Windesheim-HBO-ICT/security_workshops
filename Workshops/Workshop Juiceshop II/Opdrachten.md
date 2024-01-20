@@ -2,32 +2,32 @@
 
 ## Opdracht 7: Laat een review van 0 sterren achter
 
-### ASVS:
+### ASVS
 
 - **V4.1 | Access Control**: Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed.
 
-### Uitleg:
+### Uitleg
 
 1. Open de Juice Shop in een webbrowser.
-2. Ga naar de contact pagina. (http://localhost:3000/#/contact)
+2. Ga naar de contact pagina. (<http://localhost:3000/#/contact>)
 3. Open de developer tools van de webbrowser.
 4. Selecteer de verstuur knop.
 5. Verwijder het `disabled` attribuut van de verstuur knop.
 6. Verstuur het formulier.
-7. Gefeliciteerd! Je hebt nu een review van 0 sterren achtergelaten. (Zie de review op about pagina (http://localhost:3000/#/about))
+7. Gefeliciteerd! Je hebt nu een review van 0 sterren achtergelaten. (Zie de review op about pagina (<http://localhost:3000/#/about>))
 
 ## Opdracht 8: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
 
-### ASVS:
+### ASVS
 
 - V7.3.3 Verify that security logs are protected from unauthorized access and modification.
 - V7.4.1 Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.
 
-### Opdracht:
+### Opdracht
 
 Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog veel meer, welke allemaal een slechte afhandeling hebben.
 
-1. Ga naar de Juice Shop login pagina. (http://localhost:3000/#/login)
+1. Ga naar de Juice Shop login pagina. (<http://localhost:3000/#/login>)
 2. Vul een "`'`" in bij het email adres en een willekeurig wachtwoord. Hierbij probeer je een SQL error te veroorzaken.
 3. De Juice Shop geeft nu een error terug met een SQL query.
 4. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
@@ -35,16 +35,16 @@ Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog
 
 ## Opdracht 9: XSS aanval op de Juice Shop
 
-### ASVS:
+### ASVS
 
 - V5.3 Validation, Sanitization and Encoding: Verify that all user-controllable input is validated, sanitized and encoded.
 
-### Opdracht:
+### Opdracht
 
 1. Log in als een gebruiker.
-2. Open de order history pagina. (http://localhost:3000/#/order-history)
-3. Klik op de "Vrachtauto" knop om een bestelling te traceren. (http://localhost:3000/#/track-order)
-4. In de url van de pagina staat het order id. (http://localhost:3000/#/track-result?id=ORDER_ID)
+2. Open de order history pagina. (<http://localhost:3000/#/order-history>)
+3. Klik op de "Vrachtauto" knop om een bestelling te traceren. (<http://localhost:3000/#/track-order>)
+4. In de url van de pagina staat het order id. (<http://localhost:3000/#/track-result?id=ORDER_ID>)
 5. Dit order id kan gebruikt worden om een XSS aanval uit te voeren omdat deze rechtstreeks op de pagina wordt getoond.
 6. Voer de volgende payload in in het order id veld:
 
@@ -58,11 +58,11 @@ De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%
 
 ## Opdracht 10: Voer een DOM XSS aanval uit op de Juice Shop
 
-### ASVS:
+### ASVS
 
 - V5.3 Validation, Sanitization and Encoding: Verify that all user-controllable input is validated, sanitized and encoded.
 
-### Opdracht:
+### Opdracht
 
 1. Open het zoekveld van de Juice Shop. (Rechts bovenaan de pagina)
 2. Voer de volgende payload in in het zoekveld:
@@ -75,11 +75,11 @@ De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%
 
 ## Opdracht 11: Maak een ongeldige JWT token
 
-### ASVS:
+### ASVS
 
 - V3.2 | Session Management: Verify that session tokens are generated using approved cryptographic algorithms.
 
-### Opdracht:
+### Opdracht
 
 1. Log in als een gebruiker
 2. Open het netwerk tab van de developer tools
@@ -95,10 +95,10 @@ De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%
 
 ## Opdracht 12: Laat 10 reviews achter in minder dan 10 seconden
 
-### ASVS:
+### ASVS
 
 - V2.2 | Authentication: Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.
 
-### Opdracht:
+### Opdracht
 
-https://github.com/bmanning1/captchaRequests/
+<https://github.com/bmanning1/captchaRequests/>

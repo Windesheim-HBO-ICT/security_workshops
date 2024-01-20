@@ -5,8 +5,9 @@
 [locatie resultaat]
 
 ## Voorwaarden deelname
+
 [download xyz]
 
-## Beschrijving 
+## Beschrijving
 
 ## Uitvoering

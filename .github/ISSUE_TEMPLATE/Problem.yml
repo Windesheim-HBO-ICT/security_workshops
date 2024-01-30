@@ -1,7 +1,7 @@
 name: Problem
 description: Run into a problem while following a workshop?
 title: "[Problem]: "
-labels: ["problem"]
+labels: ["frequent problem"]
 body:
   - type: dropdown
     id: workshop

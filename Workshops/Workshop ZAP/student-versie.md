@@ -41,7 +41,13 @@ Voordat we kunnen beginnen met pentesting, moeten we ZAP en de benodigde softwar
 
 **Stap 6:** Geef een herkenbare naam en druk op save. Op deze manier word je sessie opgeslagen en kun je later verder met deze sessie.
 
-_Als je alle stappen correct hebt doorlopen, zie je het volgende: ![ZAP home page](zaphomepage.png)_
+_Als je alle stappen correct hebt doorlopen, zie je het volgende: ![ZAP home page](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/62651445/b2d1e0a6-8b7d-4d04-b8d4-1fc53e08b5fd)_ De ZAP UI bestaat uit de volgende onderdelen:
+1. **Menu Bar** – Provides access to many of the automated and manual tools.
+2. **Toolbar** – Includes buttons which provide easy access to most commonly used features.
+3. **Tree Window** – Displays the Sites tree and the Scripts tree.
+4. **Workspace Window** – Displays requests, responses, and scripts and allows you to edit them.
+5. **Information Window** – Displays details of the automated and manual tools.
+6. **Footer** – Displays a summary of the alerts found and the status of the main automated tools.
 
 **✔️ opdracht 1 is klaar!**
 
@@ -53,7 +59,7 @@ We gaan starten met het in kaart brengen van je website, dit gaan we doen met ee
 
 **Stap 1:** Launch je eigen webapplicatie lokaal. Onthoud of noteer de URL (Bijvoorbeeld: <https://localhost:7095/>).
 
-**Stap 2:** In ZAP, klik onderaan in de toolbar op de groene plus.
+**Stap 2:** In ZAP, klik onderaan in de Information window (5) op de groene plus.
 
 **Stap 3:** Selecteer _🕷 Spider_.
 
@@ -80,9 +86,9 @@ De lijst met URLs wordt nu gevuld. Bij elke URL staat de volgende informatie:
 - **URL** - De gevonden resource.
 - **Flags** - Extra informatie over de URL.
 
-**Stap 8:** Aan de zijkant staat het tabje 🌍_Sites_. Als je de folder met URL van je webapplicatie uiteenklapt, zie je een folder structuur. Komt deze structuur (gedeeltelijk) overeen met de folderstructuur in je editor? Mis je nog een aantal folders/resources? Zie je bestanden die je er niet tussen wilt zien? Denk aan admin pagina's, pagina's die je alleen mag zien als je ingelogd bent of andere resources. Zie je onverwachte folders of items? Noteer deze dan.
+**Stap 8:** Aan de zijkant, in de tree window(3), staat het tabje 🌍_Sites_. Als je de folder met URL van je webapplicatie uiteenklapt, zie je een folder structuur. Komt deze structuur (gedeeltelijk) overeen met de folderstructuur in je editor? Mis je nog een aantal folders/resources? Zie je bestanden die je er niet tussen wilt zien? Denk aan admin pagina's, pagina's die je alleen mag zien als je ingelogd bent of andere resources. Zie je onverwachte folders of items? Noteer deze dan.
 
-**Stap 9:** In de toolbar onderaan staat een tabje 🚩_Alerts_. In dit tabje kun je zien welke security issues de spiderscan heeft gevonden. Bekijk de alerts, kies een aantal uit die je wil gaan oplossen.
+**Stap 9:** In de information window(5) onderaan staat het tabje 🚩_Alerts_. In dit tabje kun je zien welke security issues de spiderscan heeft gevonden. Bekijk de alerts, kies een aantal uit die je wil gaan oplossen.
 
 **✔️ Opdracht 2 is klaar!**
 
@@ -94,7 +100,7 @@ De Ajax spider gebruikt een andere methode dan de normale spider om URLs te vind
 
 **Stap 1:** Launch je eigen webapplicatie lokaal. Onthoud of noteer de URL (Bijvoorbeeld: <https://localhost:7095/>).
 
-**Stap 2:** In ZAP, klik onderaan in de toolbar op de groene plus.
+**Stap 2:** In ZAP, klik onderaan in de information window(5) op de groene plus.
 
 **Stap 3:** Selecteer _🕷 Ajax spider_.
 
@@ -173,7 +179,7 @@ Deze staat standaard onder 📂_<https://localhost:XXXX>_ --> 📂_Identity_ -->
 Om ZAP te laten weten of de huidige pagina een ingelogde pagina is, moeten we een kenmerk van een ingelogde pagina meegeven. Dit is vaak een uitlogknop of een welkomstbericht. Voor een uitgelogde pagina is een kenmerk vaak een inlog-knop. We gaan nu handmatig in de applicatie inloggen, zodat we de inlogrequest en response in de history terug kunnen vinden.
 
 **Stap 7:** Sluit het venster met de OK knop. In het quick start venster klik je op manual explore en vul je de URL van je applicatie in.
-Zet *Enable HUD\*\* uit. Selecteer je browser en klik op*Launch Browser\*. Log nu in met een gebruiker van je applicatie. Je kunt nu de geopende broser weer wegklikken.
+Zet *Enable HUD*\* uit. Selecteer je browser en klik op *Launch Browser*. Log nu in met een gebruiker van je applicatie. Je kunt nu de geopende broser weer wegklikken.
 
 \*_De HUD is een meer handmatige manier om je applicatie te ontdekken/aan te vallen. Er zitten ook functies in die niet in deze workshop worden behandeld. Als je dit interessant vind, kun je later de HUD aanzetten en de HUD-tutorial volgen._
 
@@ -211,11 +217,11 @@ We hebben nu de applicatie als ingelogde gebruiker in kaart gebracht, nu kunnen 
 
 We gaan een eerder gemaakt request wijzigen en kijken of we hiermee je webapplicatie kapot kunnen maken.
 
-**Stap 1:** In het _Quick Start_ tabje, klik op manual explore. vul de url van je applicatie in (<http://localhost:XXXX>), zet _Enable HUD_ uit en launch in browser naar keuze.
+**Stap 1:** In het _Quick Start_ tabje (Workspace window(4)), klik op manual explore. vul de url van je applicatie in (<http://localhost:XXXX>), zet _Enable HUD_ uit en launch in browser naar keuze.
 
 **Stap 2:** Navigeer naar je inlog-pagina.
 
-**Stap 3:** We moeten ervoor zorgen dat ZAP alle requests onderschept. Om dit te doen klik je op 🟢_Set Break on All Requests and Responses_ in de menubar. 🟢 verandert naar 🔴.
+**Stap 3:** We moeten ervoor zorgen dat ZAP alle requests onderschept. Om dit te doen klik je op 🟢_Set Break on All Requests and Responses_ in de toolbar (2). 🟢 verandert naar 🔴.
 
 **Stap 4:** Log in met een incorrect wachtwoord.
 
@@ -235,7 +241,7 @@ Om in te zien of je applicatie veiliger is geworden, gaan we nu een rapport gene
 
 We gaan eerst een nulmeting vastleggen.
 
-**Stap 1:** Klik in de menubar op _Report_ --> _Generate report_
+**Stap 1:** Klik in de menubar (1) op _Report_ --> _Generate report_
 
 **Stap 2:** In de context, selecteer alleen je eigen applicatie (<http://localhost:XXXX>).
 

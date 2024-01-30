@@ -220,12 +220,6 @@ Nu is het tijd om de code van de website op de Debian-server te plaatsen. Zorg e
 
 **Stap 9:** Update je database `dotnet-ef database update`
 
-**Stap 10:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls`) en voer vervolgens het volgende commando uit:
-
-- `dotnet run --urls=http://localhost:6009`.
-
-**Stap 11:** Zodra het bouwen van je project is voltooid, navigeer je in je browser naar de website via je domeinnaam als je die al hebt, of via je openbare IP-adres (bijvoorbeeld 145.44.xxx.xxx). Als je webapplicatie zichtbaar is, ben je klaar.
-
 ✅Opdracht 5 is Klaar!
 
 ## Opdracht 6 Reverse proxy

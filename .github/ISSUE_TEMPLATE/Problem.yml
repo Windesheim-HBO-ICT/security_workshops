@@ -1,0 +1,37 @@
+name: Problem
+description: Run into a problem while following a workshop?
+title: "[Problem]: "
+labels: ["problem"]
+body:
+  - type: dropdown
+    id: workshop
+    attributes:
+      label: Workshop
+      description: What workshop are you following?
+      options:
+        - Threat modeling
+        - Setup Skylab
+        - Deployment op Skylab
+        - ZAP
+        - Risk & Mitigation 1
+        - Risk & Mitigation 2
+        - Risk & Mitigation 3
+        - Code Review
+        - SAST
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem did you run into?
+      placeholder: Docker returned the following error: "ERROR INFORMATION"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell

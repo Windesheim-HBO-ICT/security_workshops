@@ -1,0 +1,33 @@
+name: Incorrect information
+description: Is information missing or incorrect?
+title: "[Incorrect information]: "
+labels: ["problem"]
+body:
+  - type: dropdown
+    id: workshop
+    attributes:
+      label: Workshop
+      description: What workshop are you following?
+      options:
+        - Threat modeling
+        - Setup Skylab
+        - Deployment op Skylab
+        - ZAP
+        - Risk & Mitigation 1
+        - Risk & Mitigation 2
+        - Risk & Mitigation 3
+        - Code Review
+        - SAST
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: actual
+      description: What information is displayed?
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What information did you expect to see?

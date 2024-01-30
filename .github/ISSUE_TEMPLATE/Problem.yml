@@ -21,6 +21,11 @@ body:
       default: 0
     validations:
       required: true
+  - type: input
+    id: stepnumber
+    attributes:
+      label: Steps
+      description: Which step(s) contain the problem?
   - type: textarea
     id: problem
     attributes:

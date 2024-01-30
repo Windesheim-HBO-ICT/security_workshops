@@ -226,17 +226,15 @@ Nu is het tijd om de code van de website op de Debian-server te plaatsen. Zorg e
 
 Je gaat nu een reverse proxy opzetten met behulp van Apache (webserver). Een reverse proxy fungeert als een tussenliggende server tussen gebruikers en een webserver. Het verwerkt verzoeken van gebruikers, fungeert als een beveiligingslaag en optimaliseert de prestaties. 🌐🔒✨
 
-**Stap 1**: ⛔ Stop de applicatie door Ctrl + Z uit te voeren.
-
-**Stap 2**: Activeer de HTTP proxy module in Apache `sudo a2enmod proxy proxy_http`
+**Stap 1**: Activeer de HTTP proxy module in Apache `sudo a2enmod proxy proxy_http`
 
 ℹ️ In Linux kun je door mappen navigeren met behulp van het cd-commando gevolgd door de mapnaam om een map te betreden, of cd ../ om terug te gaan naar de vorige map. Met het commando nano kun je een tekstbestand bewerken.
 
-**Stap 3**: Navigeer naar de 000-default.conf bestand.
+**Stap 2**: Navigeer naar de 000-default.conf bestand.
 
 - `sudo nano /etc/apache2/sites-enabled/000-default.conf`
 
-**Stap 4**: Voeg de volgende keywords aan het bestand toe:
+**Stap 3**: Voeg de volgende keywords aan het bestand toe:
 
 `ProxyPass / http://localhost:6009/
   ProxyPassReverse / http://localhost:6009/`
@@ -246,12 +244,18 @@ Je gaat nu een reverse proxy opzetten met behulp van Apache (webserver). Een rev
 
 ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/63be4cf3-fef7-415c-979a-ceb85a8d3581)
 
-**Stap 5**: Gebruik de toetscombinatie `Control + X` om de wijzigingen op te slaan.
+**Stap 4**: Gebruik de toetscombinatie `Control + X` om de wijzigingen op te slaan.
 
-**Stap 6**: Restart apache `sudo systemctl restart apache2`
+**Stap 5**: Restart apache `sudo systemctl restart apache2`
 
 ℹ️ Je hebt zojuist succesvol een reverse proxy geconfigureerd! 🌐 Verkeer naar jouw website wordt doorgestuurd naar localhost:6009, terwijl verzoeken naar jouw interne API worden gerouteerd via het pad /api naar localhost:5000. 🚀 Zorg ervoor dat je in de naamgeving van je API-controllers het /api-pad hebt toegevoegd, indien dat nog niet is gedaan. 🔍
 ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/4c730ac3-4060-4137-b6c3-c512196b75de)
+
+**Stap 6:** Ga naar de map van je project (gebruik hiervoor `cd` en `ls`) en voer vervolgens het volgende commando uit:
+
+- `dotnet run --urls=http://localhost:6009`.
+
+**Stap 7:** Zodra het bouwen van je project is voltooid, navigeer je in je browser naar de website via je domeinnaam als je die al hebt, of via je openbare IP-adres (bijvoorbeeld 145.44.xxx.xxx). Als je webapplicatie zichtbaar is, ben je klaar.
 
 ✅Opdracht 6 is Klaar!
 

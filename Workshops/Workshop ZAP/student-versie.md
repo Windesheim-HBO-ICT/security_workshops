@@ -179,7 +179,7 @@ Deze staat standaard onder 📂_<https://localhost:XXXX>_ --> 📂_Identity_ -->
 Om ZAP te laten weten of de huidige pagina een ingelogde pagina is, moeten we een kenmerk van een ingelogde pagina meegeven. Dit is vaak een uitlogknop of een welkomstbericht. Voor een uitgelogde pagina is een kenmerk vaak een inlog-knop. We gaan nu handmatig in de applicatie inloggen, zodat we de inlogrequest en response in de history terug kunnen vinden.
 
 **Stap 7:** Sluit het venster met de OK knop. In het quick start venster klik je op manual explore en vul je de URL van je applicatie in.
-Zet *Enable HUD*\* uit. Selecteer je browser en klik op *Launch Browser*. Log nu in met een gebruiker van je applicatie. Je kunt nu de geopende broser weer wegklikken.
+Zet _Enable HUD_\* uit. Selecteer je browser en klik op _Launch Browser_. Log nu in met een gebruiker van je applicatie. Je kunt nu de geopende broser weer wegklikken.
 
 \*_De HUD is een meer handmatige manier om je applicatie te ontdekken/aan te vallen. Er zitten ook functies in die niet in deze workshop worden behandeld. Als je dit interessant vind, kun je later de HUD aanzetten en de HUD-tutorial volgen._
 
@@ -217,19 +217,19 @@ We hebben nu de applicatie als ingelogde gebruiker in kaart gebracht, nu kunnen 
 
 We gaan een eerder gemaakt request wijzigen en kijken of we hiermee je webapplicatie kapot kunnen maken.
 
-**Stap 1:** In het _Quick Start_ tabje (Workspace window(4)), klik op manual explore. vul de url van je applicatie in (<http://localhost:XXXX>), zet _Enable HUD_ uit en launch in browser naar keuze.
+**Stap 1:** In het _Quick Start_ tabje (Workspace window(4)), klik op manual explore. vul de url van je applicatie in (<http://localhost:XXXX>), zet _Enable HUD_ **uit** en launch in browser naar keuze.
 
 **Stap 2:** Navigeer naar je inlog-pagina.
 
-**Stap 3:** We moeten ervoor zorgen dat ZAP alle requests onderschept. Om dit te doen klik je op 🟢_Set Break on All Requests and Responses_ in de toolbar (2). 🟢 verandert naar 🔴.
+**Stap 3:** We moeten ervoor zorgen dat ZAP alle requests onderschept. Om dit te doen klik je op 🟢 _Set Break on All Requests and Responses_ in de toolbar (2). 🟢 verandert naar 🔴.
 
 **Stap 4:** Log in met een incorrect wachtwoord.
 
-Als het goed is, wordt je request onderschept en krijg je deze te zien in ZAP.
+Als het goed is, wordt je request onderschept en zal de applicatie bevriezen. Je kunt het onderschepte request vinden in het ❌ _break_ tabje in de workspace window (4).
 
 **Stap 5:** We gaan het request wijzigen. Haal bijvoorbeeld het Input.UserName veld weg en klik op ▶️_Submit and Continue to Next Breakpoint_. Vangt je applicatie dit af?
 
-**Stap 6:** Zet de 🟢break all weer aan en log nog een keer in, dit keer met correcte inloggegevens. Pas het _\_\_RequestVerificationToken_ aan. Kun je nu nog succesvol inloggen?
+**Stap 6:** Zet de 🟢 _break all_ weer aan en log nog een keer in, dit keer met correcte inloggegevens. Pas het _\_\_RequestVerificationToken_ aan. Kun je nu nog succesvol inloggen?
 
 **Stap 7:** Probeer andere gegevens in de request te veranderen. Kun je iemand doorsturen naar een andere pagina? Kun je inloggen op een ander account? Kun je een SQL injectie uitvoeren?
 

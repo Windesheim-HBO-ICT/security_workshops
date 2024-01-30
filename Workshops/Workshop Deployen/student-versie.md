@@ -108,7 +108,7 @@ In deze opdracht installeer je Docker; in latere stappen zullen we hier dieper o
 
 **Stap 4**: Installeer docker `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
 
-**Stap 5**: Controleer of de Docker-installatie succesvol is verlopen. Als alles correct is, zal het commando `sudo docker run hello-world` "Hello World" weergeven en het programma afsluiten.
+**Stap 5**: Controleer of de Docker-installatie succesvol is verlopen. Als alles correct is, zal het commando `sudo docker run hello-world` "Hello from Docker!" weergeven en het programma afsluiten.
 
 ✅Opdracht 2 is Klaar!
 
@@ -125,7 +125,7 @@ In deze opdracht stel je een SQL Server in op een Docker-image en maak je een te
 **Stap 2**: Run de container image met Docker met behulp van het volgende commando, waarbij je **YourStrong@Passw0rd** vervangt door een wachtwoord dat minimaal 10 tekens lang is en zowel hoofdletters als kleine letters bevat. Dit is het wachtwoord voor de systeembeheerder in SQL server.
 
 ```shell
-sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" \
+sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrong@Passw0rd" \
    -p 1433:1433 --name sql1 --hostname sql1 \
    -d \
    mcr.microsoft.com/mssql/server:2022-latest
@@ -298,10 +298,10 @@ In deze opdracht zorg je ervoor dat jouw webapplicatie beschikbaar is via HTTPS.
 
 **Stap 10**: Ga naar je website en controleer of er een slotje staat.
 
-ℹ️Je hebt zojuist succesvol een TLS-certificaat toegepast op je webserver. TLS (Transport Layer Security) is de hedendaagse opvolger van SSL (Secure Sockets Layer), beide ontworpen om gegevens te versleutelen tijdens de communicatie tussen een webserver en een gebruiker. Met dit TLS-certificaat wordt de vertrouwelijkheid en integriteit van de gegevensoverdracht verzekerd. Het is een cruciale stap om een veilige verbinding (https) op een website te realiseren. 🔒✨
+ℹ️ Je hebt zojuist succesvol een TLS-certificaat toegepast op je webserver. TLS (Transport Layer Security) is de hedendaagse opvolger van SSL (Secure Sockets Layer), beide ontworpen om gegevens te versleutelen tijdens de communicatie tussen een webserver en een gebruiker. Met dit TLS-certificaat wordt de vertrouwelijkheid en integriteit van de gegevensoverdracht verzekerd. Het is een cruciale stap om een veilige verbinding (https) op een website te realiseren. 🔒✨
 
 **Stap 11**:
-Nadat je het TLS-certificaat hebt geïnstalleerd, is het raadzaam een beveiligingsrapport voor je portfolio te genereren. Voer [de test](https://www.ssllabs.com/ssltest/). uit om de configuratie te analyseren, mogelijke kwetsbaarheden te identificeren en voeg een screenshot van het rapport toe aan je portfolio als mogelijk bewijsmateriaal.
+Nadat je het TLS-certificaat hebt geïnstalleerd, is het raadzaam een beveiligingsrapport voor je portfolio te genereren. Voer [de test](https://www.ssllabs.com/ssltest/) uit om de configuratie te analyseren, mogelijke kwetsbaarheden te identificeren en voeg een screenshot van het rapport toe aan je portfolio als mogelijk bewijsmateriaal.
 
 ✅Opdracht 7 is Klaar!
 

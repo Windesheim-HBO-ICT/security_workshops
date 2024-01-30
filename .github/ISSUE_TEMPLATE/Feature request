@@ -1,0 +1,30 @@
+name: Feature request
+description: Want something to be added to the workshop?
+title: "[Feature request]: "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: workshop
+    attributes:
+      label: Workshop
+      description: What workshop are you following?
+      options:
+        - Threat modeling
+        - Setup Skylab
+        - Deployment op Skylab
+        - ZAP
+        - Risk & Mitigation 1
+        - Risk & Mitigation 2
+        - Risk & Mitigation 3
+        - Code Review
+        - SAST
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: enhancement
+    attributes:
+      label: Enhancement
+      description: What would you like to see added?
+    validations:
+      required: true

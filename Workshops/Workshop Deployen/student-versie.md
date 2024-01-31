@@ -15,7 +15,7 @@ Na het doorlopen van deze workshop, heb je:
 - Een reverse proxy opgezet 🔄
 - Een SQL server opgezet 🗄️
 - Gewerkt met Docker 🐳
-- Een TSL-certificaat geïmplementeerd (inclusief een grondige scan) 🔒
+- Een TLS-certificaat geïmplementeerd (inclusief een grondige scan) 🔒
 - Jouw webapplicatie met succes gedeployed 🌐
 
 ## Opdracht 1 ASP dotnet core
@@ -259,7 +259,7 @@ Je gaat nu een reverse proxy opzetten met behulp van Apache (webserver). Een rev
 
 ✅Opdracht 6 is Klaar!
 
-## Opdracht 7 TSL certificaat
+## Opdracht 7 TLS certificaat
 
 In deze opdracht zorg je ervoor dat jouw webapplicatie beschikbaar is via HTTPS. HTTPS is een protocol dat zorgt voor versleutelde communicatie tussen de gebruiker en de webserver, wat essentieel is voor veiligheid en privacy. Om HTTPS mogelijk te maken, heb je een TLS-certificaat nodig. 🔒✨
 
@@ -331,11 +331,11 @@ Nadat je het TLS-certificaat hebt geïnstalleerd, is het raadzaam een beveiligin
 
 **Stap 8:** Controleer of alle stappen succesvol zijn verlopen door naar je website te navigeren. Als je een eenvoudige GET-request hebt, kun je jouw API in de terminal testen met de volgende commando's:
 
-Met TSL-certificaat (HTTPS):
+Met TLS-certificaat (HTTPS):
 
 - `curl https://localhost/api/ <naam_get_request>`
 
-Geen TSL-certificaat (de redirect naar https lukt niet):
+Geen TLS-certificaat (de redirect naar https lukt niet):
 
 - `curl https://localhost:5000/api/ <naam_get_request>`
 

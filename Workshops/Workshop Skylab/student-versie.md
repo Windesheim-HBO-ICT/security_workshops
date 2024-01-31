@@ -149,13 +149,21 @@ De opdracht is opgesplitst in drie delen:
 - `sudo apt install openssh-server`
 - `sudo lsof -i`
 
+Als SSH aanstaat krijg je 2 rijen te zien die beginnen met sshd. 1 van de 2 rijen is voor ipv4 en de andere rij voor ipv6. Je ziet aan het eind van de line _listen_ staan.
+
+Staat dit er niet? Volg dan de volgende stappen uit:
+
+- `sudo apt remove openssh-server`
+- `sudo apt install openssh-server`
+- `sudo systemctl start ssh`
+
 **Stap 15:**  Type `sudo reboot`
 
 **Stap 16:** Login in met de gegevens van de nieuwe gebruiker.
 
 **Stap 17:** Type "ip address" om de privéadres van de Debian te zien. Deze zou moeten beginnen met 192.168.xxx.xxx
 
-**✔️ Opdracht 4 is klaar**
+**✔️ Opdracht 4 is klaar!**
 
 ## Opdracht 5 Kali Linux configureren
 
@@ -187,7 +195,7 @@ Je gaat nu de Kali configureren. In tegenstelling tot Debian heeft Kali Linux we
 
 **Stap 10:** Inloggen met nieuwe gebruiker.
 
-**✔️ Opdracht 5 is klaar**
+**✔️ Opdracht 5 is klaar!**
 
 ## Opdracht 6 Firewall regels
 
@@ -227,7 +235,7 @@ In deze taak ga je port-forwarding regels instellen op de pfSense-firewall, zoda
 
 Als alles goed is gegaan heb je nu vanaf je eigen laptop toegang tot de Debian. Is dat niet gelukt, vraag dan om hulp.
 
-**✔️ Opdracht 6 is klaar**
+**✔️ Opdracht 6 is klaar!**
 
 ## Vandaag voltooide taken
 

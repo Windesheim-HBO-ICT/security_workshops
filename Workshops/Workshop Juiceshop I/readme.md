@@ -21,4 +21,3 @@ Door het ID van de shopping cart aan te passen in session storage kan de student
 ## Opdracht 6: Zet een artikel in de winkelwagen van een andere gebruiker
 
 De student maakt gebruikt van de "Network tab" om te zien hoe de winkelwagen van de gebruiker wordt opgeslagen. Vervolgens wordt postman gebruikt om een request te sturen naar de API om de winkelwagen van een andere gebruiker te veranderen.
-

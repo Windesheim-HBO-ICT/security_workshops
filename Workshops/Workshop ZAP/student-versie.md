@@ -42,6 +42,7 @@ Voordat we kunnen beginnen met pentesting, moeten we ZAP en de benodigde softwar
 **Stap 6:** Geef een herkenbare naam en druk op save. Op deze manier word je sessie opgeslagen en kun je later verder met deze sessie.
 
 _Als je alle stappen correct hebt doorlopen, zie je het volgende: ![ZAP home page](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/62651445/b2d1e0a6-8b7d-4d04-b8d4-1fc53e08b5fd)_ De ZAP UI bestaat uit de volgende onderdelen:
+
 1. **Menu Bar** – Provides access to many of the automated and manual tools.
 2. **Toolbar** – Includes buttons which provide easy access to most commonly used features.
 3. **Tree Window** – Displays the Sites tree and the Scripts tree.
@@ -132,7 +133,7 @@ We hebben nu je webapplicatie in kaart gebracht.
 
 We hebben nu aan de hand van spiders je webapplicatie in kaart gebracht. Nu is het tijd om de gevonden pagina's aan te vallen.
 
-**⚠️Let op: De volgende stappen kunnen schade toebrengen aan je applicatie en database. Het kan zijn dat je data uit je database verliest. Als er data in je database zit, die er niet via seeding in is gekomen, zorg er dan voor dat je een kopie van je database hebt.⚠️**
+⚠️ **Let op: De volgende stappen kunnen schade toebrengen aan je applicatie en database. Het kan zijn dat je data uit je database verliest. Als er data in je database zit, die er niet via seeding in is gekomen, zorg er dan voor dat je een kopie van je database hebt.** ⚠️
 
 De active scan probeert verschillende bekende aanvallen tegen de geselecteerde doelen. Je kunt zelf instellen welke aanvallen extra vaak uitgevoerd worden en welke waarden deze krijgen. Standaard zijn deze instellingen goede genoeg voor het uitvoeren van de active scan.
 

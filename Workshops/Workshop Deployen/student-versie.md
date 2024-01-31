@@ -102,7 +102,7 @@ Je kunt de configuratie printen naar de console met: `sudo cat /etc/apt/sources.
 
 - `sudo apt-get update`
 
-⚠️ Krijg je een error waarbij er wordt aangegeven dat de release versie niet geaccepteerd wordt? Zorg er dan voor dat je in het bestand _apt/source.list.d/docker.list_ trusted op _yes_ zet.
+⚠️ Krijg je een error waarbij er wordt aangegeven dat de release versie niet geaccepteerd wordt? Zorg er dan voor dat je in het bestand _/etc/apt/source.list.d/docker.list_ trusted op _yes_ zet.
 
 **Stap 3**: Controleer of alles correct is verlopen. Als dat het geval is, zal de output niet leeg zijn. Gebruik hiervoor het commando:
 
@@ -269,16 +269,16 @@ In deze opdracht zorg je ervoor dat jouw webapplicatie beschikbaar is via HTTPS.
 
 **Stap 1:** Voer een systeemupdate uit met het commando:
 
-- `sudo apt update`.
+- `sudo apt update`
 
 **Stap 2**: Installeer Snapd met het commando:
 
-- `sudo apt install snapd`.
+- `sudo apt install snapd`
 
 **Stap 3**: Controleer de status van Snapd met het commando
 
-- `sudo systemctl status snapd`.
-  Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl enable --now snapd.socket.`
+- `sudo systemctl status snapd`
+  Als er iets mis is gegaan, voer dan het volgende commando uit: `sudo systemctl enable --now snapd.socket`
 
 **Stap 4**: Installeer de core-snaps met het commando `sudo snap install core`. Hiermee installeer je de basiscomponenten die nodig zijn voor het gebruik van Snap-pakketten.
 
@@ -296,7 +296,7 @@ In deze opdracht zorg je ervoor dat jouw webapplicatie beschikbaar is via HTTPS.
 
 **Stap 9**: Ga naar de map van je project (`cd` en `ls`) en voer vervolgens het volgende commando uit:
 
-- `dotnet run --urls=http://localhost:6009`.
+- `dotnet run --urls=http://localhost:6009`
 
 **Stap 10**: Ga naar je website en controleer of er een slotje staat.
 

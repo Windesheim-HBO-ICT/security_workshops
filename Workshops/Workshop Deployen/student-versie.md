@@ -96,6 +96,8 @@ echo \
 
 ✔️ ``` [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian <releasename> stable ```
 
+Je kunt de configuratie printen naar de console met: `sudo cat /etc/apt/sources.list.d/docker.list`
+
 **Voer tot slot een update uit:**:
 
 - `sudo apt-get update`

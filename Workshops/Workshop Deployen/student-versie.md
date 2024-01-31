@@ -196,7 +196,7 @@ Nu is het tijd om de code van de website op de Debian-server te plaatsen. Zorg e
     "DefaultConnection": "Server=localhost,1433;Database=myDatabase;User Id=sa;Password=YourSqlServerPassword;TrustServerCertificate=true;"
   },`
 
-**Tussenstap**: Beginnen de routes van jouw API met /api? Zo niet, pas dat dan nu ook even aan, aangezien je toch de code aan het wijzigen bent. Dit is belangrijk voor de reverse proxy later. Hieronder staat een voorbeeld; dat scheelt je later werk
+**Tussenstap**: Beginnen de routes van jouw API-project (als je die hebt) met /api? Zo niet, pas dat dan nu ook even aan, aangezien je toch de code aan het wijzigen bent. Dit is belangrijk voor de reverse proxy later. Hieronder staat een voorbeeld; dat scheelt je later werk
 
 ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/c1c51720-1432-474b-bd29-0a6d624de696)
 

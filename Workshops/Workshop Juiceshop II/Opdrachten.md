@@ -29,8 +29,8 @@ Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog
 
 1. Ga naar de Juice Shop login pagina. (<http://localhost:3000/#/login>)
 2. Vul een "`'`" in bij het email adres en een willekeurig wachtwoord. Hierbij probeer je een SQL error te veroorzaken.
-3. De Juice Shop geeft nu een error terug met een SQL query.
-4. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
+3. Open het network tabje in je devtools voordat je op login drukt. Hier kun je straks de SQL-query vinden.
+4. De Juice Shop geeft nu een error terug met een SQL query. Deze vindt je terug in de response van dit request. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
 5. Hierdoor kan je informatie krijgen over de database die de Juice Shop gebruikt.
 
 ## Opdracht 9: XSS aanval op de Juice Shop

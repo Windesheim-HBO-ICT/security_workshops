@@ -6,7 +6,7 @@
 
 - **V4.1 | Access Control**: Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed.
 
-### Uitleg
+### Opdracht
 
 1. Open de Juice Shop in een webbrowser.
 2. Ga naar de contact pagina. (<http://localhost:3000/#/contact>)

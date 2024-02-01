@@ -6,11 +6,13 @@
 
 - **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks.
 
-### Uitleg
+### Opdracht
 
 <https://pwning.owasp-juice.shop/companion-guide/latest/appendix/solutions.html#_perform_a_remote_code_execution_that_would_keep_a_less_hardened_application_busy_forever>
 
 <!-- not yet working -->
+
+_Deze opdracht werkt alleen als je Docker op de onveilige manier hebt gestart. Zie Setup.md bij workshop juiceshop I om te zien hoe dit moet._
 
 1. Open de swagger documentatie van de Juice Shop API. (<http://localhost:3000/api-docs>)
 2. Haal je auth token op uit de developer tools van de webbrowser.
@@ -26,7 +28,9 @@
 - **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks.
 - **V12.5.2**: Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.
 
-### Uitleg
+### Opdracht
+
+_Deze opdracht werkt alleen als je Docker op de onveilige manier hebt gestart. Zie Setup.md bij workshop juiceshop I om te zien hoe dit moet._
 
 1. De vorige opdracht werkte niet, omdat de Juice Shop een ininite loop detectie heeft. Daarom gaan we nu de server bezig houden zonder een infinite loop.
 2. In de request body vullen we nu in:
@@ -41,6 +45,8 @@
 - V5.3.4 Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from database injection attacks.
 
 ### Opdracht
+
+_Deze opdracht werkt alleen als je Docker op de onveilige manier hebt gestart. Zie Setup.md bij workshop juiceshop I om te zien hoe dit moet._
 
 1. Maak gebruik van de API om de reviews van het database ID 1 op te halen. (<http://localhost:3000/rest/products/1/reviews>)
 2. Door iets in de URL te veranderen kan je de reviews van een ander product ophalen. (<http://localhost:3000/rest/products/2/reviews>)

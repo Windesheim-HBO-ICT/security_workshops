@@ -238,11 +238,15 @@ Je gaat nu een reverse proxy opzetten met behulp van Apache (webserver). Een rev
 
 **Stap 3**: Voeg de volgende keywords aan het bestand toe:
 
-`ProxyPass / http://localhost:6009/
-  ProxyPassReverse / http://localhost:6009/`
+```bash
+ProxyPass / http://localhost:6009/
+ProxyPassReverse / http://localhost:6009/
+```
 
-`ProxyPass /api http://localhost:5000
-  ProxyPassReverse /api http://localhost:5000`
+```bash
+ProxyPass /api http://localhost:5000/
+ProxyPassReverse /api http://localhost:5000/
+```
 
 ![image](https://github.com/Windesheim-HBO-ICT/security_workshops/assets/90692319/63be4cf3-fef7-415c-979a-ceb85a8d3581)
 

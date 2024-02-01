@@ -16,8 +16,6 @@ Voor jullie fungeert de acceptatieomgeving als zowel de acceptatie- als producti
 
 Na het afronden van de workshop beschik je over het volgende eindresultaat:
 
-<img src='https://github.com/Windesheim-HBO-ICT/security_workshops/assets/62651445/67359063-2262-4c18-9f63-e1e2103a1253' width='400'>
-
 - **pfSense:** Een firewall die toegang beperkt tot alleen HTTP(S) (poort TCP/80 en TCP/443) en SSH (poort TCP/22).
 - **Kali Linux:** host met hacktools.
 - **Debian Linux:** host voor webserver.
@@ -25,6 +23,7 @@ Na het afronden van de workshop beschik je over het volgende eindresultaat:
 
 Aan het eind van deze setup heb je het volgende netwerk in skylab in elkaar gezet:
 
+<img src='https://github.com/Windesheim-HBO-ICT/security_workshops/assets/62651445/67359063-2262-4c18-9f63-e1e2103a1253' alt='@Harris' width='400'>
 
 ## Opdracht 1: Setup
 

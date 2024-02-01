@@ -22,36 +22,30 @@ Deze handleiding legt uit hoe je Docker Desktop kunt installeren op zowel Window
 
 Gefeliciteerd! Je hebt Docker Desktop succesvol geïnstalleerd op zowel Windows als Mac. Je kunt nu aan de slag met het gebruik van Docker voor het bouwen en uitvoeren van containers.
 
-
-# Handleiding voor het installeren van de Juice Shop
+## Handleiding voor het installeren van de Juice Shop
 
 Deze handleiding legt uit hoe je de Juice Shop kunt installeren met behulp van Docker.
 
-1.Open een nieuw Terminal-venster in de opdrachtprompt/CLI van je eigen laptop (**niet in Docker!**).
+1. Open een nieuw Terminal-venster in de opdrachtprompt/CLI van je eigen laptop (**niet in Docker!**).
 2. Voer het volgende commando uit om de Juice Shop te downloaden en te starten:
 
-```
-docker run --rm -p 3000:3000 bkimminich/juice-shop
-```
-
-Als sommige functies van de Juice Shop niet werken, voer dan het volgende commando uit:
-
-```
+```bash
 docker run --rm --env NODE_ENV=unsafe -p 3000:3000 bkimminich/juice-shop
 ```
+
+Let op: Met deze code wordt de node environment op unsafe gezet. Als je later verder met docker gaat werken is het belangrijk om te weten in welke mode je docker moet starten.
 
 3. Wacht tot de Juice Shop is gedownload en gestart.
 4. Open een webbrowser en ga naar [http://localhost:3000](http://localhost:3000) om de Juice Shop te openen.
 5. Gefeliciteerd! Je hebt de Juice Shop succesvol geïnstalleerd.
 6. Sluit het Terminal-venster om de Juice Shop te stoppen.
 
+## Mogelijke error's
 
-## Mogelijke error's 
-
-```
+```bash
 docker: Error response from daemon: dial unix docker.raw.sock: connect: no such file or directory.
 ```
 
-### Oplossing:
+### Oplossing
 
 Zorg ervoor dat Docker Desktop is geïnstalleerd en actief is. Als Docker Desktop al actief is, probeer het dan opnieuw te starten.

@@ -89,6 +89,8 @@
 
 > Na het eventueel bekijken van de network tab in de developer tools van de webbrowser, is het duidelijk dat de winkelwagen van een gebruiker wordt aangepast door middel van een POST request naar `http://localhost:3000/api/BasketItems`.
 
+Zorg ervoor dat je ingelogd bent met een gebruiker die niet de admin-gebruiker is.
+
 1. Open postman.
 2. Kopieer je bearer token vanuit de Juice Shop. Deze kun je vinden in de header van het toevoegen aan de basket request. Ook is deze te vinden in je local storage.
 3. Voeg dit token toe als bearer token in het authentication tabje in postman.

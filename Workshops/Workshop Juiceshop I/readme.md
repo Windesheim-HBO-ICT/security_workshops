@@ -1,3 +1,7 @@
+# Juice Shop I
+
+Beschrijving van de opdrachten
+
 ## Opdracht 1: Vind het scorebord
 
 De student moet zoeken in de JS van de Juice Shop, waarbij gezocht wordt naar het woord "score". De student vindt hiermee een URL naar het scoreboard, welke hij/zij moet openen in de webbrowser. Hierna zijn de scores gevonden!
@@ -21,3 +25,15 @@ Door het ID van de shopping cart aan te passen in session storage kan de student
 ## Opdracht 6: Zet een artikel in de winkelwagen van een andere gebruiker
 
 De student maakt gebruikt van de "Network tab" om te zien hoe de winkelwagen van de gebruiker wordt opgeslagen. Vervolgens wordt postman gebruikt om een request te sturen naar de API om de winkelwagen van een andere gebruiker te veranderen.
+
+## Opdracht 7: Laat een review van 0 sterren achter
+
+Het aanpassen van HTML om een knop in te drukken die alleen front-end disabled is.
+
+## Opdracht 8: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
+
+Het versturen van incorrect informatie waardoor toegang gekregen kan worden tot informatie over het database-schema.
+
+## Opdracht 9: XSS aanval op de Juice Shop
+
+Uitvoeren van een xss aanval door gebruik van url parameter polution.

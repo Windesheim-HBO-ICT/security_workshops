@@ -1,66 +1,10 @@
 # Juice Shop II opdrachten
 
-## Opdracht 7: Laat een review van 0 sterren achter
-
-### ASVS
-
-- **V4.1 | Access Control**: Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed.
-
-### Opdracht
-
-1. Open de Juice Shop in een webbrowser.
-2. Ga naar de contact pagina. (<http://localhost:3000/#/contact>)
-3. Open de developer tools van de webbrowser.
-4. Selecteer de verstuur knop.
-5. Verwijder het `disabled` attribuut van de verstuur knop.
-6. Verstuur het formulier.
-7. Gefeliciteerd! Je hebt nu een review van 0 sterren achtergelaten. (Zie de review op about pagina (<http://localhost:3000/#/about>))
-
-## Opdracht 8: Veroorzaak een error die niet goed wordt afgehandeld en verkrijg informatie over de database
-
-### ASVS
-
-- V7.3.3 Verify that security logs are protected from unauthorized access and modification.
-- V7.4.1 Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.
-
-### Opdracht
-
-Dit is maar een van de vele manieren om een error te veroorzaken. Er zijn er nog veel meer, welke allemaal een slechte afhandeling hebben.
-
-1. Ga naar de Juice Shop login pagina. (<http://localhost:3000/#/login>)
-2. Vul een "`'`" in bij het email adres en een willekeurig wachtwoord. Hierbij probeer je een SQL error te veroorzaken.
-3. Open het network tabje in je devtools voordat je op login drukt. Hier kun je straks de SQL-query vinden.
-4. De Juice Shop geeft nu een error terug met een SQL query. Deze vindt je terug in de response van dit request. In de error is de query `SELECT \* FROM Users WHERE email = ''' AND password = '5ff798c672bc0c029edcdc699231dc9f' AND deletedAt IS NULL` te vinden.
-5. Hierdoor kan je informatie krijgen over de database die de Juice Shop gebruikt.
-
-## Opdracht 9: XSS aanval op de Juice Shop
-
-### ASVS
-
-- V5.3 Validation, Sanitization and Encoding: Verify that all user-controllable input is validated, sanitized and encoded.
-
-### Opdracht
-
-1. Log in als een gebruiker.
-2. Open de order history pagina. (<http://localhost:3000/#/order-history>)
-3. Klik op de "Vrachtauto" knop om een bestelling te traceren. (<http://localhost:3000/#/track-order>)
-4. In de url van de pagina staat het order id. (<http://localhost:3000/#/track-result?id=ORDER_ID>)
-5. Dit order id kan gebruikt worden om een XSS aanval uit te voeren omdat deze rechtstreeks op de pagina wordt getoond.
-6. Voer de volgende payload in in het order id veld:
-
-```HTML
-<iframe src="javascript:alert(`xss`)">
-```
-
-De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%20src%3D%22javascript:alert(%60xss%60)%22%3E>
-
-7. Gefeliciteerd! Je hebt nu een XSS aanval uitgevoerd op de Juice Shop.
-
 ## Opdracht 10: Voer een DOM XSS aanval uit op de Juice Shop
 
 ### ASVS
 
-- V5.3 Validation, Sanitization and Encoding: Verify that all user-controllable input is validated, sanitized and encoded.
+- V5.3 Validation, Sanitization and Encoding: Verify that all user-controllable input is validated, sanitized and encoded. [ASVS for dummies V5.2.8](https://asvs-for-dummies.pages.dev/item/V5_2_8)
 
 ### Opdracht
 
@@ -77,7 +21,7 @@ De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%
 
 ### ASVS
 
-- V3.2 | Session Management: Verify that session tokens are generated using approved cryptographic algorithms.
+- V3.2 | Session Management: Verify that session tokens are generated using approved cryptographic algorithms. [ASVS for dummies V3.2.4](https://asvs-for-dummies.pages.dev/item/V3_2_4)
 
 ### Opdracht
 
@@ -97,8 +41,88 @@ De totaal-URL wordt hiermee: <http://localhost:3000/#/track-result?id=%3Ciframe%
 
 ### ASVS
 
-- V2.2 | Authentication: Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.
+- V2.2 | Authentication: Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account. [ASVS for dummies V2.2.1](https://asvs-for-dummies.pages.dev/item/V2_2_1)
 
 ### Opdracht
 
 <https://github.com/bmanning1/captchaRequests/>
+
+## Opdracht 13: DoS aanval op de Juice Shop
+
+### ASVS
+
+- **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks. [ASVS for dummies V10.1.1](https://asvs-for-dummies.pages.dev/item/V10_1_1)
+
+### Opdracht
+
+<https://pwning.owasp-juice.shop/companion-guide/latest/appendix/solutions.html#_perform_a_remote_code_execution_that_would_keep_a_less_hardened_application_busy_forever>
+
+1. Open de swagger documentatie van de Juice Shop API. (<http://localhost:3000/api-docs>)
+2. Haal je auth token op uit de developer tools van de webbrowser.
+3. Plak je auth token in de swagger documentatie. (Klik op Authorize rechts bovenaan de pagina en plak je token in het veld)
+4. Stuur het orders POST request naar de Juice Shop API met de volgende body:
+   - `{"orderLinesData": "(function dos() { while(true); })()"}`
+5. Gefeliciteerd! Je hebt nu een DoS aanval uitgevoerd op de Juice Shop. Echter, werkt deze opdracht niet, omdat de Juice Shop een infinite loop detectie heeft. Daarom krijg je een 200 OK response terug. De server is getimeout, maar de Juice Shop is nog steeds bereikbaar.
+
+## Opdracht 14: Successvolle DOS aanval op de Juice Shop
+
+### ASVS
+
+- **V10.3 | Malicious Code**: Verify that the application protects against malicious code being inserted into the application, such as through code injection, and that the application can detect and respond to such attacks. [ASVS for dummies V10.1.1](https://asvs-for-dummies.pages.dev/item/V10_1_1)
+- **V12.5.2 | File Download**: Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. [ASVS for dummies V12.5.2](https://asvs-for-dummies.pages.dev/item/V12_5_2)
+
+### Opdracht
+
+1. De vorige opdracht werkte niet, omdat de Juice Shop een infinite loop detectie heeft. Daarom gaan we nu de server bezig houden zonder een infinite loop.
+2. In de request body vullen we nu in:
+   - `{"orderLinesData": "/((a+)+)b/.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')"}`
+3. Hierdoor wordt er een erg intensieve regex uitgevoerd op de server. Als het goed is krijg je nu een 503 error terug.
+4. Gefeliciteerd! Je hebt nu een succesvolle DDOS aanval uitgevoerd op de Juice Shop.
+
+## Opdracht 15: Laat de server met NoSQL slapen door een NoSQL injection
+
+### ASVS
+
+- V5.3.4 Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from database injection attacks. [ASVS for dummies V5.3.4](https://asvs-for-dummies.pages.dev/item/V5_3_4)
+
+### Opdracht
+
+1. Maak gebruik van de API om de reviews van het database ID 1 op te halen. (<http://localhost:3000/rest/products/1/reviews>)
+2. Door iets in de URL te veranderen kan je de reviews van een ander product ophalen. (<http://localhost:3000/rest/products/2/reviews>)
+3. Door iets in de URL te veranderen kan je ook de server laten slapen. (<http://localhost:3000/rest/products/sleep(2000)/reviews>)
+4. De Juice Shop is nu (tijdelijk) niet meer bereikbaar. Gefeliciteerd! Je hebt nu een NoSQL injection uitgevoerd op de Juice Shop.
+
+## Opdracht 16: Vind een confidentieel document
+
+### ASVS
+
+- V12.5 | Files and Resources: Verify that all files and resources are protected from unauthorized access. [ASVS for dummies V12.6.1](https://asvs-for-dummies.pages.dev/item/V12_6_1)
+
+### Opdracht
+
+1. Ga naar de about pagina. (<http://localhost:3000/#/about>)
+2. Klik op de link die verwijst naar de gebruikersvoorwaarden. (<http://localhost:3000/#/ftp/legal.md>)
+3. In de url van de pagina is te zien dat de gebruikersvoorwaarden worden opgehaald vanaf een FTP server.
+4. Ga naar de FTP server. (<http://localhost:3000/ftp/>)
+5. Nu is het mogelijk om alle bestanden op de FTP server te bekijken.
+6. Open het bestand `acquisitions.md`.
+7. Gefeliciteerd! Je hebt nu een confidential document gevonden.
+
+## Opdracht 17: Krijg toegang tot een vergeten backup bestand via een Poison Null Byte
+
+### ASVS
+
+- V12.5.1 Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak), temporary working files (e.g. .swp), compressed files (.zip, .tar.gz, etc) and other extensions commonly used by editors should be blocked unless required. [ASVS for dummies V12.5.1](https://asvs-for-dummies.pages.dev/item/V12_5_1)
+
+### Opdracht
+
+1. Ga naar de FTP server van de Juice Shop. (<http://localhost:3000/ftp>).
+2. Het doel is om het bestand `package.json.bak` te downloaden.
+3. Als dit bestand wordt aangeklikt wordt er een error getoond: Dit is een backup bestand, waarvan het downloaden niet is niet toegestaan.
+4. Door gebruik te maken van een Poison Null Byte kan je dit bestand toch downloaden.
+5. De Poison Null Byte is `%00`.
+6. De URL wordt dan: `http://localhost:3000/ftp/package.json.bak%00.md`
+7. Dit werkt echter niet, omdat de Juice Shop de URL encodeert.
+8. Door zelf de null byte te encoderen kan je het bestand toch downloaden.
+9. De URL wordt dan: `http://localhost:3000/ftp/package.json.bak%25%30%30.md`
+10. Gefeliciteerd! Je hebt nu een toegang tot een vergeten backup bestand.

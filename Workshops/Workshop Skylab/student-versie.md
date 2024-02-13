@@ -235,7 +235,7 @@ In deze taak ga je port-forwarding regels instellen op de pfSense-firewall, zoda
 
 **Stap 10:** Als je regels hebt ingesteld voor poorten TCP/80 (HTTP), TCP/443 (HTTPS) en TCP/22 (SSH) (in totaal 3), klik dan op "Apply Changes".
 
-**Stap 11:** Open op je eigen laptop (niet Skylab) de opdrachtprompt. Voer de volgende opdracht uit: "ssh <studentnummer@145.publiek> IP-adres". Als je je publieke IP-adres niet weet, kijk dan bij "Implementaties" en zoek naar pfsense, daar zou je publieke IP-adres moeten staan.
+**Stap 11:** Open op je eigen laptop (niet Skylab) de opdrachtprompt. Voer het volgende command uit: `ssh <studentnummer>@<publiek IP-adres>`. Vervang hierbij \<publiek IP-adres\> voor je eigen IP-adres, beginnend met 145.44.xxx.xxx. Als je je publieke IP-adres niet weet, kijk dan bij "Implementaties" en zoek naar pfsense, daar zou je publieke IP-adres moeten staan.
 
 Als alles goed is gegaan heb je nu vanaf je eigen laptop toegang tot de Debian. Is dat niet gelukt, vraag dan om hulp.
 

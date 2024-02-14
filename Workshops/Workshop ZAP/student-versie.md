@@ -87,9 +87,9 @@ De lijst met URLs wordt nu gevuld. Bij elke URL staat de volgende informatie:
 - **URL** - De gevonden resource.
 - **Flags** - Extra informatie over de URL.
 
-**Stap 8:** Aan de zijkant, in de tree window(3), staat het tabje 🌍_Sites_. Als je de folder met URL van je webapplicatie uiteenklapt, zie je een folder structuur. Komt deze structuur (gedeeltelijk) overeen met de folderstructuur in je editor? Mis je nog een aantal folders/resources? Zie je bestanden die je er niet tussen wilt zien? Denk aan admin pagina's, pagina's die je alleen mag zien als je ingelogd bent of andere resources. Zie je onverwachte folders of items? Noteer deze dan.
+**Stap 8:** Aan de zijkant, in de tree window(3), staat het tabje 🌍 _Sites_. Als je de folder met URL van je webapplicatie uiteenklapt, zie je een folder structuur. Komt deze structuur (gedeeltelijk) overeen met de folderstructuur in je editor? Mis je nog een aantal folders/resources? Zie je bestanden die je er niet tussen wilt zien? Denk aan admin pagina's, pagina's die je alleen mag zien als je ingelogd bent of andere resources. Zie je onverwachte folders of items? Noteer deze dan.
 
-**Stap 9:** In de information window(5) onderaan staat het tabje 🚩_Alerts_. In dit tabje kun je zien welke security issues de spiderscan heeft gevonden. Bekijk de alerts, kies een aantal uit die je wil gaan oplossen.
+**Stap 9:** In de information window(5) onderaan staat het tabje 🚩 _Alerts_. In dit tabje kun je zien welke security issues de spiderscan heeft gevonden. Bekijk de alerts, kies een aantal uit die je wil gaan oplossen.
 
 **✔️ Opdracht 2 is klaar!**
 
@@ -124,7 +124,7 @@ De lijst met URLs wordt nu gevuld. Bij elke URL staat de volgende informatie:
 - **URL** - De gevonden resource.
 - **Size Resp. Header en Size Resp. Body** - De grootte van de response header en body.
 
-Je folder structuur is nu groter geworden, je ziet meer pagina's en andere resources in het 🌍_Sites_ tabje.
+Je folder structuur is nu groter geworden, je ziet meer pagina's en andere resources in het 🌍 _Sites_ tabje.
 We hebben nu je webapplicatie in kaart gebracht.
 
 **✔️ opdracht 3 is klaar!**
@@ -137,13 +137,13 @@ We hebben nu aan de hand van spiders je webapplicatie in kaart gebracht. Nu is h
 
 De active scan probeert verschillende bekende aanvallen tegen de geselecteerde doelen. Je kunt zelf instellen welke aanvallen extra vaak uitgevoerd worden en welke waarden deze krijgen. Standaard zijn deze instellingen goede genoeg voor het uitvoeren van de active scan.
 
-**Stap 1:** In het 🌍_Sites_ tabje, klik met je rechtermuis op de 📄_GET:/_ pagina en selecteer _Attack_ --> 🔥_Active scan_.
+**Stap 1:** In het 🌍 _Sites_ tabje, klik met je rechtermuis op de 📄 _GET:/_ pagina en selecteer _Attack_ --> 🔥 _Active scan_.
 
 **Stap 2:** Klik op _Start Scan_.
 
 Er wordt nu een scan uitgevoerd op de pagina's die gevonden zijn met de spiders.
 
-**Stap 3:** Omdat deze scan iets langer kan duren, voornamelijk voor grote websites, is het mogelijk om specifiekere voortgang in te zien. In het 🔥_Active Scan_ tabje dat nu is geopend, klik op het 📟_Progress details_ icoontje naast de ⏸️_Pauze_ en ⏹️_Stop_ knop.
+**Stap 3:** Omdat deze scan iets langer kan duren, voornamelijk voor grote websites, is het mogelijk om specifiekere voortgang in te zien. In het 🔥 _Active Scan_ tabje dat nu is geopend, klik op het 📟 _Progress details_ icoontje naast de ⏸️ _Pauze_ en ⏹️ _Stop_ knop.
 
 In het venster dat nu geopend wordt, zie je welke attacks uitgevoerd worden en hoever de attacks zijn. Hier wordt getoond hoeveel requests voor die attack zijn uitgevoerd en hoeveel van deze requests een alert opleveren.
 
@@ -155,9 +155,9 @@ We hebben nu een scan uitgevoerd vanuit het perspectief van en niet-ingelogde ge
 
 Een context is een manier om URLs die bij elkaar horen te groeperen. Het is aanbevolen om voor elke webapplicatie die in je systeem bestaat een aparte context te geven. In het geval van je eigen applicatie is dit er maar 1, daarom gebruiken we de default context. Om aan de default context een gebruiker toe te voegen, moet eerst een URL aan de context toegevoegd worden.
 
-**Stap 1:** In het 🌍_Sites_ tabje, klik met je rechtermuis op de 📂_<https://localhost:XXXX>_ folder en selecteer _Include in context_ --> _Default context_.
+**Stap 1:** In het 🌍 _Sites_ tabje, klik met je rechtermuis op de 📂 _<https://localhost:XXXX>_ folder en selecteer _Include in context_ --> _Default context_.
 
-**Stap 2:** Bovenin het 🌍_Sites_ tabje staat de context, dubbelklik op de default context om de default context in de session properties te wijzigen.
+**Stap 2:** Bovenin het 🌍 _Sites_ tabje staat de context, dubbelklik op de default context om de default context in de session properties te wijzigen.
 
 Onder het tabje _Context_ --> _1: Default context_ --> _1:Include in context_ kun je zien dat de URL die we in stap 4 hebben toegevoegd in de include lijst staat.
 
@@ -167,8 +167,8 @@ Om een gebruiker toe te voegen, geven we ZAP instructies om in te loggen. We gaa
 
 **Stap 4:** Verander de authentication method naar form-based authentication.
 
-**Stap 5:** In de _Login Form Target URL_, klik op 🌍_Select_. Selecteer de loginpagina POST request.  
-Deze staat standaard onder 📂_<https://localhost:XXXX>_ --> 📂_Identity_ --> 📂_Account_ --> 📄_POST:Login()(Input.Pass...)_.
+**Stap 5:** In de _Login Form Target URL_, klik op 🌍 _Select_. Selecteer de loginpagina POST request.  
+Deze staat standaard onder 📂 _<https://localhost:XXXX>_ --> 📂 _Identity_ --> 📂 _Account_ --> 📄 _POST:Login()(Input.Pass...)_.
 
 **Stap 6:** Veel velden worden automatisch ingevuld, het is wel belangrijk om deze te controleren.
 
@@ -184,7 +184,7 @@ Zet _Enable HUD_\* uit. Selecteer je browser en klik op _Launch Browser_. Log nu
 
 \*_De HUD is een meer handmatige manier om je applicatie te ontdekken/aan te vallen. Er zitten ook functies in die niet in deze workshop worden behandeld. Als je dit interessant vind, kun je later de HUD aanzetten en de HUD-tutorial volgen._
 
-**Stap 8:** In het 📆_History_ tabje vind je de requests die je zojuist gemaakt hebt. Meer info over de request en response, kun je in de ➡️_Request_ en ⬅️_Response_ tabjes vinden. Open het response tabje en klik op verschillende requests om de response te vinden die de HTML voor je ingelogde pagina toont.
+**Stap 8:** In het 📆 _History_ tabje vind je de requests die je zojuist gemaakt hebt. Meer info over de request en response, kun je in de ➡️ _Request_ en ⬅️ _Response_ tabjes vinden. Open het response tabje en klik op verschillende requests om de response te vinden die de HTML voor je ingelogde pagina toont.
 
 **Stap 9:** In de response body, zoek naar de uitlogknop HTML tag (Bijvoorbeeld:
 
@@ -196,17 +196,17 @@ Zet _Enable HUD_\* uit. Selecteer je browser en klik op _Launch Browser_. Log nu
 
 Je hebt nu aangegeven dat je op een ingelogde pagina bent, omdat er een uitlogknop op de pagina staat.
 
-**Stap 10:** Doe nu hetzelfde, maar zoek nu in de 📆_History_ een response van een niet-ingelogde pagina. Selecteer hierin de inlogknop en markeer deze als _Logged-out indicator_.
+**Stap 10:** Doe nu hetzelfde, maar zoek nu in de 📆 _History_ een response van een niet-ingelogde pagina. Selecteer hierin de inlogknop en markeer deze als _Logged-out indicator_.
 
 Je hebt nu voor ZAP aangegeven hoe je kunt inloggen, nu gaan we een gebruiker aanmaken.
 
-**Stap 11:** In de session properties (dubbelklik op de default context bovenin het 🌍_Sites_ tabje), klik in het tabje _Users_ op Add. Geef je gebruiker een herkenbare naam en inloggegevens. Dit kan zijn van een bestaande gebruiker, of een gebruiker die je hier speciaal voor aanmaakt. Zorg er in ieder geval voor dat de gebruiker in je applicatie bestaat. Klik op OK om te bevestigen.
+**Stap 11:** In de session properties (dubbelklik op de default context bovenin het 🌍 _Sites_ tabje), klik in het tabje _Users_ op Add. Geef je gebruiker een herkenbare naam en inloggegevens. Dit kan zijn van een bestaande gebruiker, of een gebruiker die je hier speciaal voor aanmaakt. Zorg er in ieder geval voor dat de gebruiker in je applicatie bestaat. Klik op OK om te bevestigen.
 
 We hebben nu een gebruiker aangemaakt. Laten we paginas in kaart brengen die we alleen als ingelogde gebruiker kunnen bezoeken.
 
-**Stap 12:** Ga terug naar het 🕷_Spider_ tabje en volg de instucties zoals die zijn gegeven bij opdracht 1. Bij de context selecteer je de default context, bij de user selecteer je de zojuist aangemaakte gebruiker. Start de scan.
+**Stap 12:** Ga terug naar het 🕷 _Spider_ tabje en volg de instucties zoals die zijn gegeven bij opdracht 1. Bij de context selecteer je de default context, bij de user selecteer je de zojuist aangemaakte gebruiker. Start de scan.
 
-**Stap 13:** Doe hetzelfde voor de 🕷️_Ajax Spider_.
+**Stap 13:** Doe hetzelfde voor de 🕷️ _Ajax Spider_.
 
 We hebben nu de applicatie als ingelogde gebruiker in kaart gebracht, nu kunnen we een groter deel van de website aanvallen.
 
@@ -228,7 +228,7 @@ We gaan een eerder gemaakt request wijzigen en kijken of we hiermee je webapplic
 
 Als het goed is, wordt je request onderschept en zal de applicatie bevriezen. Je kunt het onderschepte request vinden in het ❌ _break_ tabje in de workspace window (4).
 
-**Stap 5:** We gaan het request wijzigen. Haal bijvoorbeeld het Input.UserName veld weg en klik op ▶️_Submit and Continue to Next Breakpoint_. Vangt je applicatie dit af?
+**Stap 5:** We gaan het request wijzigen. Haal bijvoorbeeld het Input.UserName veld weg en klik op ▶️ _Submit and Continue to Next Breakpoint_. Vangt je applicatie dit af?
 
 **Stap 6:** Zet de 🟢 _break all_ weer aan en log nog een keer in, dit keer met correcte inloggegevens. Pas het _\_\_RequestVerificationToken_ aan. Kun je nu nog succesvol inloggen?
 

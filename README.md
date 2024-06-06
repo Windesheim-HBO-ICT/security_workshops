@@ -2,9 +2,7 @@
 
 ## Planning
 
-Voor sommige workshops is het vereist dat een voorgaande workshops is gevolgd. Dit is aangegeven met het # van de workshop: Deployment op Skylab [ 4 ], dus Workshop nummer 4 moet gevolgd zijn voor deze workshop.
-
-Deze planning geldt voor periode 3 van schooljaar 23/24
+Planning voor de studyboostweek van 24 juni t/m 28 juni
 
 |#|Workshop|24 juni|25 juni|26 juni|27 juni|28 juni|
 |---|:-:|:-:|:-:|:-:|:-:|:-:|

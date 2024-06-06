@@ -6,13 +6,13 @@ Voor sommige workshops is het vereist dat een voorgaande workshops is gevolgd. D
 
 Deze planning geldt voor periode 3 van schooljaar 23/24
 
-|#|Workshop|Week van 26 feb|Week van 4 mrt|Week van 11 mrt|Week van 18 mrt|Week van 25 mrt|Week van 1 apr|Week van 8 apr|
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|1|Risk & Mitigation I|🚀|||||||
-|2|Risk & Mitigation II [1]||🚀||||||
-|3|Threat Modelling|||🚀|||||
-|4|Setup Skylab||||🚀||||
-|5|Deployment op Skylab [4]|||||🚀|||
-|6|ZAP [4, 5]||||||🚀||
-|7|Code Review [3, 4, 5, 6]|||||||🚀|
-|8|Sast|zelfstudie|||||||
+|#|Workshop|24 juni|25 juni|26 juni|27 juni|28 juni|
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|Threat modelling|1|2
+|2|ZAP|1|2
+|3|Setup Skylab||1|2
+|4|Deployment op Skylab||1|2
+|5|Juiceshop I|||1|2
+|6|Juiceshop II|||1|2
+|7|Code Review||||1|2
+|8|Sast||||1|2|

@@ -47,7 +47,6 @@ Voordat we aan de slag kunnen, moeten we een lab en de drie benodigde machines a
 - Een Kali Linux host
 
 *Als je alle stappen correct hebt doorlopen, zullen de machines zichtbaar zijn zodra je "Implementaties" open (linksboven, naast categorieën)*.
-![image](https://github.com/martijnschuman/security_workshops/assets/31829786/abe014e9-f78b-4009-a766-45eb9c8b2ef6)
 
 **✔️ opdracht 1 is klaar!**
 
@@ -142,6 +141,7 @@ Het veranderen van het geheugen en de netwerkinterface kan enkele minuten duren.
 ### Configuratie Via Terminal
 
 **Stap 8:** Log in met gebruikersnaam `student` en het wachtwoord `Welkom01!`.
+
 <sub>Het klopt dat er tijdens het typen van het wachtwoord niks op het scherm komt te staan.</sub>
 
 **Stap 9:** Type `passwd` en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in (`Welkom01!`) en daarna het nieuwe wachtwoord. **(Niet vergeten!)**

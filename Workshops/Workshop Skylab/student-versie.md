@@ -15,7 +15,7 @@ Voor jullie fungeert de acceptatieomgeving als zowel de acceptatie- als producti
 In de workshop wordt op verschillende plekken om je eigen input gevraagd. Dit is te herkennen aan `\<jouw studentnummer\>` of `<student number>`. Als deze placeholder bij een commando staat vervang dan ook `<` en `>`.
 Voorbeeld: `sudo adduser <student number>` wordt `sudo adduser s1010100` en niet `sudo adduser <s1010100>`
 
-Vergeet ook niet screenshots voor in het security portfolio te maken. Vraag om hulp als je niet zeker weet welke screenshots van belang zijn. 
+Vergeet niet screenshots voor in het security portfolio te maken. Vraag om hulp als je niet zeker weet welke screenshots van belang zijn. 
 
 ## Eindresultaat
 

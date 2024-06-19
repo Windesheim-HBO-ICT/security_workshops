@@ -12,7 +12,7 @@ Voor jullie fungeert de acceptatieomgeving als zowel de acceptatie- als producti
 
 **In deze workshop ga je aan de slag met het configureren van de acceptatieomgeving van je DTAP-buildstraat in Skylab (een virtuele omgeving). Dat ga je doen door **zes opdrachten** te maken**. 🛠️🚀
 
-In de workshop wordt op verschillende plekken om je eigen input gevraagd. Dit is te herkennen aan `\<jouw studentnummer\>` of `<student number>`. Als deze placeholder bij een commando staat vervang dan ook `<` en `>`.
+In de workshop wordt op verschillende plekken om je eigen input gevraagd. Dit is te herkennen aan `\<jouw studentnummer\>` of `<student number>`. Als deze placeholder bij een commando staat, vervang dan ook `<` en `>`.
 Voorbeeld: `sudo adduser <student number>` wordt `sudo adduser s1010100` en niet `sudo adduser <s1010100>`
 
 Vergeet niet screenshots voor in het security portfolio te maken. Vraag om hulp als je niet zeker weet welke screenshots van belang zijn. 
@@ -55,7 +55,7 @@ Voordat we aan de slag kunnen, moeten we een lab en de drie benodigde machines a
 
 We gaan de router configureren om internettoegang voor alle machines mogelijk te maken. Deze opdracht is opgesplitst in twee delen:
 
-1. Voorbereiding van de router door instellingen van de machine aan te passen.
+1. Voorbereiding van de router door de instellingen van de machine aan te passen.
 2. Koppelen van de routerinterfaces en tot stand brengen van een verbinding met het internet.
 
 ### Router Voorbereiding En Instellingen Configuratie
@@ -75,9 +75,9 @@ Je ziet nu twee netwerkinterfaces op de router:
 
 Het veranderen van de netwerkinterface kan enkele minuten duren. Om de voortgang te zien ga terug naar "Implementaties".
 
-**Stap 5:** Zodra de wijzigingen zijn doorgevoerd selecteer de pfSense router en klik weer op pLab-\<jouw studentnummer\>. Klik vervolgens op het tandwielpictogram en kies "Power Cycle".
+**Stap 5:** Zodra de wijzigingen zijn doorgevoerd, selecteer de pfSense router en klik weer op pLab-\<jouw studentnummer\>. Klik vervolgens op het tandwielpictogram en kies "Power Cycle".
 
-**Stap 6:** Klik opnieuw op pLab-\<jouw studentnummer\>, navigeer vervolgens naar het tabje "Network". Je hebt bij stap 8 de MAC-adressen van de netwerk interfaces nodig. Transit is de WAN en studentnet0 is de LAN. Noteer of onthoud het deze gegevens.
+**Stap 6:** Klik opnieuw op pLab-\<jouw studentnummer\>, navigeer vervolgens naar het tabje "Network". Je hebt bij stap 8 de MAC-adressen van de netwerkinterfaces nodig. Transit is de WAN en studentnet0 is de LAN. Noteer of onthoud deze gegevens.
 
 **Stap 7:** Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "Connect to your remote" (Verbinding maken met extern).
 
@@ -98,6 +98,7 @@ Je bent nu in de terminal van je router. De twee interfaces die we zojuist hebbe
 **Stap 13:** In de pfsense terminal staat informatie over je ip-adres. In je terminal vind je de regel: *Wan -> vmx0 -> 145.xxx.xxx.xxx. Noteer of onthoud het ip-adres, deze heb je bij de volgende opdracht nodig.
 
 **Stap 14:** Voer nu een update uit met "13" en daarna een reboot met "y".
+
 <sub>Het updaten van pfSense kan enkele minuten duren. In de tussentijd kan je doorgaan met opdracht 3 en opdracht 4 tot stap 10.</sub>
 
 **✔️ Opdracht 2 is klaar!**
@@ -112,7 +113,7 @@ Apparaten binnen het interne netwerk communiceren via de router en de LAN-interf
 
 ## Opdracht 4 Debian Configureren
 
-Je Debian heeft geen grafische interface maar alleen een CLI, bewust gekozen omdat de machine als webserver fungeert. Minimaliseren van onnodige software is cruciaal voor prestaties en beveiliging.
+Je Debian heeft geen grafische interface, maar alleen een CLI, bewust gekozen omdat de machine als webserver fungeert. Minimaliseren van onnodige software is cruciaal voor prestaties en beveiliging.
 
 De opdracht is opgesplitst in drie delen:
 
@@ -132,7 +133,7 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 5:** Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit" (Indienen).
 
-Het veranderen van het geheugen en de netwerkinterface kan enkele minuten duren. Om de voortgang te zien ga terug naar "Implementaties".
+Het veranderen van het geheugen en de netwerkinterface kan enkele minuten duren. Om de voortgang te zien, ga terug naar "Implementaties".
 
 **Stap 6:** Klik weer op pLab-\<jouw studentnummer\> klik vervolgens op het tandwielpictogram en kies "Power cycle".
 
@@ -152,6 +153,7 @@ Het veranderen van het geheugen en de netwerkinterface kan enkele minuten duren.
 **Stap 12:** Type het volgende om sudo rechten te geven `sudo adduser <student number> sudo`
 
 **Stap 13:**  Voer de volgende commando's na elkaar uit om de machine te updaten
+
 <sub>Het updaten kan enkele minuten duren. Vooral als meerdere sutdenten dit tegelijkertijd doen</sub>
 
 - `sudo apt update`

@@ -12,6 +12,11 @@ Voor jullie fungeert de acceptatieomgeving als zowel de acceptatie- als producti
 
 **In deze workshop ga je aan de slag met het configureren van de acceptatieomgeving van je DTAP-buildstraat in Skylab (een virtuele omgeving). Dat ga je doen door **zes opdrachten** te maken**. 🛠️🚀
 
+In de workshop wordt op verschillende plekken om je eigen input gevraagd. Dit is te herkennen aan `\<jouw studentnummer\>` of `<student number>`. Als deze placeholder bij een commando staat, vervang dan ook `<` en `>`.
+Voorbeeld: `sudo adduser <student number>` wordt `sudo adduser s1010100` en niet `sudo adduser <s1010100>`
+
+Vergeet niet screenshots voor in het security portfolio te maken. Vraag om hulp als je niet zeker weet welke screenshots van belang zijn. 
+
 ## Eindresultaat
 
 Na het afronden van de workshop beschik je over het volgende eindresultaat:
@@ -49,14 +54,14 @@ Voordat we aan de slag kunnen, moeten we een lab en de drie benodigde machines a
 
 We gaan de router configureren om internettoegang voor alle machines mogelijk te maken. Deze opdracht is opgesplitst in twee delen:
 
-1. Voorbereiding van de router door instellingen van de machine aan te passen.
+1. Voorbereiding van de router door de instellingen van de machine aan te passen.
 2. Koppelen van de routerinterfaces en tot stand brengen van een verbinding met het internet.
 
 ### Router Voorbereiding En Instellingen Configuratie
 
 **Stap 1:** Ga naar het tabblad "Implementaties" en selecteer de pfSense-router.
 
-**Stap 2:** Selecteer pLab-jouw studentnummer, klik op het tandwielpictogram en kies "reconfigure".
+**Stap 2:** Selecteer pLab-\<jouw studentnummer\>, klik op het tandwielpictogram en kies "reconfigure" (Opnieuw configureren).
 
 **Stap 3:** Klik op het tabblad "Network".
 
@@ -65,13 +70,15 @@ Je ziet nu twee netwerkinterfaces op de router:
 - 💻 _LAN-interface:_ Gebruikt voor directe communicatie binnen het lokale netwerk.
 - 🌐 _WAN-interface:_ Gebruikt voor gecontroleerde toegang tot het internet voor machines binnen het lokale netwerk.
 
-**Stap 4**: Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit".
+**Stap 4**: Klik op `1 - Default First Network - No Network Access` en vervolgens op "Edit" (Bewerken). Wijzig de netwerkinterface naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit" (Indienen) om de wijzigingen op te slaan.
 
-**Stap 5:** Klik weer op pLab-jouw studentnummer klik vervolgens op het tandwielpictogram en kies "Power cycle".
+Het veranderen van de netwerkinterface kan enkele minuten duren. Om de voortgang te zien ga terug naar "Implementaties".
 
-**Stap 6:** Klik opnieuw op pLab-jouw studentnummer, navigeer vervolgens naar het tabje "Network". Je hebt bij stap 8 de MAC-adressen van de netwerk interfaces nodig. Transit is de WAN en studentnet0 is de LAN.
+**Stap 5:** Zodra de wijzigingen zijn doorgevoerd, selecteer de pfSense router en klik weer op pLab-\<jouw studentnummer\>. Klik vervolgens op het tandwielpictogram en kies "Power Cycle".
 
-**Stap 7:** Klik op pLab-jouw studentnummer en klik vervolgens op het tandwielpictogram, en selecteer "connect to your remote ".
+**Stap 6:** Klik opnieuw op pLab-\<jouw studentnummer\>, navigeer vervolgens naar het tabje "Network". Je hebt bij stap 8 de MAC-adressen van de netwerkinterfaces nodig. Transit is de WAN en studentnet0 is de LAN. Noteer of onthoud deze gegevens.
+
+**Stap 7:** Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "Connect to your remote" (Verbinding maken met extern).
 
 ### Terminal Connectie en Interface Koppeling
 
@@ -91,6 +98,8 @@ Je bent nu in de terminal van je router. De twee interfaces die we zojuist hebbe
 
 **Stap 14:** Voer nu een update uit met "13" en daarna een reboot met "y".
 
+<sub>Het updaten van pfSense kan enkele minuten duren. In de tussentijd kan je doorgaan met opdracht 3 en opdracht 4 tot stap 10.</sub>
+
 **✔️ Opdracht 2 is klaar!**
 
 ## Opdracht 3 Domeinadres Opvragen
@@ -103,7 +112,7 @@ Apparaten binnen het interne netwerk communiceren via de router en de LAN-interf
 
 ## Opdracht 4 Debian Configureren
 
-Je Debian heeft geen grafische interface maar alleen een CLI, bewust gekozen omdat de machine als webserver fungeert. Minimaliseren van onnodige software is cruciaal voor prestaties en beveiliging.
+Je Debian heeft geen grafische interface, maar alleen een CLI, bewust gekozen omdat de machine als webserver fungeert. Minimaliseren van onnodige software is cruciaal voor prestaties en beveiliging.
 
 De opdracht is opgesplitst in drie delen:
 
@@ -115,23 +124,27 @@ De opdracht is opgesplitst in drie delen:
 
 **Stap 1:** Ga naar het tabblad "Implementaties" en selecteer de Debian.
 
-**Stap 2:** Selecteer pLab-jouw studentnummer, klik op het tandwielpictogram en kies "reconfigure".
+**Stap 2:** Selecteer pLab-\<jouw studentnummer\>, klik op het tandwielpictogram en kies "reconfigure" (Opnieuw configureren).
 
-**Stap 3:** Verhoog eerst het geheugen naar 3000 MB.
+**Stap 3:** Verhoog eerst het geheugen naar 3GB (3072MB).
 
 **Stap 4:** Klik op het tabblad "Network".
 
-**Stap 5:** Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit".
+**Stap 5:** Klik op "Edit" (bewerken) en wijzig alleen de netwerkinterface "Default First Network" naar studentnet0. Klik vervolgens op het groene vinkje en dan op "Submit" (Indienen).
+
+Het veranderen van het geheugen en de netwerkinterface kan enkele minuten duren. Om de voortgang te zien, ga terug naar "Implementaties".
 
 **Stap 6:** Klik weer op pLab-\<jouw studentnummer\> klik vervolgens op het tandwielpictogram en kies "Power cycle".
 
-**Stap 7:**  Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "connect to your remote".
+**Stap 7:** Klik op pLab-\<jouw studentnummer\> en klik vervolgens op het tandwielpictogram, en selecteer "Connect to your remote" (Verbinding maken met extern).
 
 ### Configuratie Via Terminal
 
-**Stap 8:** Log in met je gebruikersnaam "student" en het wachtwoord "Welkom01!".
+**Stap 8:** Log in met gebruikersnaam `student` en het wachtwoord `Welkom01!`.
 
-**Stap 9:** Type "passwd" en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in ("Welkom01!") en daarna het nieuwe wachtwoord. **(Niet vergeten!)**
+<sub>Het klopt dat er tijdens het typen van het wachtwoord niks op het scherm komt te staan.</sub>
+
+**Stap 9:** Type `passwd` en verander je wachtwoord. Let op: vul eerst het huidige wachtwoord in (`Welkom01!`) en daarna het nieuwe wachtwoord. **(Niet vergeten!)**
 
 **Stap 10:** Controleer of je verbinding hebt tot het internet `ping google.nl` (ctrl Z om te stoppen).
 
@@ -140,6 +153,8 @@ De opdracht is opgesplitst in drie delen:
 **Stap 12:** Type het volgende om sudo rechten te geven `sudo adduser <student number> sudo`
 
 **Stap 13:**  Voer de volgende commando's na elkaar uit om de machine te updaten
+
+<sub>Het updaten kan enkele minuten duren. Vooral als meerdere sutdenten dit tegelijkertijd doen</sub>
 
 - `sudo apt update`
 - `sudo apt upgrade`
@@ -161,9 +176,11 @@ Staat dit er niet? Volg dan de volgende stappen uit:
 - `sudo apt install openssh-server`
 - `sudo systemctl start ssh`
 
+Voer opnieuw de commando `sudo lsof -i` uit en kijk of je twee rijen te zien krijgt.
+
 **Stap 15:**  Type `sudo reboot`
 
-**Stap 16:** Login in met de gegevens van de nieuwe gebruiker.
+**Stap 16:** Login in met de gegevens van de nieuwe gebruiker die je bij stap 11 hebt gebruikt.
 
 **Stap 17:** Type "ip address" om de privéadres van de Debian te zien. Deze zou moeten beginnen met 192.168.xxx.xxx
 
@@ -212,9 +229,9 @@ In deze taak ga je port-forwarding regels instellen op de pfSense-firewall, zoda
 
 **Stap 1:** Log in op je Kali-machine.
 
-**Stap 2:** Open de browser en ga naar het privéadres van je router, meestal 192.168.1.1. Als je het niet zeker weet, typ dan "ip route" in de terminal en noteer het eerste IP-adres dat je ziet, dat van de router is.
+**Stap 2:** Open de firefox browser en ga naar het privéadres van je router, meestal 192.168.1.1. Als je het niet zeker weet, typ dan "ip route" in de terminal en noteer het eerste IP-adres dat je ziet, dat van de router is.
 
-**Stap 3:**  Klik op "Advanced" en accepteer de risico"s.
+**Stap 3:** Klik op "Advanced" en accepteer de risico"s.
 
 **Stap 4:** Log in met de gebruikersnaam "admin" en het wachtwoord "pfsense".
 
@@ -222,20 +239,20 @@ In deze taak ga je port-forwarding regels instellen op de pfSense-firewall, zoda
 
 **Stap 6:** Open een nieuw venster en navigeer naar Skylab, selecteer "implementaties" daar moet het Privé IP-adres van Debian zichtbaar zijn, deze heb je nodig dus houd deze bij de hand.
 
-**Stap 7**: Open weer het venster met de Kali machine en selecteer in "Firewall" en vervolgens "NAT".
+**Stap 7**: Open weer het venster met de Kali machine en selecteer in het navigatiemenu "Firewall" en vervolgens "NAT".
 
 **Stap 8**: Klik op "Add" en voeg regels toe voor de poorten TCP/80 (HTTP), TCP/443 (HTTPS) en TCP/22 (SSH) één voor één:
 
-- Verander Destination port range (from, to) naar HTTP.
+- Verander Destination port range (from port, to port) naar HTTP.
 - Verander Redirect target IP (address) naar privé-IP-adres van Debian (192.168.xxx.xxx).
 - Verander Redirect target port (port) naar HTTP.
 - Sla de veranderingen op en doe hetzelfde voor HTTPS en SSH.
 
+**Stap 9**: Als je regels hebt ingesteld voor poorten TCP/80 (HTTP), TCP/443 (HTTPS) en TCP/22 (SSH) (in totaal 3), klik dan op "Apply Changes".
+
 ### SSH
 
-**Stap 10:** Als je regels hebt ingesteld voor poorten TCP/80 (HTTP), TCP/443 (HTTPS) en TCP/22 (SSH) (in totaal 3), klik dan op "Apply Changes".
-
-**Stap 11:** Open op je eigen laptop (niet Skylab) de opdrachtprompt. Voer het volgende command uit: `ssh <studentnummer>@<publiek IP-adres>`. Vervang hierbij \<publiek IP-adres\> voor je eigen IP-adres, beginnend met 145.44.xxx.xxx. Als je je publieke IP-adres niet weet, kijk dan bij "Implementaties" en zoek naar pfsense, daar zou je publieke IP-adres moeten staan.
+**Stap 10:** Open op je eigen laptop (niet Skylab) de opdrachtprompt. Voer het volgende command uit: `ssh <studentnummer>@<publiek IP-adres>`. Vervang hierbij \<publiek IP-adres\> voor je eigen IP-adres, beginnend met 145.44.xxx.xxx. Als je je publieke IP-adres niet weet, kijk dan bij "Implementaties" en zoek naar pfsense, daar zou je publieke IP-adres moeten staan.
 
 Als alles goed is gegaan heb je nu vanaf je eigen laptop toegang tot de Debian. Is dat niet gelukt, vraag dan om hulp.
 

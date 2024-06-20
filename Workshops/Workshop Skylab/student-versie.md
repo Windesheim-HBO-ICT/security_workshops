@@ -106,7 +106,7 @@ Je bent nu in de terminal van je router. De twee interfaces die we zojuist hebbe
 
 Apparaten binnen het interne netwerk communiceren via de router en de LAN-interface. Elk apparaat heeft een privé-IP-adres, herkenbaar aan "192.168.xxx.xxx". De router, met een publiek IP-adres (hier 145.xxx.xxx.xxx), fungeert als gateway naar het internet. Om de toegang tot de website te vereenvoudigen, moet een domeinnaam worden aangevraagd. Anderzijds is toegang tot de website later alleen mogelijk via het minder gebruiksvriendelijke publieke IP-adres (145.xxx.xxx.xxx).
 
-**Vul het formulier in via [deze link](http://hbo-ict.org/proposename)! Je moet het **publieke IP-adres** van je router invullen, dat dus **145.xxx.xxx.xxx** is (genoteerd bij de vorige opdracht), en een **domeinnaam** opgeven. Laat je creativiteit vrij, maar houd het wel netjes 😊.**
+**Vul het formulier in via [deze link](https://forms.office.com/Pages/ResponsePage.aspx?id=t3dj48Rwk0SjOAlZGNMn6dtGtEPhAz1Mgd8-O-JbGM1URDZJUU9NMkdGTE44VzFCT1dJMkU2RTBFTS4u)! Je moet het **publieke IP-adres** van je router invullen, dat dus **145.xxx.xxx.xxx** is (genoteerd bij de vorige opdracht), en een **domeinnaam** opgeven. Laat je creativiteit vrij, maar houd het wel netjes 😊.**
 
 **✔️ Opdracht 3 is klaar!**
 

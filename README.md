@@ -1,5 +1,8 @@
 # Security Workshops
 
+# DEPRECATED 💣
+De nieuwste versie van de workshops vind je [hier](https://github.com/Windesheim-HBO-ICT/Leerlijn-SE/tree/main/3.%20Procedurele%20informatie/Security/Workshops)
+
 ## Planning
 
 Planning voor de studyboostweek van 24 juni t/m 28 juni
